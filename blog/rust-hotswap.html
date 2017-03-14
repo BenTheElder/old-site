@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,700italic,700" rel="stylesheet" type="text/css"> <link rel="stylesheet" type="text/css" href="/style.css"/> <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+  BenTheElder ~ Blog
+  </title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="header">
+<a href="/">BenTheElder</a>
+</div>
+<div class="nav-box card">
+<a href="/">Home</a><a href="/projects.html">Projects</a><a href="/resume.html">Resume</a><a href="/blog.html" class="current">Blog</a>
+</div>
+<div class="card blog-content">
+<p class="title">
+Rust Hotswap - Jan. 12, 2015
+</p>
+<p>Mozilla's <a href="http://rust-lang.org">rust</a> language has just <a href="http://blog.rust-lang.org/2015/01/09/Rust-1.0-alpha.html">reached 1.0 alpha</a>.</p>
+<p>I've been learning it off and on for a while now, and I'm quite happy to see the breaking changes slow down. As part of learning rust i've played around implementing things that would be normally done in c or c++; one of those is the old trick of hot-swapping code by reloading a shared library at runtime.</p>
+<p>The rest of this post assumes that you have a pretty fair knowledge of rust. If not, you should probably start with the rust <a href="http://doc.rust-lang.org/book/">book</a>.</p>
+<hr />
+<h4 id="project-setup">Project setup:</h4>
+<p>First we'll set up a folder to develop from: <code>mkdir ./rust-hotswap &amp;&amp; cd ./rust-hotswap</code> and a source dir: <code>mkdir ./src</code></p>
+<p>We'll use <a href="https://github.com/rust-lang/cargo">cargo</a> to build so next we'll create a Cargo.toml</p>
+<pre><code>[package]
+name = &quot;rust-hotswap&quot;
+version = &quot;0.0.1&quot;
+
+[lib]
+crate-type = [&quot;dylib&quot;]
+name = &quot;rust-hotswap&quot;
+path = &quot;src/lib.rs&quot;
+
+[[bin]]
+name = &quot;rust-hotswap&quot;
+path = &quot;src/main.rs&quot;
+
+[dependencies]
+glob = &quot;*&quot;</code></pre>
+<p>This is a pretty generic project file, with one dependency on <a href="https://crates.io/crates/glob">glob</a>. We'll discuss glob in a moment.</p>
+<p>The key thing is that we specify that the library be built as a <code>dylib</code> so that we get a c style dynamic library.</p>
+<hr />
+<h4 id="code">Code:</h4>
+<p>Next we'll need our library source, this is the part we will swap out at runtime. <em>src/lib.rs</em>:</p>
+<div class="sourceCode"><pre class="sourceCode rust"><code class="sourceCode rust"><span class="kw">use</span> std::io;
+<span class="kw">use</span> std::fmt;
+
+<span class="at">#[</span>no_mangle<span class="at">]</span>
+<span class="kw">pub</span> <span class="kw">extern</span> <span class="st">&quot;C&quot;</span> <span class="kw">fn</span> do_tick(num: <span class="dt">i32</span>) <span class="op">{</span>
+    <span class="kw">let</span> <span class="kw">mut</span> out = io::stdout();
+
+    <span class="kw">let</span> s = <span class="pp">format!</span>(<span class="st">&quot;Tick: {}&quot;</span>, num);
+    out.write_str(s.as_slice());
+    out.write_char(<span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>);
+
+    out.flush();
+<span class="op">}</span></code></pre></div>
+<p><br />
+We use <code>#[no_mangle]</code> to prevent rust from mangling the function name, and <code>extern &quot;C&quot;</code> to export it in the C linkage style. We use <code>io::stdout()</code> to get a handle to stdout instead of using the <code>println!</code> macro because the macro causes an illegal instruction error on exit. I'm not sure exactly why this occurs but i'm sure it has to do with unsafely sharing the stdout handle. It's probably a good idea to do it this way anyhow, but I might want to look into that later.</p>
+<p>Now to actually load the library.</p>
+<p>The first important thing to know is that rustc appends a versioning hash to libraries it produces. We could possibly recreate this hash, or we could just look for a dynamic library next to the executable. To do this we use <code>std::os::self_exe_path</code> to get the directory the executable is in, then use it to create a search pattern for <code>glob</code> to find the dynamic library we built.</p>
+<p>We have a small helper function <code>get_dylib_path_pattern</code> that appends a platform specific file extension using rust's <code>cfg</code> conditional compilation and <code>target_os</code>.<br />
+After finding the library we can then use the (unstable!) <code>std::dynamic_lib::DynamicLibrary</code> api to load the library, and resolve the symbol for <code>do_tick</code>, which we can then call.</p>
+<p>We'll wrap up the loading and calling bits in a helper function.</p>
+<p>Lastly we can throw in a <code>println!</code> and a keypress read between <code>ticks</code> to puase the program, and alert the user that it is now safe to modify the code. This allows you to finally do the following:</p>
+<ol style="list-style-type: decimal">
+<li><code>cargo run</code></li>
+<li>edit <em>src/lib.rs</em> to write something else to stdout</li>
+<li>from another shell <code>cargo build</code></li>
+<li>hit enter in the first shell after <code>cargo build</code> completes</li>
+<li>the output this time should now match your modified code.</li>
+</ol>
+<p>A real usecase for this would be EG game development, where the game is implemented as a small wrapper executable and the rest as methods in a dynamic library, you can pass in a struct full of globals to the library and between ticks reload the library with modified code. You might monitor the source for changes to the library, and rebuild and reload between ticks during development. In anycase, it's a cool trick. <br> <br> <br></p>
+<hr />
+<p><u><strong>Full Source</strong></u></p>
+<p><em>src/main.rs</em></p>
+<div class="sourceCode"><pre class="sourceCode rust"><code class="sourceCode rust"><span class="kw">extern</span> <span class="kw">crate</span> glob;
+
+<span class="kw">use</span> std::io;
+<span class="kw">use</span> glob::glob;
+<span class="kw">use</span> std::dynamic_lib::DynamicLibrary;
+<span class="kw">use</span> std::os::self_exe_path;
+<span class="kw">use</span> std::mem::transmute;
+
+<span class="at">#[</span>cfg<span class="at">(</span>any<span class="at">(</span>target_os <span class="at">=</span> <span class="st">&quot;linux&quot;</span><span class="at">,</span>
+          target_os <span class="at">=</span> <span class="st">&quot;freebsd&quot;</span><span class="at">,</span>
+          target_os <span class="at">=</span> <span class="st">&quot;dragonfly&quot;</span><span class="at">))]</span>
+<span class="kw">fn</span> get_dylib_path_pattern(dir: &amp;<span class="dt">str</span>) -&gt; <span class="dt">String</span> <span class="op">{</span>
+    dir.to_string() + <span class="st">&quot;/*.so&quot;</span>
+<span class="op">}</span>
+
+<span class="at">#[</span>cfg<span class="at">(</span>target_os <span class="at">=</span> <span class="st">&quot;macos&quot;</span><span class="at">)]</span>
+<span class="kw">fn</span> get_dylib_path_pattern(dir: &amp;<span class="dt">str</span>) -&gt; <span class="dt">String</span> <span class="op">{</span>
+    dir.to_string() + <span class="st">&quot;/*.dylib&quot;</span>
+<span class="op">}</span>
+
+<span class="at">#[</span>cfg<span class="at">(</span>target_os <span class="at">=</span> <span class="st">&quot;windows&quot;</span><span class="at">)]</span>
+<span class="kw">fn</span> get_dylib_path_pattern(dir: &amp;<span class="dt">str</span>) -&gt; <span class="dt">String</span> <span class="op">{</span>
+    dir.to_string() + <span class="st">&quot;/*.dll&quot;</span>
+<span class="op">}</span>
+
+<span class="kw">fn</span> do_lib_tick(dylib_path_pattern: &amp;<span class="dt">str</span>, num: <span class="dt">i32</span>) <span class="op">{</span>
+    <span class="kw">let</span> <span class="kw">mut</span> paths = glob(dylib_path_pattern);
+
+    <span class="kw">let</span> path = paths.next().unwrap();
+    <span class="pp">println!</span>(<span class="st">&quot;path: {}&quot;</span>, path.display());
+
+    <span class="kw">let</span> lib = <span class="kw">match</span> DynamicLibrary::open(<span class="cn">Some</span>(&amp;path)) <span class="op">{</span>
+        <span class="cn">Ok</span>(lib) =&gt; lib,
+        <span class="cn">Err</span>(e) =&gt; <span class="pp">panic!</span>(<span class="st">&quot;Failed to load library: {:?}&quot;</span>, e)
+    <span class="op">}</span>;
+
+    <span class="kw">let</span> do_tick: <span class="kw">extern</span> <span class="st">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="dt">i32</span>) = <span class="kw">unsafe</span> <span class="op">{</span>
+        <span class="kw">match</span> lib.symbol::&lt;<span class="dt">u8</span>&gt;(<span class="st">&quot;do_tick&quot;</span>) <span class="op">{</span>
+            <span class="cn">Ok</span>(do_tick) =&gt; transmute::&lt;*<span class="kw">mut</span> <span class="dt">u8</span>, <span class="kw">extern</span> <span class="st">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="dt">i32</span>)&gt;(do_tick),
+            <span class="cn">Err</span>(e) =&gt; <span class="pp">panic!</span>(<span class="st">&quot;Failed to load symbol: {:?}&quot;</span>, e)
+        <span class="op">}</span>
+    <span class="op">}</span>;
+    do_tick(num);
+<span class="op">}</span>
+
+<span class="kw">fn</span> main() <span class="op">{</span>
+    <span class="kw">let</span> dir = self_exe_path().unwrap();
+    <span class="pp">println!</span>(<span class="st">&quot;dir: {:?}&quot;</span>, dir);
+
+    <span class="kw">let</span> dylib_path_pattern = get_dylib_path_pattern(dir.as_str().unwrap());
+    <span class="pp">println!</span>(<span class="st">&quot;pattern: {}&quot;</span>, dylib_path_pattern);
+
+    do_lib_tick(dylib_path_pattern.as_slice(), <span class="dv">1</span>);
+
+    <span class="pp">println!</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Now modify lib.rs, build, and then hit enter.&quot;</span>);
+    <span class="kw">let</span> <span class="kw">mut</span> stdin = io::stdin();
+    stdin.read_char();
+
+
+    do_lib_mn(dylib_path_pattern.as_slice(), <span class="dv">2</span>);
+<span class="op">}</span></code></pre></div>
+<p><br />
+<em>Cargo.toml</em></p>
+<pre class="toml"><code>[package]
+name = &quot;rust-hotswap&quot;
+version = &quot;0.0.1&quot;
+
+[lib]
+crate-type = [&quot;dylib&quot;]
+name = &quot;rust-hotswap&quot;
+path = &quot;src/lib.rs&quot;
+
+[[bin]]
+name = &quot;rust-hotswap&quot;
+path = &quot;src/main.rs&quot;
+
+[dependencies]
+glob = &quot;*&quot;</code></pre>
+<div style="clear: both;">
+
+</div>
+</div>
+</div>
+<div class="card footer">
+<p>
+This Website is Open-<a href="https://github.com/BenTheElder/site">Source</a>.
+</p>
+</div>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,283 @@
+html {
+  width: 100%;
+  background-color: #ddebf4
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 180%;
+  max-width: 100%;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
+@media(min-width:65em) {
+  html {
+    font-size: 100%;
+  }
+}
+
+.header {
+  /*font-family: Georgia, serif;*/
+  line-height: normal;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: .3em 0 .18em 0;
+  text-align: center;
+  font-size: 222%;
+  letter-spacing: .08em;
+  color: white;
+  background-color: #0000CC;
+  border: .1em solid #2196F3;
+  border-top: none;
+  max-width: 25.5em;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.header a {
+  font-style: inherit;
+  color: inherit;
+  background-color: transparent;
+  font-size: inherit;
+  text-decoration: none;
+  font-variant: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.header p {
+  height: auto;
+  line-height: normal;
+  margin: 0;
+}
+
+h2 {
+  margin-top: 1em;
+  padding-top: 1em;
+}
+
+.content {
+  padding: .5em;
+  border: .1em solid #E4E4E4;
+  background-color: #fdfdfd;
+  max-width: 55em;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 1em;
+  padding-top: 1em;
+  border: .1em solid #000;
+  /*#E4E4E4;*/
+  background-color: #fdfdfd;
+  max-width: 55em;
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card .last {
+  clear: both;
+}
+
+.card .title {
+  font-size: 140%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.card .section-title {
+  font-size: 120%;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 120%;
+}
+
+hr {
+  color: #333;
+  background-color: #333;
+  border: none;
+  height: .2em;
+  margin-bottom: 1.5em;
+}
+
+.nav-box {
+  max-width: 55em;
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  word-wrap: normal;
+}
+
+.nav-box a {
+  display: inline-block;
+  font-size: 180%;
+  line-height: 1.2em;
+  margin-left: 4.5%;
+  margin-right: 4.5%;
+  width: 4em;
+  color: blue;
+  /*#4B4B4B;*/
+}
+
+.nav-box .current {
+  color: black;
+}
+
+.nav-box p {
+  height: auto;
+  margin: 0;
+  font-size: 100%;
+}
+
+.footer {
+  position: static;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  margin-bottom: 0.5em;
+}
+
+.footer p {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -.25em;
+}
+
+.indent {
+  margin-left: .75em;
+}
+
+.small-indent {
+  margin-left: .25em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.big {
+  font-size: 120%;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.left-text {
+  text-align: left;
+}
+
+
+/*
+Pandoc Markdown CSS
+*/
+
+pre, div .sourceCode, code {
+  border: .1em solid #00516D;
+  padding: 0;
+  padding-left: .15em;
+  padding-right: .15em;
+  padding-bottom: .05em;
+}
+
+pre, .sourceCode, code {
+  /*background-color: #F7F7F7;*/
+  background-color: #00516D;
+  color: #F9F9F9;
+}
+
+pre, code {
+  font-family: monospace;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre {
+  padding: .5em;
+}
+
+pre code {
+  padding: .5em;
+}
+
+code .sourceCode, div .sourceCode pre, div .sourceCode code, pre code {
+  border: none;
+  padding: 0;
+}
+
+div .sourceCode pre {
+  margin: 1em;
+}
+
+
+/*
+Code colors
+*/
+
+code>span.kw {
+  color: #06C13C;
+}
+
+code>span.at {
+  color: #FFE3A7;
+}
+
+
+/*strings*/
+code>span.st {
+  color: #FFFF00;
+}
+
+
+/* char quotes */
+code>span.ch {
+  color: #FFFF00;
+}
+
+
+/* chars */
+code>span.sc {
+  color: #FFFF00;
+}
+
+
+/**/
+code>span.dt {
+  color: #5BE5FF;
+}
+
+code>span.cn {
+  color: #06E98E;
+}
+
+code>span.pp {
+  color: #08D9FF;
+}
+
+code>span.dv {
+  color: #38F725;
+}
+
+code>span.op {
+  color: #FFFFFF;
+}
