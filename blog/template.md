@@ -21,7 +21,7 @@ header-includes:
 
 
 
-<div class="card blog-content">
+<div class="tile blog-content">
 <p class="blog-title">Blog - POST NAME HERE - POST DATE HERE</p>
 
 
@@ -36,7 +36,7 @@ header-includes:
 <div style="clear: both;"></div>
 </div>
 </div>
-<div class="card footer">
+<div class="tile footer">
 <p>This Website is Open-<a href="https://github.com/BenTheElder/site">Source</a>.</p>
 </div>
 </body>

@@ -20,7 +20,7 @@ header-includes:
 </div>
 
 
-<div class="card blog-content">
+<div class="tile blog-content">
 <p class="title">CreatureBox: An obstacle avoidance evolutionary simulation - Jan. 2, 2016</p>
 
 <a href="github.com/BenTheElder/creaturebox">CreatureBox</a> is a simple evolutionary obstacle avoidance demo I wrote inspired by [studio otoro](http://otoro.net)'s awesome
@@ -105,7 +105,7 @@ I may just have to explore that for my next project (I [replied back](https://tw
 <div style="clear: both;"></div>
 </div>
 </div>
-<div class="card footer">
+<div class="tile footer">
 <p>This Website is Open-<a href="https://github.com/BenTheElder/site">Source</a>.</p>
 </div>
 </body>
