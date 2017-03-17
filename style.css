@@ -7,7 +7,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
-  line-height: 180%;
+  line-height: 1.4;
   max-width: 100%;
   background-color: #2196F3;
   color: rgba(0,0,0,0.87);
@@ -180,7 +180,7 @@ a:hover {
 }
 
 .tile p {
-  font-size: 120%;
+  font-size: 110%;
 }
 
 .footer {
@@ -319,8 +319,9 @@ code>span.dv { color: #198844; }
 /* Operator */
 code>span.op { color: #373b41; }
 
-/* fixes for mobile */
-@media (max-width: 768px) {
+/* fixes for mobile and small screen */
+@media (max-width: 901px) {
+
   .tile {
     padding: 0.5em !important;
     font-size: 16px;
