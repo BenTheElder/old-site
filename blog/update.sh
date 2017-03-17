@@ -7,7 +7,7 @@ for FILE_PATH in ${DIR}/*.md ; do
     FILE_NAME=${FILE_NAME%%.*}
     echo ""
     echo "$FILE_PATH --> $FILE_NAME.html"
-    echo "RUNNING: \"pandoc -o ${DIR}/${FILE_NAME}.html ${FILE_PATH} --highlight-style=pygments -s\""
-    pandoc -o ${DIR}/${FILE_NAME}.html ${FILE_PATH} --highlight-style=pygments -s
+    (set -x
+    pandoc -o ${DIR}/${FILE_NAME}.html ${FILE_PATH} --highlight-style=pygments -s)
   fi
 done

@@ -90,7 +90,6 @@ Here's two a gifs of the result running on my laptop (the right gif has more evo
 <img src="/images/creaturebox_demo_2.gif" width="310" height="518" alt="gif of CreatureBox running on my laptop with more evolved creatures"></img>
 </div>
 \
-\
 
 I posted the project to [my twitter](https://twitter.com/BenTheElder) before I wrote this writeup and receive and kind
  reply from <a href="https://twitter.com/hardmaru">@hardmaru</a> of [studio otoro](http://otoro.net):

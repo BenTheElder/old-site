@@ -39,7 +39,7 @@ __________________________________________________________________________
 First we'll set up a folder to develop from:
 `mkdir ./rust-hotswap && cd ./rust-hotswap`
 and a source dir:
-`mkdir ./src`
+`mkdir ./src`.
 
 We'll use [cargo](https://github.com/rust-lang/cargo) to build so next we'll create a Cargo.toml
 
@@ -107,11 +107,11 @@ We'll wrap up the loading and calling bits in a helper function.
 Lastly we can throw in a `println!` and a keypress read between `ticks` to puase the program, and alert the user that it is now safe to modify the code.
 This allows you to finally do the following:
 
-1) `cargo run`
-2) edit _src/lib.rs_ to write something else to stdout
-3) from another shell `cargo build`
-4) hit enter in the first shell after `cargo build` completes
-5) the output this time should now match your modified code.
+1) Run: `cargo run`.
+2) Edit _src/lib.rs_ to write something else to stdout.
+3) From another shell `cargo build`.
+4) Hit enter in the first shell after `cargo build` completes
+5) The output this time should now match your modified code.
 
 A real usecase for this would be EG game development, where the game is implemented as a small wrapper executable and the rest as methods in a dynamic library, you can pass in a struct full of globals to the library and between ticks reload the library with modified code. You might monitor the source for changes to the library, and rebuild and reload between ticks during development.
 In anycase, it's a cool trick.
@@ -181,7 +181,6 @@ fn main() {
     println!("\nNow modify lib.rs, build, and then hit enter.");
     let mut stdin = io::stdin();
     stdin.read_char();
-
 
     do_lib_mn(dylib_path_pattern.as_slice(), 2);
 }

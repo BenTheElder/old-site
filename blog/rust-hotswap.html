@@ -69,7 +69,7 @@ Rust Hotswap - Jan. 12, 2015
 <p>The rest of this post assumes that you have a pretty fair knowledge of rust. If not, you should probably start with the rust <a href="http://doc.rust-lang.org/book/">book</a>.</p>
 <hr />
 <h4 id="project-setup">Project setup:</h4>
-<p>First we'll set up a folder to develop from: <code>mkdir ./rust-hotswap &amp;&amp; cd ./rust-hotswap</code> and a source dir: <code>mkdir ./src</code></p>
+<p>First we'll set up a folder to develop from: <code>mkdir ./rust-hotswap &amp;&amp; cd ./rust-hotswap</code> and a source dir: <code>mkdir ./src</code>.</p>
 <p>We'll use <a href="https://github.com/rust-lang/cargo">cargo</a> to build so next we'll create a Cargo.toml</p>
 <pre><code>[package]
 name = &quot;rust-hotswap&quot;
@@ -113,11 +113,11 @@ After finding the library we can then use the (unstable!) <code>std::dynamic_lib
 <p>We'll wrap up the loading and calling bits in a helper function.</p>
 <p>Lastly we can throw in a <code>println!</code> and a keypress read between <code>ticks</code> to puase the program, and alert the user that it is now safe to modify the code. This allows you to finally do the following:</p>
 <ol style="list-style-type: decimal">
-<li><code>cargo run</code></li>
-<li>edit <em>src/lib.rs</em> to write something else to stdout</li>
-<li>from another shell <code>cargo build</code></li>
-<li>hit enter in the first shell after <code>cargo build</code> completes</li>
-<li>the output this time should now match your modified code.</li>
+<li>Run: <code>cargo run</code>.</li>
+<li>Edit <em>src/lib.rs</em> to write something else to stdout.</li>
+<li>From another shell <code>cargo build</code>.</li>
+<li>Hit enter in the first shell after <code>cargo build</code> completes</li>
+<li>The output this time should now match your modified code.</li>
 </ol>
 <p>A real usecase for this would be EG game development, where the game is implemented as a small wrapper executable and the rest as methods in a dynamic library, you can pass in a struct full of globals to the library and between ticks reload the library with modified code. You might monitor the source for changes to the library, and rebuild and reload between ticks during development. In anycase, it's a cool trick. <br> <br> <br></p>
 <hr />
@@ -180,7 +180,6 @@ After finding the library we can then use the (unstable!) <code>std::dynamic_lib
     <span class="pp">println!</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Now modify lib.rs, build, and then hit enter.&quot;</span>);
     <span class="kw">let</span> <span class="kw">mut</span> stdin = io::stdin();
     stdin.read_char();
-
 
     do_lib_mn(dylib_path_pattern.as_slice(), <span class="dv">2</span>);
 <span class="op">}</span></code></pre></div>
