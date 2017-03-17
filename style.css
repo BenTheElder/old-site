@@ -11,7 +11,7 @@ body {
   max-width: 100%;
   background-color: #2196F3;
   color: rgba(0,0,0,0.87);
-  padding-top: 3.6em;
+  padding-top: 3.5em;
   padding-bottom: 0.25em;
   padding-left: 0.22em;
   padding-right: 0.23em;
@@ -213,9 +213,9 @@ a:hover {
 /*
 Pandoc Markdown CSS
 */
-div.sourceCode::-webkit-scrollbar{
-  width: 4px;
-  height: 8px;
+div.sourceCode::-webkit-scrollbar {
+  width: .5em;
+  height: .5em;
 }
 div.sourceCode::-webkit-scrollbar-corner {
   background: 0;
@@ -236,6 +236,10 @@ pre code {
   white-space: pre;
   overflow: auto;
   word-wrap: normal;
+  background-color: rgba(0,0,0,0);
+  color: #373b41;
+  padding: 0;
+  margin: 0;
 }
 
 pre {
@@ -257,12 +261,6 @@ code {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
-}
-
-pre code {
-  background-color: rgba(0,0,0,0);
-  color: #373b41;
-  padding: 0;
 }
 
 /*

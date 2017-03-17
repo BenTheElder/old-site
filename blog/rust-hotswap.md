@@ -110,7 +110,7 @@ This allows you to finally do the following:
 1) Run: `cargo run`.
 2) Edit _src/lib.rs_ to write something else to stdout.
 3) From another shell `cargo build`.
-4) Hit enter in the first shell after `cargo build` completes
+4) Hit enter in the first shell after `cargo build` completes.
 5) The output this time should now match your modified code.
 
 A real usecase for this would be EG game development, where the game is implemented as a small wrapper executable and the rest as methods in a dynamic library, you can pass in a struct full of globals to the library and between ticks reload the library with modified code. You might monitor the source for changes to the library, and rebuild and reload between ticks during development.
