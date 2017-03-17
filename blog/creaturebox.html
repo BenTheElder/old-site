@@ -6,7 +6,7 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,700italic,700" rel="stylesheet" type="text/css"> <link rel="stylesheet" type="text/css" href="/style.css"/> <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic" rel="stylesheet" type="text/css"> <link rel="stylesheet" type="text/css" href="/style.css"/> <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
   BenTheElder ~ Blog
   </title>
@@ -27,7 +27,7 @@
 <p class="title">
 CreatureBox: An obstacle avoidance evolutionary simulation - Jan. 2, 2016
 </p>
-<p><a href="github.com/BenTheElder/creaturebox">CreatureBox</a> is a simple evolutionary obstacle avoidance demo I wrote inspired by <a href="http://otoro.net">studio otoro</a>'s awesome <a href="http://blog.otoro.net/2015/05/07/creatures-avoiding-planks/">creatures avoiding planks</a>. I wanted to build something similar for fun and try out golang's <a href="https://github.com/golang/mobile">Go mobile</a> project as well, so over the break between semsters I took a little time to write one.</p>
+<p><a href="https://github.com/BenTheElder/creaturebox">CreatureBox</a> is a simple evolutionary obstacle avoidance demo I wrote inspired by <a href="http://otoro.net">studio otoro</a>'s awesome <a href="http://blog.otoro.net/2015/05/07/creatures-avoiding-planks/">creatures avoiding planks</a>. I wanted to build something similar for fun and try out golang's <a href="https://github.com/golang/mobile">Go mobile</a> project as well, so over the break between semsters I took a little time to write one.</p>
 <h4 id="gomobile">gomobile</h4>
 <p>The first thing I did was get gomobile up and running, and create a basic main loop to handle events and draw a quad to the screen during paint events. One interesting effect of using gomobile is that CreatureBox should work on Windows, OS X, Linux, Android, iOS, etc, which is pretty cool. The library and tooling provide a common ground with a portable event model and opengl access provided for you. I have only tested on OS X El Capitan and Android Marshmallow, but it seems to work well, and it's really nice to have the mobile code running on desktop and mobile without an emulator. On the bad side, I couldn't find a good method to attain a vsync like refresh rate, all of the continuously updating pure go demos in the gomobile repository simply create a new paint event at the end of the previous paint event, which causes the app to use excessive processing time on my laptop. My &quot;solution&quot; was to call <code>time.Sleep()</code> on desktop at the end of each paint event in order to throttle the processor time used. The gomobile tooling was definitely very interesting, but pure go apps are definitely still a little rough around the edges. I think it made a pretty resaonable compromise in this case, and it made focusing on the simulation logic very straight-forward.<br />
 <br />

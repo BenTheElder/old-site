@@ -31,13 +31,14 @@ hr {
 }
 
 a {
-  color: #304ffe;
+  font-weight: 500;
+  color: #0366d6;
   text-decoration: none;
   padding-bottom: 0.05em;
 }
 
 a:hover {
-  border-bottom: 1px solid #304ffe;
+  border-bottom: 1px solid #0366d6;
 }
 
 .page-content {

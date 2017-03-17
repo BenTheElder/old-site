@@ -1,6 +1,6 @@
 ---
 header-includes:
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,700italic,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BenTheElder ~ Blog</title>
@@ -22,7 +22,7 @@ header-includes:
 <div class="tile blog-content">
 <p class="title">CreatureBox: An obstacle avoidance evolutionary simulation - Jan. 2, 2016</p>
 
-<a href="github.com/BenTheElder/creaturebox">CreatureBox</a> is a simple evolutionary obstacle avoidance demo I wrote inspired by [studio otoro](http://otoro.net)'s awesome
+<a href="https://github.com/BenTheElder/creaturebox">CreatureBox</a> is a simple evolutionary obstacle avoidance demo I wrote inspired by [studio otoro](http://otoro.net)'s awesome
  [creatures avoiding planks](http://blog.otoro.net/2015/05/07/creatures-avoiding-planks/).
 I wanted to build something similar for fun and try out golang's [Go mobile](https://github.com/golang/mobile)
  project as well, so over the break between semsters I took a little time to write one.
