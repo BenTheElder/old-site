@@ -11,7 +11,7 @@ body {
   max-width: 100%;
   background-color: #2196F3;
   color: rgba(0,0,0,0.87);
-  padding-top: 3.5em;
+  padding-top: 3.25em;
   padding-bottom: 0.25em;
   padding-left: 0.22em;
   padding-right: 0.23em;
@@ -32,13 +32,13 @@ hr {
 
 a {
   font-weight: 500;
-  color: #0366d6;
   text-decoration: none;
   padding-bottom: 0.05em;
+  color: #1565C0;
 }
 
 a:hover {
-  border-bottom: 1px solid #0366d6;
+  border-bottom: 1px solid #1565C0;
 }
 
 .page-content {
@@ -73,14 +73,28 @@ a:hover {
   max-width: 43em;
   margin: 0 auto;
   padding: .05em;
+  padding-bottom: 0;
   padding-top: 0.1em;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   text-align: center;
+  border-bottom: 1px solid #1976d2;
 }
 
-.header-content span {
-  flex: 0;
-  flex-basis: 33%;
+.header-content .brand {
+  display: block;
+  margin: 0 auto;
+  margin-top: .2em;
+  margin-bottom: 0.3em;
+}
+
+.header-content .nav {
+  color: white;
+  font-size: 0.75em;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-content a {
@@ -95,40 +109,32 @@ a:hover {
   font-family: inherit;
   padding-left: 0.33em;
   padding-right: 0.33em;
-  border-bottom: 1px solid #1976d2;
+  border-bottom: 2px solid #1976d2;
 }
 
 .header-content a:hover {
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid white;/*white;*/
 }
 
-.header-content .brand {
-  display: block;
-  margin: 0 auto;
-  margin-top: .2em;
-  margin-bottom: 0.2em;
+.header-content a.current {
+  border-bottom: 2px solid #00E676;
 }
 
-.header-content .nav {
-  color: white;
-  font-size: 0.75em;
-  max-width: 100%;
-  margin: 0 auto;
-  margin-bottom: 0.05em;
-  display: flex;
-  justify-content: space-between;
+.header-content .nav span {
+  flex: 0;
+  flex-basis: 33%;
+  font-size: 16px;
+  margin-bottom: 0;
 }
 
-.header-content .nav a {
+.header-content .nav span a {
+  padding-bottom: 0.14em;
   display: inline-block;
-  margin-bottom: 0.1em;
   letter-spacing: 0.02em;
 }
 
-.header-content p {
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+.header-content .brand a {
+  padding-bottom: 0.01em;
 }
 
 .tile {
