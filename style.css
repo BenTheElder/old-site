@@ -11,7 +11,7 @@ body {
   max-width: 100%;
   background-color: #2196F3;
   color: rgba(0,0,0,0.87);
-  padding-top: 3.25em;
+  padding-top: 3.2em;
   padding-bottom: 0.25em;
   padding-left: 0.22em;
   padding-right: 0.23em;
@@ -34,6 +34,8 @@ a {
   font-weight: 500;
   text-decoration: none;
   padding-bottom: 0.05em;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
   color: #1565C0;
 }
 
@@ -70,7 +72,7 @@ a:hover {
   background-color: #1976d2;
   display: block;
   min-height: 2.2em;
-  max-width: 43em;
+  max-width: 43.5em;
   margin: 0 auto;
   padding: .05em;
   padding-bottom: 0;
@@ -138,9 +140,10 @@ a:hover {
 }
 
 .tile {
-  padding: 1em;
+  font-size: 20px;
+  padding: 1.25em;
   background-color: #fdfdfd;
-  max-width: 55em;
+  max-width: 49em;
   margin: 0 auto;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -154,6 +157,8 @@ a:hover {
 .tile img {
   max-width: 100%;
   height: auto;
+  margin: 0.25em auto;
+  padding: 0;
 }
 
 .tile .last {
@@ -169,7 +174,7 @@ a:hover {
 }
 
 .tile .section-title {
-  font-size: 120%;
+  font-size: 110%;
   margin-top: 0;
   font-weight: bold;
 }
@@ -221,6 +226,9 @@ a:hover {
 /*
 Pandoc Markdown CSS
 */
+div.sourceCode {
+  overflow-x: scroll;
+}
 div.sourceCode::-webkit-scrollbar {
   width: .5em;
   height: .5em;
@@ -230,6 +238,12 @@ div.sourceCode::-webkit-scrollbar-corner {
 }
 div.sourceCode::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0.26);
+}
+div.sourceCode {
+  width: 100%;
+}
+div.sourceCode .sourceCode code.sourceCode {
+  width: 100%;
 }
 
 pre, code, .sourceCode {
@@ -241,8 +255,8 @@ pre, code, .sourceCode {
 pre code {
   line-height: 150%;
   font-size: 100%;/*111.11%;*/
+  font-weight: 500;
   white-space: pre;
-  overflow: auto;
   word-wrap: normal;
   background-color: rgba(0,0,0,0);
   color: #373b41;
@@ -306,9 +320,13 @@ code>span.dv { color: #198844; }
 code>span.op { color: #373b41; }
 
 /* fixes for mobile */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .tile {
     padding: 0.5em !important;
+    font-size: 16px;
+  }
+  .tile p {
+    font-size: 110%;
   }
   .footer {
     padding: 0.75em !important;

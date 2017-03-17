@@ -7,14 +7,17 @@ import subprocess
 import glob
 # get the directory containing this file
 dir = os.path.dirname(os.path.abspath(__file__))
+template = os.path.join(dir, "template.html")
 # loop over all markdown files in the blog dir
 for filename in glob.iglob(os.path.join(dir, "*.md")):
     # get filename without path
     basename = os.path.basename(filename)
     # skip template file
-    if basename == "template.md":
+    if basename == "post_outline.md":
         continue
     # desired output name
     html_name = filename.replace(".md", ".html")
     # run pandoc
-    subprocess.check_call(["pandoc", "-o", html_name, filename, "--highlight-style=pygments", "-s"])
+    subprocess.check_call(
+        ["pandoc", "-o", html_name, filename, "--highlight-style=pygments",
+         "-s", "--template="+template])

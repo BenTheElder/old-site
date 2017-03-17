@@ -24,7 +24,7 @@ Mozilla's [rust](http://rust-lang.org) language has just [reached 1.0 alpha](htt
 
 I've been learning it off and on for a while now, and I'm quite happy to see the breaking
 changes slow down.
-As part of learning rust i've played around implementing things that would be
+As part of learning rust I've played around implementing things that would be
 normally done in c or c++;
 one of those is the old trick of hot-swapping code by reloading a shared library at runtime.
 
