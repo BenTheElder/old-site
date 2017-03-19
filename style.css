@@ -1,17 +1,19 @@
+/* style elements */
 html {
   width: 100%;
-  font-size: 100%;
+  font-size: 18px;
+  line-height: 1;
 }
 
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 100%;
   line-height: 1.4;
   max-width: 100%;
   background-color: #2196F3;
   color: rgba(0,0,0,0.87);
-  padding-top: 3.2em;
+  padding-top: 3.25em;
   padding-bottom: 0.25em;
   padding-left: 0.22em;
   padding-right: 0.23em;
@@ -40,20 +42,15 @@ a {
 }
 
 a:hover {
-  border-bottom: 1px solid #1565C0;
+  border-bottom: .055555rem solid #1565C0;
 }
 
-.page-content {
-  max-width: 60em;
-  margin: 0 auto;
-  padding: 0.25em;
-}
-
+/* content layout and style */
 .header {
   line-height: normal;
   margin: 0;
   text-align: center;
-  font-size: 24px;
+  font-size: 1.333em;
   font-weight: 500;
   letter-spacing: .02em;
   color: #f5f5f5;
@@ -77,9 +74,8 @@ a:hover {
   padding: .05em;
   padding-bottom: 0;
   padding-top: 0.1em;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 0.1666rem 0.33333rem rgba(0,0,0,0.16), 0 0.1666rem 0.33333rem rgba(0,0,0,0.23);
   text-align: center;
-  border-bottom: 1px solid #1976d2;
 }
 
 .header-content .brand {
@@ -111,28 +107,28 @@ a:hover {
   font-family: inherit;
   padding-left: 0.33em;
   padding-right: 0.33em;
-  border-bottom: 2px solid #1976d2;
+  border-bottom: .11111rem solid #1976d2;
 }
 
 .header-content a:hover {
-  border-bottom: 2px solid white;/*white;*/
+  border-bottom: .11111rem solid white;/*white;*/
 }
 
 .header-content a.current {
-  border-bottom: 2px solid #00E676;
+  border-bottom: .11111rem solid #00E676;
 }
 
 .header-content .nav span {
   flex: 0;
   flex-basis: 33%;
-  font-size: 16px;
+  font-size: 0.8888888em;
   margin-bottom: 0;
 }
 
 .header-content .nav span a {
   padding-bottom: 0.14em;
   display: inline-block;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
 }
 
 .header-content .brand a {
@@ -140,18 +136,18 @@ a:hover {
 }
 
 .tile {
-  font-size: 20px;
+  font-size: 1.11111em;
   padding: 1.25em;
   background-color: #fdfdfd;
   max-width: 49em;
   margin: 0 auto;
   margin-top: 1em;
   margin-bottom: 1em;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 0.1666rem 0.33333rem rgba(0,0,0,0.16), 0 0.1666rem 0.33333rem rgba(0,0,0,0.23);
 }
 
 .tile:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 0.5555rem 1.1111rem rgba(0,0,0,0.19), 0 0.33333rem 0.33333rem rgba(0,0,0,0.23);
 }
 
 .tile img {
@@ -223,6 +219,37 @@ a:hover {
   text-align: left;
 }
 
+.flex-container {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-container img {
+  flex: 0 0 auto;
+  object-fit: scale-down;
+}
+
+.flex-container.vertical-center {
+  align-self: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-container .no-grow {
+  flex-grow: 0;
+}
+
+.flex-2-col {
+  flex-basis: 49.5%;
+}
+
+.flex-3-col {
+  flex-basis: 33%;
+}
+
 /*
 Pandoc Markdown CSS
 */
@@ -288,46 +315,21 @@ code {
 /*
 Code colors
 */
+code>span.kw { color: #CC342B; } /* Keyword */
+code>span.at { color: #3971ED; } /* Attribute */
+code>span.st { color: #198844; } /* Strings */
+code>span.ch { color: #198844; } /* Char Quotes */
+code>span.sc { color: #e013d0; } /* SpecialChar */
+code>span.dt { color: #FBA922; } /* DataType */
+code>span.cn { color: #e013d0; } /* Constant */
+code>span.pp { color: #3971ED; } /* Preprocessor */
+code>span.dv { color: #198844; } /* DecVal */
+code>span.op { color: #373b41; } /* Operator */
 
-/* Keyword */
-code>span.kw { color: #CC342B; }
-
-/* Attribute */
-code>span.at { color: #3971ED; }
-
-/*strings*/
-code>span.st { color: #198844; }
-
-/* char quotes */
-code>span.ch { color: #198844; }
-
-/* SpecialChar */
-code>span.sc { color: #e013d0; }
-
-/* DataType */
-code>span.dt { color: #FBA922; }
-
-/* Constant */
-code>span.cn { color: #e013d0; }
-
-/* Preprocessor */
-code>span.pp { color: #3971ED; }
-
-/* DecVal */
-code>span.dv { color: #198844; }
-
-/* Operator */
-code>span.op { color: #373b41; }
-
-/* fixes for mobile and small screen */
-@media (max-width: 901px) {
-
+/* reduce padding for mobile */
+@media (max-width: 60em) {
   .tile {
     padding: 0.5em !important;
-    font-size: 16px;
-  }
-  .tile p {
-    font-size: 110%;
   }
   .footer {
     padding: 0.75em !important;
@@ -336,5 +338,27 @@ code>span.op { color: #373b41; }
     padding: 0.5em;
     padding-top: 0.3em;
     padding-bottom: 0.5em;
+  }
+}
+/* fluid font scaling for smaller screens */
+@media (max-width: 57em) {
+  .tile {
+     font-size: 2vw;
+     max-width: 100%;
+  }
+  .tile p {
+    font-size: 110%;
+  }
+}
+/* switch to fixed minimum font size */
+@media (max-width: 52em) {
+  .tile {
+    font-size: 0.888888em;
+  }
+}
+/* switch flex box to stack item on mobile */
+@media (max-width: 45.75em) {
+  .flex-container {
+    flex-direction: column;
   }
 }

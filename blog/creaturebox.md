@@ -3,7 +3,29 @@ header-includes:
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BenTheElder ~ Blog</title>
+        <!-- favicon, all platforms -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
+    <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="/images/icons/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
+pagetitle:
+    BenTheElder ~ Blog
 ---
 
 <!DOCTYPE html>
@@ -82,12 +104,9 @@ The color of each creature is based on the average of their brain weights divide
 
 #### Wrap-Up:
 All told, this project was pretty fun to work on.\
-Here's two a gifs of the result running on my laptop (the right gif has more evolved creatures):
+Here's two a gifs of the result running on my laptop (the second gif has more evolved creatures):
 
-<div style="text-align:center">
-<img src="/images/creaturebox_demo.gif" width="310" height="518" alt="gif of CreatureBox running on my laptop"></img>
-<img src="/images/creaturebox_demo_2.gif" width="310" height="518" alt="gif of CreatureBox running on my laptop with more evolved creatures"></img>
-</div>
+<div class="flex-container vertical-center"><img class="flex-2-col no-grow" src="/images/creaturebox_demo.gif" width="310" height="518" alt="gif of CreatureBox running on my laptop"></img><img class="flex-2-col no-grow" src="/images/creaturebox_demo_2.gif" width="310" height="518" alt="gif of CreatureBox running on my laptop with more evolved creatures"></img></div>
 
 I posted the project to [my twitter](https://twitter.com/BenTheElder) before I wrote this writeup and receive and kind
  reply from <a href="https://twitter.com/hardmaru">@hardmaru</a> of [studio otoro](http://otoro.net):
