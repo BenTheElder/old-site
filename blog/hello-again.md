@@ -41,18 +41,16 @@ pagetitle:
 </div>
 
 
-
 <div class="tile blog-content">
-<p class="blog-title">POST NAME HERE - POST DATE HERE</p>
+<p class="title">Hello Again - March 19th, 2017</p>
+Hello World! I am now the proud owner of <a href="https://bentheelder.io">bentheelder.io</a>.  
 
+If you are curious, you can find the page source for the new site <a href="https://github.com/BenTheElder/site">here</a>, and the scripts used to set up the <a href="https://cloud.google.com/compute/">GCE</a> VM <a href="https://github.com/BenTheElder/site-scripts">here</a>.  
 
-//Post Markdown Here
+The new site is also now on <a href="https://www.cloudflare.com/">Cloudflare</a> for performance and security.
 
-
-
-
-
-
+The <a href="https://bentheelder.github.io">old site</a> will be redirected to this one soon, and what little content it had has been preserved here. The pages have been
+ reformatted to match the new site, and should be much easier on the eyes.
 
 <div style="clear: both;"></div>
 </div>

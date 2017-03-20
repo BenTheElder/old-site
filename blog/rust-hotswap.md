@@ -40,7 +40,7 @@ pagetitle:
 </div>
 
 <div class="tile blog-content">
-<p class="title">Rust Hotswap - Jan. 12, 2015</p>
+<p class="title">Rust Hotswap - January 12th, 2015</p>
 
 Mozilla's [rust](http://rust-lang.org) language has just [reached 1.0 alpha](http://blog.rust-lang.org/2015/01/09/Rust-1.0-alpha.html).
 

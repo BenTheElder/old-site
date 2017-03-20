@@ -42,7 +42,7 @@ pagetitle:
 
 
 <div class="tile blog-content">
-<p class="title">CreatureBox: An obstacle avoidance evolutionary simulation - Jan. 2, 2016</p>
+<p class="title">CreatureBox: An obstacle avoidance evolutionary simulation - January 2nd, 2016</p>
 
 <a href="https://github.com/BenTheElder/creaturebox">CreatureBox</a> is a simple evolutionary obstacle avoidance demo I wrote inspired by [studio otoro](http://otoro.net)'s awesome
  [creatures avoiding planks](http://blog.otoro.net/2015/05/07/creatures-avoiding-planks/).

@@ -1,7 +1,7 @@
 #!/bin/bash
 DIR=$(dirname "${BASH_SOURCE}")
 echo "Updating Posts..."
-TEMPLATE="${DIR}/template.html"
+TEMPLATE="${DIR}/pandoc_template.html"
 for FILE_PATH in ${DIR}/*.md ; do
   if [ "${FILE_PATH}" != "${DIR}/post_outline.md" ] ; then
     FILE_NAME=${FILE_PATH##*/}

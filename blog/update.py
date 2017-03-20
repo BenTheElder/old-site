@@ -7,7 +7,7 @@ import subprocess
 import glob
 # get the directory containing this file
 dir = os.path.dirname(os.path.abspath(__file__))
-template = os.path.join(dir, "template.html")
+template = os.path.join(dir, "pandoc_template.html")
 # loop over all markdown files in the blog dir
 for filename in glob.iglob(os.path.join(dir, "*.md")):
     # get filename without path
