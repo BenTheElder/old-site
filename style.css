@@ -323,12 +323,12 @@ code>span.kw { color: #CC342B; } /* Keyword */
 code>span.at { color: #3971ED; } /* Attribute */
 code>span.st { color: #198844; } /* Strings */
 code>span.ch { color: #198844; } /* Char Quotes */
-code>span.sc { color: #e013d0; } /* SpecialChar */
+code>span.sc { color: #E013D0; } /* SpecialChar */
 code>span.dt { color: #FBA922; } /* DataType */
-code>span.cn { color: #e013d0; } /* Constant */
+code>span.cn { color: #E013D0; } /* Constant */
 code>span.pp { color: #3971ED; } /* Preprocessor */
-code>span.dv { color: #198844; } /* DecVal */
-code>span.op { color: #373b41; } /* Operator */
+code>span.dv { color: #E013D0; } /* DecVal */
+code>span.op { color: #373B41; } /* Operator */
 
 /* reduce padding for mobile */
 @media (max-width: 60em) {
