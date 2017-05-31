@@ -1,6 +1,9 @@
 var automata = {};
 
-automata.colorBlue = "#01579B";
+automata.colorLightBlue900 = "#01579B";
+automata.colorYellow600 = "#FDD835";
+automata.colorRed600 = "#E53935";
+automata.colorBlue600 = "#1E88E5";
 
 automata.make2DArray = function(rows, cols, valueFunc) {
     var arr = new Array(rows);
@@ -16,9 +19,7 @@ automata.make2DArray = function(rows, cols, valueFunc) {
 automata.GridWorld = function(rows, cols) {
     this.rows = rows;
     this.cols = cols;
-    this.lineColor = automata.colorBlue;
-    this.liveColor = "white";
-    this.deadColor = "black";
+    this.lineColor = automata.colorLightBlue900;
 }
 
 automata.GridWorld.prototype.makeDefaultCells = function() {
@@ -54,6 +55,8 @@ automata.GridWorld.prototype.isInBounds = function(row, col) {
 // GameOfLife inherits from GridWorld
 automata.GameOfLife = function(rows, cols) {
     automata.GridWorld.call(this, rows, cols);
+    this.liveColor = "white";
+    this.deadColor = "black";
 }
 automata.GameOfLife.prototype = Object.create(automata.GridWorld.prototype);
 automata.GameOfLife.prototype.constructor = automata.GameOfLife;
@@ -81,7 +84,7 @@ automata.GameOfLife.prototype.nextCellValue = function(row, col) {
     }
 }
 
-
+// renders current state to canvas
 automata.GameOfLife.prototype.render = function(canvas) {
     var ctx = canvas.getContext('2d');
     ctx.fillStyle = this.deadColor;
@@ -92,6 +95,79 @@ automata.GameOfLife.prototype.render = function(canvas) {
     for (var r = 0; r < this.rows; r++) {
         for (var c = 0; c < this.cols; c++) {
             if (this.cells[r][c]) {
+                ctx.fillRect(c*cellHeight, r*cellWidth, cellHeight, cellWidth);
+            }
+        }
+    }
+    var lineThickness = 4;
+    var halfLineThickness = 2;
+    ctx.fillStyle = this.lineColor;
+    for (var r = 1; r < this.rows; r++) {
+        ctx.fillRect(0, r*cellHeight-halfLineThickness, canvas.width, lineThickness);
+    }
+    for (var c = 1; c < this.cols; c++) {
+        ctx.fillRect(c*cellWidth-lineThickness, 0, lineThickness, canvas.height);
+    }
+    ctx.fillRect(0, 0, canvas.width, lineThickness);
+    ctx.fillRect(0, 0, lineThickness, canvas.height);
+    ctx.fillRect(0, canvas.height-lineThickness, canvas.width, lineThickness);
+    ctx.fillRect(canvas.width-lineThickness, 0, lineThickness, canvas.height);
+}
+
+// Wireworld inherits from GridWorld
+automata.Wireworld = function(rows, cols) {
+    automata.GridWorld.call(this, rows, cols);
+    this.emptyColor = "black";
+    this.conductorColor = automata.colorYellow600;
+    this.electronHeadColor = automata.colorBlue600;
+    this.electronTailColor = automata.colorRed600;
+}
+automata.Wireworld.prototype = Object.create(automata.GridWorld.prototype);
+automata.Wireworld.prototype.constructor = automata.Wireworld;
+
+automata.Wireworld.prototype.nextCellValue = function(row, col) {
+    var thisValue = this.cells[row][col];
+    if (thisValue == 0) { // empty
+        return 0;
+    } else if (thisValue == 1) { // conductor
+        // count eight connected electron head neighbors
+        var electronHeads = 0;
+        electronHeads += this.isInBounds(row-1, col-1) && this.cells[row-1][col-1] == 2;
+        electronHeads += this.isInBounds(row, col-1) && this.cells[row][col-1] == 2;
+        electronHeads += this.isInBounds(row+1, col-1) && this.cells[row+1][col-1] == 2;
+        electronHeads += this.isInBounds(row-1, col) && this.cells[row-1][col] == 2;
+        electronHeads += this.isInBounds(row+1, col) && this.cells[row+1][col] == 2;
+        electronHeads += this.isInBounds(row-1, col+1) && this.cells[row-1][col+1] == 2;
+        electronHeads += this.isInBounds(row+0, col+1) && this.cells[row][col+1] == 2;
+        electronHeads += this.isInBounds(row+1, col+1) && this.cells[row+1][col+1] == 2;
+        if (electronHeads == 1 || electronHeads == 2) {
+            return 2;
+        } else {
+            return 1;
+        }
+    } else if (thisValue == 2) { // electron head
+        return 3;
+    } else { // electron tail
+        return 1;
+    }
+}
+
+// renders current state to canvas
+automata.Wireworld.prototype.render = function(canvas) {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = this.emptyColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    var cellWidth = canvas.width / this.cols;
+    var cellHeight = canvas.height / this.rows;
+    for (var r = 0; r < this.rows; r++) {
+        for (var c = 0; c < this.cols; c++) {
+            ctx.fillStyle = {
+                0: this.emptyColor,
+                1: this.conductorColor,
+                2: this.electronHeadColor,
+                3: this.electronTailColor,
+            }[this.cells[r][c]];
+            if (ctx.fillStyle != this.emptyColor) {
                 ctx.fillRect(c*cellHeight, r*cellWidth, cellHeight, cellWidth);
             }
         }

@@ -72,12 +72,13 @@ pagetitle: "BenTheElder - Blog: Automata"
 
 <div class="tile">
 <p class="title">Conway's Game of Life</p>
-<a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a> is a cellular automata created by <a href="https://en.wikipedia.org/wiki/John_Horton_Conway">John Conway</a> with the following rules:
+<a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a> is a cellular automata created by <a href="https://en.wikipedia.org/wiki/John_Horton_Conway">John Conway</a> where all cells are `live` or `dead`. Conway's Game of Life updates with the following rules:
 
-1) Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
-2) Any live cell with two or three live neighbours lives on to the next generation.
-3) Any live cell with more than three live neighbours dies, as if by overpopulation.
-4) Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+1) A `live` cell with less than two `live` neighbours dies (as if by loneliness)
+2) A `live` cell with two or three `live` neighbours stays `live`
+3) A `live` cell with more than three `live` neighbours dies (as if by overpopulation)
+4) A `dead` cell with three `live` neighbours becomes a `live` cell (as if by reproduction)
+
 
 This is probably the most famous of all cellular automata.  
 Additionally, the pulsar from the begining of this post is an example.  
@@ -85,6 +86,32 @@ Additionally, the pulsar from the begining of this post is an example.
 
 <canvas id="gol-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
 <div class="centered-text">Conway's Game of Life with a beacon, blinker, oscillators, and <a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gosper's Glider Gun</a>.</div>
+</div>
+
+
+<div class="tile">
+<p class="title">Wireworld</p>
+<a href="https://en.wikipedia.org/wiki/Wireworld">Wireworld</a> is a cellular automata created by <a href="hhttps://en.wikipedia.org/wiki/Brian_Silverman">Brian Silverman</a>.
+While also relatively simple, it is Turing-complete and easy to construct logic circuits in. Wireworld has the following states (and their colors in the demo below): 
+
+1) `Empty` (<span class="bold">Black</span>)
+2) `Conductor` (<span class="bold color-yellow-600">Yellow</span>)
+3) `Electron head` (<span class="bold color-blue-600">Blue</span>)
+4) `Electron tail` (<span class="bold color-red-600">Red</span>)
+
+These states update with the following rules:
+
+1) An `Empty` stays `Empty`
+2) An `Electron head` becomes an `Electron tail`
+3) An `Electron tail` becomes a `Conductor`
+4) A `Conductor` becomes an `Electron head` if one or two neighbors are `Electron head`, otherwise it stays a `Conductor`
+
+
+<canvas id="wireworld-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
+<div class="centered-text">Wireworld with some clocks and logic gates.</div>
+</div>
+
+<!-- script for demos -->
 <script>
 // setup game of life
 var gol = new automata.GameOfLife(27, 48);
@@ -120,19 +147,70 @@ for (var i = 0; i < liveCells.length; i++) {
     var cell = liveCells[i];
     gol.cells[cell.r][cell.c] = true;
 }
-// setup rendering game of life
+// setup wireworld
+var ww = new automata.Wireworld(27, 48);
+ww.init();
+var wwCells = [
+    // clock
+    {r: 0, c: 1, v: 3}, {r: 0, c: 2, v: 2}, {r: 0, c: 3, v: 1},
+    {r: 1, c: 0, v: 1}, {r: 1, c: 4, v: 1},
+    {r: 2, c: 0, v: 1}, {r: 2, c: 4, v: 1},
+    {r: 3, c: 0, v: 1}, {r: 3, c: 4, v: 1},
+    {r: 4, c: 0, v: 1}, {r: 4, c: 4, v: 1},
+    {r: 5, c: 0, v: 1}, {r: 5, c: 4, v: 1},
+    {r: 6, c: 1, v: 1}, {r: 6, c: 2, v: 1}, {r: 6, c: 3, v: 1},
+    // wire to some diodes
+    {r: 3, c: 5, v: 1}, {r: 3, c: 6, v: 1},
+    {r: 2, c: 7, v: 1}, {r: 1, c: 8, v: 1}, {r: 1, c: 9, v: 1},
+    {r: 4, c: 7, v: 1}, {r: 5, c: 8, v: 1}, {r: 5, c: 9, v: 1},
+    // diode
+    {r: 0, c: 10, v: 1}, {r: 1, c: 10, v: 1}, {r: 2, c: 10, v: 1},
+    {r: 0, c: 11, v: 1}, {r: 2, c: 11, v: 1},
+    {r: 1, c: 12, v: 1}, {r: 1, c: 13, v: 1},
+    // reverse diode
+    {r: 4, c: 10, v: 1}, {r: 6, c: 10, v: 1},
+    {r: 4, c: 11, v: 1}, {r: 5, c: 11, v: 1}, {r: 6, c: 11, v: 1},
+    {r: 5, c: 12, v: 1}, {r: 5, c: 13, v: 1},
+    // faster clock
+    {r: 9, c: 0, v: 1}, {r: 8, c: 1, v: 1}, {r: 8, c: 2, v: 1},
+    {r: 8, c: 3, v: 1}, {r: 8, c: 4, v: 3}, {r: 8, c: 5, v: 2},
+    {r: 10, c: 1, v: 1}, {r: 10, c: 2, v: 1}, {r: 10, c: 3, v: 1},
+    {r: 10, c: 4, v: 1}, {r: 10, c: 5, v: 1}, {r: 9, c: 6, v: 1},
+    {r: 9, c: 7, v: 1}, {r: 9, c: 8, v: 1}, {r: 9, c: 9, v: 1},
+    // diode
+    {r: 8, c: 10, v: 1}, {r: 9, c: 10, v: 1}, {r: 10, c: 10, v: 1},
+    {r: 8, c: 11, v: 1}, {r: 10, c: 11, v: 1},
+    {r: 9, c: 12, v: 1}, {r: 9, c: 13, v: 1},
+    // xor
+    {r: 1, c: 14, v: 1}, {r: 1, c: 15, v: 1}, {r: 1, c: 16, v: 1},
+    {r: 2, c: 17, v: 1}, {r: 3, c: 17, v: 1},
+    {r: 4, c: 16, v: 1}, {r: 4, c: 17, v: 1}, {r: 4, c: 18, v: 1},
+    {r: 4, c: 19, v: 1}, {r: 5, c: 16, v: 1}, {r: 5, c: 19, v: 1},
+    {r: 5, c: 20, v: 1}, {r: 6, c: 16, v: 1}, {r: 6, c: 17, v: 1},
+    {r: 6, c: 18, v: 1}, {r: 6, c: 19, v: 1},
+    {r: 9, c: 14, v: 1}, {r: 9, c: 15, v: 1}, {r: 9, c: 16, v: 1},
+    {r: 7, c: 17, v: 1}, {r: 8, c: 17, v: 1}, {r: 5, c: 21, v: 1},
+    {r: 5, c: 22, v: 1},
+];
+for (var i = 0; i < wwCells.length; i++) {
+    var cell = wwCells[i];
+    ww.cells[cell.r][cell.c] = cell.v;
+}
+// setup rendering
 var golCanvas = document.getElementById("gol-canvas");
+var wwCanvas = document.getElementById("wireworld-canvas");
 var framesPerSecond = 3;
-function renderGOL() {
+function renderAutomata() {
     setTimeout(function() {
         gol.render(golCanvas);
+        ww.render(wwCanvas);
         gol.update();
-        requestAnimationFrame(renderGOL);
+        ww.update();
+        requestAnimationFrame(renderAutomata);
     }, 1000 / framesPerSecond);
 }
-window.requestAnimationFrame(renderGOL);
+window.requestAnimationFrame(renderAutomata);
 </script>
-</div>
 
 <!--comments tile-->
 <div class="tile">

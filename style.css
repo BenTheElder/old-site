@@ -46,6 +46,10 @@ a:hover {
   border-bottom: .055555rem solid #1565C0;
 }
 
+canvas {
+  background-color: black;
+}
+
 /* content layout and style */
 .header {
   line-height: normal;
@@ -193,21 +197,17 @@ a:hover {
   font-family: 'Open Sans', sans-serif;
 }
 
-.tile table td {
-  padding: .2em;
-}
+.tile table td { padding: .2em; }
 
-.warning {
-  background-color: #FDD835;
-}
+.warning { background-color: #FDD835; }
 
-.error {
-  background-color: #FF1744;
-}
+.error { background-color: #FF1744; }
 
-.no-margin {
-  margin: 0;
-}
+.no-margin { margin: 0; }
+
+.color-yellow-600 { color: #FDD835;}
+.color-red-600 { color: #E53935; }
+.color-blue-600 { color: #1E88E5; }
 
 .footer {
   position: static;
