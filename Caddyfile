@@ -1,0 +1,5 @@
+# WARNING: this file is only intended for local development.
+# This is NOT a production config!
+localhost:8080
+gzip
+ext .html

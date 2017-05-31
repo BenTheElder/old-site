@@ -1,0 +1,162 @@
+---
+header-includes:
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500" rel="stylesheet">
+    <!-- favicon, all platforms -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
+    <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/icons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="/images/icons/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
+pagetitle: "BenTheElder - Blog: Automata"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+
+<div class="header">
+<div class="header-content">
+<span class="brand"><a href="/">BenTheElder</a></span><div class="nav"><span><a href="/projects">PROJECTS</a>
+</span></span><span><a class="current" href="/blog">BLOG</a></span><span><a href="/about">ABOUT</a></div>
+</div>
+</div>
+
+
+<!-- noscript warning -->
+<noscript>
+  <div class="tile centered-text" style="background-color: #FF1744;"><p class="title">JavaScript is required to view the demos on this page.</h3><h3 class="bold no-margin">Please <a href="http://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer">enable JavaScript</a>.</h3></div>
+</noscript>
+
+<!-- under construction cart -->
+<div class="tile centered-text" style="background-color: #FDD835;"><p class="title">This post is under construction (!)</p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
+
+<!-- include demo scripts -->
+<script src="/scripts/automata.js" type="text/javascript"></script>
+
+<div class="tile blog-content">
+<p class="title">Automata - May 30th, 2017</p>
+
+
+<div style="float:right; width: 6.91em; padding: 1em; padding-right:0em;"><img style="margin-top:-.15em" src="/images/Game_of_life_pulsar.gif"></img><div class="centered-text"><a href="https://en.wikipedia.org/wiki/File:Game_of_life_pulsar.gif">A pulsar.</a></div></div>
+
+'Automata' or <a href="https://en.wikipedia.org/wiki/Automaton">'automaton'</a> refer to self-operating machines or <span class="italic">devices that function automatically</span>. While the earliest usage of the term referred to mechanical devices, in computer science 'automata' and <a class="" href="https://en.wikipedia.org/wiki/Automata_theory">automata theory</a> include <span class="italic">abstract</span> machines instead of physical devices. Where a physical automaton might be constructed of complex gears and clockwork, an abstract automata is constructed of <a href="https://en.wikipedia.org/wiki/State_(computer_science)">state</a> and rules that define how state is updated in each iteration or 'generation' of the automata.
+
+<hr class="clear"></hr>
+###Cellular Automata
+<a href="https://en.wikipedia.org/wiki/Cellular_automaton">Cellular automata</a> are an interesting class of automata consisting of a grid of cells where each cell represents some state that is updated every iteration. While not-neccessarily particularly useful, some cellular automata display fascinating stable oscillating patterns or are even <a href="https://en.wikipedia.org/wiki/Turing-complete">Turing-complete</a>. It is also worth noting that some patterns in nature have been observed that appear to be generated by natural cellular automata. In particular the <a href="https://en.wikipedia.org/wiki/Conus_textile">Conus textile sea snail</a>'s shells display pigment patterns similar to a cellular automaton.
+
+<div style="max-width: 23em; margin: 1em auto"><img style="width:100%" src="/images/the_grid2_optimal.gif"></img><div class="centered-text"><a href="https://en.wikipedia.org/wiki/Tron:_Legacy">The Grid, a digital frontier. (<span class="italic">Tron: Legacy</span>)</a></div></div>
+
+<p class="no-margin">Below are some examples of cellular automata with live demos using JavaScript and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML5 Canvas API</a>.</p>
+</div>
+</div>
+
+
+<div class="tile">
+<p class="title">Conway's Game of Life</p>
+<a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a> is a cellular automata created by <a href="https://en.wikipedia.org/wiki/John_Horton_Conway">John Conway</a> with the following rules:
+
+1) Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
+2) Any live cell with two or three live neighbours lives on to the next generation.
+3) Any live cell with more than three live neighbours dies, as if by overpopulation.
+4) Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+This is probably the most famous of all cellular automata.  
+Additionally, the pulsar from the begining of this post is an example.  
+
+
+<canvas id="gol-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
+<div class="centered-text">Conway's Game of Life with a beacon, blinker, oscillators, and <a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gosper's Glider Gun</a>.</div>
+<script>
+// setup game of life
+var gol = new automata.GameOfLife(27, 48);
+gol.init();
+// set up starting pattern
+var liveCells = [
+    // start with gosper's glider gun
+    {r: 0, c: 24}, {r: 1, c: 22}, {r: 1, c: 24}, {r: 2, c: 12}, {r: 2, c: 13},
+    {r: 2, c: 20}, {r: 2, c: 21}, {r: 2, c: 21}, {r: 2, c: 34}, {r: 2, c: 35},
+    {r: 3, c: 11}, {r: 3, c: 15}, {r: 3, c: 20}, {r: 3, c: 21}, {r: 3, c: 34},
+    {r: 3, c: 35}, {r: 4, c: 0}, {r: 4, c: 1}, {r: 4, c: 10}, {r: 4, c: 16},
+    {r: 4, c: 20}, {r: 4, c: 21}, {r: 5, c: 0}, {r: 5, c: 1}, {r: 5, c: 10},
+    {r: 5, c: 14}, {r: 5, c: 16}, {r: 5, c: 17}, {r: 5, c: 22}, {r: 5, c: 24},
+    {r: 6, c: 10}, {r: 6, c: 16}, {r: 6, c: 24}, {r: 7, c: 11}, {r: 7, c: 15},
+    {r: 8, c: 12}, {r: 8, c: 13},
+    // blinker
+    {r: 3, c: 41}, {r: 4, c: 41}, {r: 5, c: 41},
+    // beacon
+    {r: 0, c: 44}, {r: 0, c: 45}, {r: 1, c: 44}, {r: 2, c: 47}, {r: 3, c: 46},
+    {r: 3, c: 47},
+    // pentadecathlon
+    {r: 21, c: 4}, {r: 21, c: 5}, {r: 22, c: 6}, {r: 20, c: 6}, {r: 21, c: 7},
+    {r: 21, c: 8}, {r: 21, c: 9}, {r: 21, c: 10}, {r: 22, c: 11},
+    {r: 20, c: 11}, {r: 21, c: 12}, {r: 21, c: 13},
+    // oscillator
+    {r: 11, c: 38}, {r: 11, c: 39}, {r: 11, c: 43}, {r: 11, c: 44},
+    {r: 12, c: 39}, {r: 12, c: 41}, {r: 12, c: 43},
+    {r: 13, c: 39}, {r: 13, c: 40}, {r: 13, c: 42}, {r: 13, c: 43},
+    {r: 14, c: 39}, {r: 14, c: 41}, {r: 14, c: 43},
+    {r: 15, c: 38}, {r: 15, c: 39}, {r: 15, c: 43}, {r: 15, c: 44}
+];
+for (var i = 0; i < liveCells.length; i++) {
+    var cell = liveCells[i];
+    gol.cells[cell.r][cell.c] = true;
+}
+// setup rendering game of life
+var golCanvas = document.getElementById("gol-canvas");
+var framesPerSecond = 3;
+function renderGOL() {
+    setTimeout(function() {
+        gol.render(golCanvas);
+        gol.update();
+        requestAnimationFrame(renderGOL);
+    }, 1000 / framesPerSecond);
+}
+window.requestAnimationFrame(renderGOL);
+</script>
+</div>
+
+<!--comments tile-->
+<div class="tile">
+<p class="title">Comments</p>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "https://bentheelder.io/blog/automata";
+        this.page.identifier = "blog/automata";
+    };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bentheelder.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript><p>Comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a> require <a href="http://www.enable-javascript.com/">JavaScript enabled</a> to view.</a></p></noscript>
+</div>
+
+<!--footer-->
+<div class="tile footer">
+<p>This Website is Open-<a href="https://github.com/BenTheElder/site">Source</a>.</p>
+</div>
+</body>
+</html>
+

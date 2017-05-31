@@ -1,9 +1,9 @@
 ---
 header-includes:
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- favicon, all platforms -->
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500" rel="stylesheet">
+    <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/icons/apple-touch-icon-72x72.png" />
@@ -24,8 +24,7 @@ header-includes:
     <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
     <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
-pagetitle:
-    BenTheElder ~ Blog
+pagetitle: "BenTheElder - Blog: Title"
 ---
 
 <!DOCTYPE html>
@@ -35,15 +34,18 @@ pagetitle:
 
 <div class="header">
 <div class="header-content">
-<span class="brand"><a href="/">BenTheElder</a></span><div class="nav"><span><a href="/projects.html">PROJECTS</a>
-</span></span><span><a class="current" href="/blog.html">BLOG</a></span><span><a href="/about.html">ABOUT</a></div>
+<span class="brand"><a href="//bentheelder.io">BenTheElder</a></span><div class="nav"><span><a href="//bentheelder.io/projects">PROJECTS</a>
+</span></span><span><a class="current" href="//bentheelder.io/blog">BLOG</a></span><span><a href="//bentheelder.io/about">ABOUT</a></div>
 </div>
 </div>
 
+
+<!-- under construction cart -->
+<div class="tile centered-text" style="background-color: #FDD835;"><div style="color: black;"><p class="title">This post is under construction (!)</p><p style="margin: 0">If you found this post, please know that it is currently incomplete.</p></div></div>
 
 
 <div class="tile blog-content">
-<p class="blog-title">POST NAME HERE - POST DATE HERE</p>
+<p class="title">POST NAME HERE - POST DATE HERE</p>
 
 
 //Post Markdown Here
@@ -57,6 +59,27 @@ pagetitle:
 <div style="clear: both;"></div>
 </div>
 </div>
+
+<!--comments tile-->
+<div class="tile">
+<p class="title">Comments</p>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "https://bentheelder.io/blog/POST_FILE_EXTENSIONLESS_HERE";
+        this.page.identifier = "blog/POST_FILE_EXTENSIONLESS_HERE";
+    };
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://bentheelder.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript><p>Comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a> require <a href="http://www.enable-javascript.com/">JavaScript enabled</a> to view.</a></p></noscript>
+</div>
+
+<!--footer-->
 <div class="tile footer">
 <p>This Website is Open-<a href="https://github.com/BenTheElder/site">Source</a>.</p>
 </div>
