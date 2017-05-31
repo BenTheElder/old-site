@@ -41,7 +41,7 @@ pagetitle: "BenTheElder - Blog: Title"
 
 
 <!-- under construction cart -->
-<div class="tile centered-text" style="background-color: #FDD835;"><div style="color: black;"><p class="title">This post is under construction (!)</p><p style="margin: 0">If you found this post, please know that it is currently incomplete.</p></div></div>
+<div class="tile centered-text warning"><p class="title">This post is under construction (!)</p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
 
 
 <div class="tile blog-content">

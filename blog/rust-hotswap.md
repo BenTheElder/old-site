@@ -38,6 +38,9 @@ pagetitle: "BenTheElder - Blog: Rust Hotswap"
 </div>
 </div>
 
+<!-- under construction cart -->
+<div class="tile centered-text warning"><p class="title">This post is old (!)</p><p class="no-margin">Rust has changed since this post was written, it may not still be accurate.</p></div>
+
 <div class="tile blog-content">
 <p class="title">Rust Hotswap - January 12th, 2015</p>
 

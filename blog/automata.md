@@ -42,11 +42,11 @@ pagetitle: "BenTheElder - Blog: Automata"
 
 <!-- noscript warning -->
 <noscript>
-  <div class="tile centered-text" style="background-color: #FF1744;"><p class="title">JavaScript is required to view the demos on this page.</h3><h3 class="bold no-margin">Please <a href="http://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer">enable JavaScript</a>.</h3></div>
+  <div class="tile centered-text error"><p class="title">JavaScript is required to view the demos on this page.</h3><h3 class="bold no-margin">Please <a href="http://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer">enable JavaScript</a>.</h3></div>
 </noscript>
 
 <!-- under construction cart -->
-<div class="tile centered-text" style="background-color: #FDD835;"><p class="title">This post is under construction (!)</p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
+<div class="tile centered-text warning"><p class="title">This post is under construction (!)</p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
 
 <!-- include demo scripts -->
 <script src="/scripts/automata.js" type="text/javascript"></script>
