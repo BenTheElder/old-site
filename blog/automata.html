@@ -64,7 +64,7 @@ Automata - May 30th, 2017
 </div>
 </div>
 <p class="no-margin">
-Below are some examples of cellular automata with live demos using JavaScript and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML5 Canvas API</a>.
+Below are some examples of cellular automata with live JavaScript demos using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML5 Canvas</a>.
 </p>
 </div>
 </div>
@@ -87,8 +87,9 @@ Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see 
 </div>
 </canvas>
 <div class="centered-text">
-Conway's Game of Life with a beacon, blinker, oscillators, and <a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gosper's Glider Gun</a>.
+Conway's Game of Life with a beacon, blinker, monogram, and <a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gosper's Glider Gun</a>.
 </div>
+<p>In the top right of the demo we have a <a href="http://conwaylife.com/w/index.php?title=Beacon">beacon</a> and <a href="http://conwaylife.com/w/index.php?title=Blinker">blinker</a>, both stable patterns (<a href="http://conwaylife.com/wiki/Oscillator">oscillators</a>) that will repeat endlessly between their two states. Below these you there is a <a href="http://conwaylife.com/wiki/Monogram">monogram</a> (another oscillator). In the bottom left is a <a href="http://conwaylife.com/wiki/Pentadecathlon">pentadecathlon</a>. Across the top starting from the top left you can see the <a href="http://conwaylife.com/wiki/Gosper%27s_glider_gun">Gosper's Glider Gun</a> a particularly interesting pattern that generates <a href="http://conwaylife.com/wiki/Glider">gliders</a>, a small repetitve pattern that 'glides' accross the grid.</p>
 </div>
 <div class="tile">
 <p class="title">
@@ -98,15 +99,15 @@ Wireworld
 <ol style="list-style-type: decimal">
 <li><code>Empty</code> (<span class="bold">Black</span>)</li>
 <li><code>Conductor</code> (<span class="bold color-yellow-600">Yellow</span>)</li>
-<li><code>Electron head</code> (<span class="bold color-blue-600">Blue</span>)</li>
-<li><code>Electron tail</code> (<span class="bold color-red-600">Red</span>)</li>
+<li><code>Electron Head</code> (<span class="bold color-blue-600">Blue</span>)</li>
+<li><code>Electron Tail</code> (<span class="bold color-red-600">Red</span>)</li>
 </ol>
 <p>These states update with the following rules:</p>
 <ol style="list-style-type: decimal">
 <li>An <code>Empty</code> stays <code>Empty</code></li>
-<li>An <code>Electron head</code> becomes an <code>Electron tail</code></li>
-<li>An <code>Electron tail</code> becomes a <code>Conductor</code></li>
-<li>A <code>Conductor</code> becomes an <code>Electron head</code> if one or two neighbors are <code>Electron head</code>, otherwise it stays a <code>Conductor</code></li>
+<li>An <code>Electron Head</code> becomes an <code>Electron Tail</code></li>
+<li>An <code>Electron Tail</code> becomes a <code>Conductor</code></li>
+<li>A <code>Conductor</code> becomes an <code>Electron Head</code> if one or two neighbors are <code>Electron Head</code>, otherwise it stays a <code>Conductor</code></li>
 </ol>
 <canvas id="wireworld-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920">
 <div class="centered-text title" style="background-color: black; padding: 1em">
@@ -114,8 +115,9 @@ Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see 
 </div>
 </canvas>
 <div class="centered-text">
-Wireworld with some clocks and logic gates.
+Wireworld with some clocks and logic elements.
 </div>
+<p>At the top left and just below are two clocks, circles of <code>Conductor</code> around each of which a single 'electron' (made of an <code>Electron Tail</code> and an <code>Electron head</code>) continuously circle. More <code>Conductor</code> cells coming off of these circles allow 'electrons' to flow to a series of <a href="https://en.wikipedia.org/wiki/Logic_gate">gates</a> and <a href="https://en.wikipedia.org/wiki/Diode">diodes</a>. Some more in-depth overviews of logic elements in Wireworld can be found <a href="https://www.quinapalus.com/wi-index.html">www.quinalpalus.com/wi-index.html</a> and <a href="http://karlscherer.com/Wireworld.html">karlscherer.com/Wireworld.html</a>.</p>
 </div>
 <!-- script for demos -->
 <script>
@@ -166,37 +168,55 @@ var wwCells = [
     {r: 5, c: 0, v: 1}, {r: 5, c: 4, v: 1},
     {r: 6, c: 1, v: 1}, {r: 6, c: 2, v: 1}, {r: 6, c: 3, v: 1},
     // wire to some diodes
-    {r: 3, c: 5, v: 1}, {r: 3, c: 6, v: 1},
-    {r: 2, c: 7, v: 1}, {r: 1, c: 8, v: 1}, {r: 1, c: 9, v: 1},
-    {r: 4, c: 7, v: 1}, {r: 5, c: 8, v: 1}, {r: 5, c: 9, v: 1},
+    {r: 3, c: 5, v: 1}, {r: 3, c: 6, v: 1}, {r: 3, c: 7, v: 1},
+    {r: 3, c: 8, v: 1}, {r: 3, c: 9, v: 1}, {r: 3, c: 10, v: 1},
+    {r: 3, c: 11, v: 1},
+    {r: 2, c: 11, v: 1}, {r: 1, c: 12, v: 1}, {r: 1, c: 13, v: 1},
+    {r: 4, c: 11, v: 1}, {r: 5, c: 12, v: 1}, {r: 5, c: 13, v: 1},
+    {r: 1, c: 14, v: 1}, {r: 5, c: 14, v: 1},
+    {r: 1, c: 11, v: 1}, {r: 5, c: 11, v: 1},
     // diode
-    {r: 0, c: 10, v: 1}, {r: 1, c: 10, v: 1}, {r: 2, c: 10, v: 1},
-    {r: 0, c: 11, v: 1}, {r: 2, c: 11, v: 1},
-    {r: 1, c: 12, v: 1}, {r: 1, c: 13, v: 1},
+    {r: 0, c: 15, v: 1}, {r: 1, c: 15, v: 1}, {r: 2, c: 15, v: 1},
+    {r: 0, c: 16, v: 1}, {r: 2, c: 16, v: 1},
+    {r: 1, c: 17, v: 1}, {r: 1, c: 18, v: 1},
     // reverse diode
-    {r: 4, c: 10, v: 1}, {r: 6, c: 10, v: 1},
-    {r: 4, c: 11, v: 1}, {r: 5, c: 11, v: 1}, {r: 6, c: 11, v: 1},
-    {r: 5, c: 12, v: 1}, {r: 5, c: 13, v: 1},
+    {r: 4, c: 15, v: 1}, {r: 6, c: 15, v: 1},
+    {r: 4, c: 16, v: 1}, {r: 5, c: 16, v: 1}, {r: 6, c: 16, v: 1},
+    {r: 5, c: 17, v: 1}, {r: 5, c: 18, v: 1},
     // faster clock
     {r: 9, c: 0, v: 1}, {r: 8, c: 1, v: 1}, {r: 8, c: 2, v: 1},
     {r: 8, c: 3, v: 1}, {r: 8, c: 4, v: 3}, {r: 8, c: 5, v: 2},
     {r: 10, c: 1, v: 1}, {r: 10, c: 2, v: 1}, {r: 10, c: 3, v: 1},
     {r: 10, c: 4, v: 1}, {r: 10, c: 5, v: 1}, {r: 9, c: 6, v: 1},
     {r: 9, c: 7, v: 1}, {r: 9, c: 8, v: 1}, {r: 9, c: 9, v: 1},
+    {r: 9, c: 10, v: 1}, {r: 9, c: 11, v: 1}, {r: 9, c: 12, v: 1},
+    {r: 9, c: 13, v: 1}, {r: 9, c: 14, v: 1},
     // diode
-    {r: 8, c: 10, v: 1}, {r: 9, c: 10, v: 1}, {r: 10, c: 10, v: 1},
-    {r: 8, c: 11, v: 1}, {r: 10, c: 11, v: 1},
-    {r: 9, c: 12, v: 1}, {r: 9, c: 13, v: 1},
+    {r: 8, c: 15, v: 1}, {r: 9, c: 15, v: 1}, {r: 10, c: 15, v: 1},
+    {r: 8, c: 16, v: 1}, {r: 10, c: 16, v: 1},
+    {r: 9, c: 17, v: 1}, {r: 9, c: 18, v: 1},
     // xor
-    {r: 1, c: 14, v: 1}, {r: 1, c: 15, v: 1}, {r: 1, c: 16, v: 1},
-    {r: 2, c: 17, v: 1}, {r: 3, c: 17, v: 1},
-    {r: 4, c: 16, v: 1}, {r: 4, c: 17, v: 1}, {r: 4, c: 18, v: 1},
-    {r: 4, c: 19, v: 1}, {r: 5, c: 16, v: 1}, {r: 5, c: 19, v: 1},
-    {r: 5, c: 20, v: 1}, {r: 6, c: 16, v: 1}, {r: 6, c: 17, v: 1},
-    {r: 6, c: 18, v: 1}, {r: 6, c: 19, v: 1},
-    {r: 9, c: 14, v: 1}, {r: 9, c: 15, v: 1}, {r: 9, c: 16, v: 1},
-    {r: 7, c: 17, v: 1}, {r: 8, c: 17, v: 1}, {r: 5, c: 21, v: 1},
-    {r: 5, c: 22, v: 1},
+    {r: 1, c: 19, v: 1}, {r: 9, c: 19, v: 1},
+    {r: 1, c: 20, v: 1}, {r: 1, c: 21, v: 1}, {r: 1, c: 22, v: 1},
+    {r: 2, c: 23, v: 1}, {r: 3, c: 23, v: 1}, {r: 1, c: 23, v: 1},
+    {r: 4, c: 22, v: 1}, {r: 4, c: 23, v: 1}, {r: 4, c: 24, v: 1},
+    {r: 4, c: 25, v: 1}, {r: 5, c: 22, v: 1}, {r: 5, c: 25, v: 1},
+    {r: 5, c: 26, v: 1}, {r: 6, c: 22, v: 1}, {r: 6, c: 23, v: 1},
+    {r: 6, c: 24, v: 1}, {r: 6, c: 25, v: 1}, {r: 9, c: 23, v: 1},
+    {r: 9, c: 20, v: 1}, {r: 9, c: 21, v: 1}, {r: 9, c: 22, v: 1},
+    {r: 7, c: 23, v: 1}, {r: 8, c: 23, v: 1}, {r: 5, c: 27, v: 1},
+    // flip flop
+    {r: 5, c: 28, v: 1}, {r: 5, c: 29, v: 1}, {r: 4, c: 29, v: 1},
+    {r: 3, c: 29, v: 1}, {r: 2, c: 29, v: 1}, {r: 1, c: 29, v: 1}, 
+    {r: 0, c: 29, v: 1}, {r: 0, c: 30, v: 1}, {r: 0, c: 31, v: 1},
+    {r: 0, c: 32, v: 1}, {r: 2, c: 32, v: 1}, {r: 2, c: 33, v: 1},
+    {r: 1, c: 33, v: 1}, {r: 3, c: 33, v: 1}, {r: 2, c: 34, v: 1},
+    {r: 2, c: 35, v: 1}, {r: 3, c: 35, v: 1}, {r: 3, c: 36, v: 1},
+    {r: 4, c: 32, v: 2}, {r: 4, c: 35, v: 1}, {r: 4, c: 37, v: 1},
+    {r: 4, c: 38, v: 1}, {r: 4, c: 39, v: 1}, {r: 5, c: 31, v: 3},
+    {r: 5, c: 33, v: 1}, {r: 5, c: 34, v: 1}, {r: 5, c: 35, v: 1},
+    {r: 5, c: 36, v: 1}, {r: 6, c: 32, v: 1}, {r: 6, c: 35, v: 1},
+    {r: 4, c: 40, v: 1}, {r: 4, c: 41, v: 1}, {r: 4, c: 42, v: 1},
 ];
 for (var i = 0; i < wwCells.length; i++) {
     var cell = wwCells[i];

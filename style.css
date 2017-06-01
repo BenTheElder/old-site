@@ -28,7 +28,7 @@ hr {
   color: rgba(0,0,0,0.12);/*#333*/;
   background-color: rgba(0,0,0,0.12);
   border: none;
-  height: 0.111em;
+  height: 0.11111111111rem;
   margin-bottom: 1.25em;
   margin-top: 1.25em;
 }
