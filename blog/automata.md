@@ -86,7 +86,7 @@ This is probably the most famous of all cellular automata. Additionally, the
 
 
 <canvas id="gol-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
-<div class="centered-text"><div class="button" id="gol-pause" onclick="togglePause(this)">PAUSE</div><div class="button" onclick="initGOL()">RESET</div></div>
+<div class="centered-text"><div class="button" id="gol-pause" onclick="togglePause(event, this)">PAUSE</div><div class="button" onclick="initGOL()">RESET</div></div>
 <div class="centered-text">Conway's Game of Life with a beacon, blinker, monogram, and <a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gosper's Glider Gun</a>.</div>
 In the top right of the demo we have a <a href="http://conwaylife.com/w/index.php?title=Beacon">beacon</a> and <a href="http://conwaylife.com/w/index.php?title=Blinker">blinker</a>, both stable patterns (<a href="http://conwaylife.com/wiki/Oscillator">oscillators</a>) that will repeat endlessly between their two states. Below these you there is a <a href="http://conwaylife.com/wiki/Monogram">monogram</a> (another oscillator).
 In the bottom left is a <a href="http://conwaylife.com/wiki/Pentadecathlon">pentadecathlon</a>.
@@ -115,7 +115,7 @@ These states update with the following rules:
 
 
 <canvas id="wireworld-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
-<div class="centered-text"><div class="button" id="wireworld-pause" onclick="togglePause(this)">PAUSE</div><div class="button" onclick="initWW()">RESET</div></div>
+<div class="centered-text"><div class="button" id="wireworld-pause" onclick="togglePause(event, this)">PAUSE</div><div class="button" onclick="initWW()">RESET</div></div>
 <div class="centered-text">Wireworld with some clocks and logic elements.</div>
 At the top left and just below are two clocks, circles of `Conductor` around
  each of which a single 'electron' (made of an `Electron Tail`
@@ -369,7 +369,13 @@ startRender(function() {
 }, function() {
     ww.update();
 }, document.getElementById("wireworld-pause"));
-function togglePause(div) {
+
+function togglePause(event, div) {
+    if (event.stopPropagation) {
+        event.stopPropagation();   // W3C model
+    } else {
+        event.cancelBubble = true; // IE model
+    }
     div.innerHTML = div.innerHTML == "PAUSE" ? "RESUME" : "PAUSE";
 }
 </script>

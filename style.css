@@ -311,6 +311,7 @@ p.small-indent {
   transition-delay: 0.2s;
   box-shadow: 0 0.11111111111em 0.27777777777em 0 rgba(0, 0, 0, 0.26);
   letter-spacing: .05em;
+  user-select: none;
 }
 
 .button:active, .button:hover {
