@@ -52,7 +52,7 @@ pagetitle: "BenTheElder - Blog: Automata"
 <script src="/scripts/automata.js" type="text/javascript"></script>
 
 <div class="tile blog-content">
-<p class="title">Automata - May 30th, 2017</p>
+<p class="title">Automata - June 1st, 2017</p>
 
 
 <div style="float:right; width: 6.91em; padding: 1em; padding-right:0em;"><img style="margin-top:-.15em" src="/images/Game_of_life_pulsar.gif"></img><div class="centered-text"><a href="https://en.wikipedia.org/wiki/File:Game_of_life_pulsar.gif">A pulsar.</a></div></div>
@@ -80,11 +80,13 @@ pagetitle: "BenTheElder - Blog: Automata"
 4) A `dead` cell with three `live` neighbours becomes a `live` cell (as if by reproduction)
 
 
-This is probably the most famous of all cellular automata.  
-Additionally, the pulsar from the begining of this post is an example.  
+This is probably the most famous of all cellular automata. Additionally, the
+ pulsar from the begining of this post is an example, though the demo's
+ colors are reversed.  
 
 
 <canvas id="gol-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
+<div class="centered-text"><div class="button" id="gol-pause" onclick="togglePause(this)">PAUSE</div><div class="button" onclick="initGOL()">RESET</div></div>
 <div class="centered-text">Conway's Game of Life with a beacon, blinker, monogram, and <a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gosper's Glider Gun</a>.</div>
 In the top right of the demo we have a <a href="http://conwaylife.com/w/index.php?title=Beacon">beacon</a> and <a href="http://conwaylife.com/w/index.php?title=Blinker">blinker</a>, both stable patterns (<a href="http://conwaylife.com/wiki/Oscillator">oscillators</a>) that will repeat endlessly between their two states. Below these you there is a <a href="http://conwaylife.com/wiki/Monogram">monogram</a> (another oscillator).
 In the bottom left is a <a href="http://conwaylife.com/wiki/Pentadecathlon">pentadecathlon</a>.
@@ -113,6 +115,7 @@ These states update with the following rules:
 
 
 <canvas id="wireworld-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
+<div class="centered-text"><div class="button" id="wireworld-pause" onclick="togglePause(this)">PAUSE</div><div class="button" onclick="initWW()">RESET</div></div>
 <div class="centered-text">Wireworld with some clocks and logic elements.</div>
 At the top left and just below are two clocks, circles of `Conductor` around
  each of which a single 'electron' (made of an `Electron Tail`
@@ -120,128 +123,294 @@ At the top left and just below are two clocks, circles of `Conductor` around
  of these circles allow 'electrons' to flow to a series of 
  <a href="https://en.wikipedia.org/wiki/Logic_gate">gates</a> and
  <a href="https://en.wikipedia.org/wiki/Diode">diodes</a>. Some more in-depth
- overviews of logic elements in Wireworld can be found
- <a href="https://www.quinapalus.com/wi-index.html">www.quinalpalus.com/wi-index.html</a>
- and <a href="http://karlscherer.com/Wireworld.html">karlscherer.com/Wireworld.html</a>.
+ overviews of logic elements in Wireworld can be found at
+ <a href="https://www.quinapalus.com/wi-index.html">www.quinalpalus.com</a>,
+ <a href="http://www.heise.ws/wireworld.html">www.heise.ws</a>,
+ and <a href="http://karlscherer.com/Wireworld.html">karlscherer.com</a>.
 </div>
 
 <!-- script for demos -->
 <script>
 // setup game of life
 var gol = new automata.GameOfLife(27, 48);
-gol.init();
-// set up starting pattern
-var liveCells = [
-    // start with gosper's glider gun
-    {r: 0, c: 24}, {r: 1, c: 22}, {r: 1, c: 24}, {r: 2, c: 12}, {r: 2, c: 13},
-    {r: 2, c: 20}, {r: 2, c: 21}, {r: 2, c: 21}, {r: 2, c: 34}, {r: 2, c: 35},
-    {r: 3, c: 11}, {r: 3, c: 15}, {r: 3, c: 20}, {r: 3, c: 21}, {r: 3, c: 34},
-    {r: 3, c: 35}, {r: 4, c: 0}, {r: 4, c: 1}, {r: 4, c: 10}, {r: 4, c: 16},
-    {r: 4, c: 20}, {r: 4, c: 21}, {r: 5, c: 0}, {r: 5, c: 1}, {r: 5, c: 10},
-    {r: 5, c: 14}, {r: 5, c: 16}, {r: 5, c: 17}, {r: 5, c: 22}, {r: 5, c: 24},
-    {r: 6, c: 10}, {r: 6, c: 16}, {r: 6, c: 24}, {r: 7, c: 11}, {r: 7, c: 15},
-    {r: 8, c: 12}, {r: 8, c: 13},
-    // blinker
-    {r: 3, c: 41}, {r: 4, c: 41}, {r: 5, c: 41},
-    // beacon
-    {r: 0, c: 44}, {r: 0, c: 45}, {r: 1, c: 44}, {r: 2, c: 47}, {r: 3, c: 46},
-    {r: 3, c: 47},
-    // pentadecathlon
-    {r: 21, c: 4}, {r: 21, c: 5}, {r: 22, c: 6}, {r: 20, c: 6}, {r: 21, c: 7},
-    {r: 21, c: 8}, {r: 21, c: 9}, {r: 21, c: 10}, {r: 22, c: 11},
-    {r: 20, c: 11}, {r: 21, c: 12}, {r: 21, c: 13},
-    // oscillator
-    {r: 11, c: 38}, {r: 11, c: 39}, {r: 11, c: 43}, {r: 11, c: 44},
-    {r: 12, c: 39}, {r: 12, c: 41}, {r: 12, c: 43},
-    {r: 13, c: 39}, {r: 13, c: 40}, {r: 13, c: 42}, {r: 13, c: 43},
-    {r: 14, c: 39}, {r: 14, c: 41}, {r: 14, c: 43},
-    {r: 15, c: 38}, {r: 15, c: 39}, {r: 15, c: 43}, {r: 15, c: 44}
-];
-for (var i = 0; i < liveCells.length; i++) {
-    var cell = liveCells[i];
-    gol.cells[cell.r][cell.c] = true;
-}
+var initGOL = function() {
+    gol.init();
+    // set up starting pattern
+    var liveCells = [
+        // start with gosper's glider gun
+        {r:0, c:24}, {r:1, c:22}, {r:1, c:24}, {r:2, c:12}, {r:2, c:13},
+        {r:2, c:20}, {r:2, c:21}, {r:2, c:21}, {r:2, c:34}, {r:2, c:35},
+        {r:3, c:11}, {r:3, c:15}, {r:3, c:20}, {r:3, c:21}, {r:3, c:34},
+        {r:3, c:35}, {r:4, c:0}, {r:4, c:1}, {r:4, c:10}, {r:4, c:16},
+        {r:4, c:20}, {r:4, c:21}, {r:5, c:0}, {r:5, c:1}, {r:5, c:10},
+        {r:5, c:14}, {r:5, c:16}, {r:5, c:17}, {r:5, c:22}, {r:5, c:24},
+        {r:6, c:10}, {r:6, c:16}, {r:6, c:24}, {r:7, c:11}, {r:7, c:15},
+        {r:8, c:12}, {r:8, c:13},
+        // blinker
+        {r:3, c:41}, {r:4, c:41}, {r:5, c:41},
+        // beacon
+        {r:0, c:44}, {r:0, c:45}, {r:1, c:44}, {r:2, c:47}, {r:3, c:46},
+        {r:3, c:47},
+        // pentadecathlon
+        {r:21, c:4}, {r:21, c:5}, {r:22, c:6}, {r:20, c:6}, {r:21, c:7},
+        {r:21, c:8}, {r:21, c:9}, {r:21, c:10}, {r:22, c:11},
+        {r:20, c:11}, {r:21, c:12}, {r:21, c:13},
+        // oscillator
+        {r:11, c:38}, {r:11, c:39}, {r:11, c:43}, {r:11, c:44},
+        {r:12, c:39}, {r:12, c:41}, {r:12, c:43},
+        {r:13, c:39}, {r:13, c:40}, {r:13, c:42}, {r:13, c:43},
+        {r:14, c:39}, {r:14, c:41}, {r:14, c:43},
+        {r:15, c:38}, {r:15, c:39}, {r:15, c:43}, {r:15, c:44}
+    ];
+    for (var i = 0; i < liveCells.length; i++) {
+        var cell = liveCells[i];
+        gol.cells[cell.r][cell.c] = true;
+    }
+};
+initGOL();
+
 // setup wireworld
 var ww = new automata.Wireworld(27, 48);
-ww.init();
-var wwCells = [
-    // clock
-    {r: 0, c: 1, v: 3}, {r: 0, c: 2, v: 2}, {r: 0, c: 3, v: 1},
-    {r: 1, c: 0, v: 1}, {r: 1, c: 4, v: 1},
-    {r: 2, c: 0, v: 1}, {r: 2, c: 4, v: 1},
-    {r: 3, c: 0, v: 1}, {r: 3, c: 4, v: 1},
-    {r: 4, c: 0, v: 1}, {r: 4, c: 4, v: 1},
-    {r: 5, c: 0, v: 1}, {r: 5, c: 4, v: 1},
-    {r: 6, c: 1, v: 1}, {r: 6, c: 2, v: 1}, {r: 6, c: 3, v: 1},
-    // wire to some diodes
-    {r: 3, c: 5, v: 1}, {r: 3, c: 6, v: 1}, {r: 3, c: 7, v: 1},
-    {r: 3, c: 8, v: 1}, {r: 3, c: 9, v: 1}, {r: 3, c: 10, v: 1},
-    {r: 3, c: 11, v: 1},
-    {r: 2, c: 11, v: 1}, {r: 1, c: 12, v: 1}, {r: 1, c: 13, v: 1},
-    {r: 4, c: 11, v: 1}, {r: 5, c: 12, v: 1}, {r: 5, c: 13, v: 1},
-    {r: 1, c: 14, v: 1}, {r: 5, c: 14, v: 1},
-    {r: 1, c: 11, v: 1}, {r: 5, c: 11, v: 1},
-    // diode
-    {r: 0, c: 15, v: 1}, {r: 1, c: 15, v: 1}, {r: 2, c: 15, v: 1},
-    {r: 0, c: 16, v: 1}, {r: 2, c: 16, v: 1},
-    {r: 1, c: 17, v: 1}, {r: 1, c: 18, v: 1},
-    // reverse diode
-    {r: 4, c: 15, v: 1}, {r: 6, c: 15, v: 1},
-    {r: 4, c: 16, v: 1}, {r: 5, c: 16, v: 1}, {r: 6, c: 16, v: 1},
-    {r: 5, c: 17, v: 1}, {r: 5, c: 18, v: 1},
-    // faster clock
-    {r: 9, c: 0, v: 1}, {r: 8, c: 1, v: 1}, {r: 8, c: 2, v: 1},
-    {r: 8, c: 3, v: 1}, {r: 8, c: 4, v: 3}, {r: 8, c: 5, v: 2},
-    {r: 10, c: 1, v: 1}, {r: 10, c: 2, v: 1}, {r: 10, c: 3, v: 1},
-    {r: 10, c: 4, v: 1}, {r: 10, c: 5, v: 1}, {r: 9, c: 6, v: 1},
-    {r: 9, c: 7, v: 1}, {r: 9, c: 8, v: 1}, {r: 9, c: 9, v: 1},
-    {r: 9, c: 10, v: 1}, {r: 9, c: 11, v: 1}, {r: 9, c: 12, v: 1},
-    {r: 9, c: 13, v: 1}, {r: 9, c: 14, v: 1},
-    // diode
-    {r: 8, c: 15, v: 1}, {r: 9, c: 15, v: 1}, {r: 10, c: 15, v: 1},
-    {r: 8, c: 16, v: 1}, {r: 10, c: 16, v: 1},
-    {r: 9, c: 17, v: 1}, {r: 9, c: 18, v: 1},
-    // xor
-    {r: 1, c: 19, v: 1}, {r: 9, c: 19, v: 1},
-    {r: 1, c: 20, v: 1}, {r: 1, c: 21, v: 1}, {r: 1, c: 22, v: 1},
-    {r: 2, c: 23, v: 1}, {r: 3, c: 23, v: 1}, {r: 1, c: 23, v: 1},
-    {r: 4, c: 22, v: 1}, {r: 4, c: 23, v: 1}, {r: 4, c: 24, v: 1},
-    {r: 4, c: 25, v: 1}, {r: 5, c: 22, v: 1}, {r: 5, c: 25, v: 1},
-    {r: 5, c: 26, v: 1}, {r: 6, c: 22, v: 1}, {r: 6, c: 23, v: 1},
-    {r: 6, c: 24, v: 1}, {r: 6, c: 25, v: 1}, {r: 9, c: 23, v: 1},
-    {r: 9, c: 20, v: 1}, {r: 9, c: 21, v: 1}, {r: 9, c: 22, v: 1},
-    {r: 7, c: 23, v: 1}, {r: 8, c: 23, v: 1}, {r: 5, c: 27, v: 1},
-    // flip flop
-    {r: 5, c: 28, v: 1}, {r: 5, c: 29, v: 1}, {r: 4, c: 29, v: 1},
-    {r: 3, c: 29, v: 1}, {r: 2, c: 29, v: 1}, {r: 1, c: 29, v: 1}, 
-    {r: 0, c: 29, v: 1}, {r: 0, c: 30, v: 1}, {r: 0, c: 31, v: 1},
-    {r: 0, c: 32, v: 1}, {r: 2, c: 32, v: 1}, {r: 2, c: 33, v: 1},
-    {r: 1, c: 33, v: 1}, {r: 3, c: 33, v: 1}, {r: 2, c: 34, v: 1},
-    {r: 2, c: 35, v: 1}, {r: 3, c: 35, v: 1}, {r: 3, c: 36, v: 1},
-    {r: 4, c: 32, v: 2}, {r: 4, c: 35, v: 1}, {r: 4, c: 37, v: 1},
-    {r: 4, c: 38, v: 1}, {r: 4, c: 39, v: 1}, {r: 5, c: 31, v: 3},
-    {r: 5, c: 33, v: 1}, {r: 5, c: 34, v: 1}, {r: 5, c: 35, v: 1},
-    {r: 5, c: 36, v: 1}, {r: 6, c: 32, v: 1}, {r: 6, c: 35, v: 1},
-    {r: 4, c: 40, v: 1}, {r: 4, c: 41, v: 1}, {r: 4, c: 42, v: 1},
-];
-for (var i = 0; i < wwCells.length; i++) {
-    var cell = wwCells[i];
-    ww.cells[cell.r][cell.c] = cell.v;
-}
+var initWW = function() {
+    ww.init();
+    var wwCells = [
+        // clock
+        {r:0, c:1, v:3}, {r:0, c:2, v:2}, {r:0, c:3, v:1},
+        {r:1, c:0, v:1}, {r:1, c:4, v:1},
+        {r:2, c:0, v:1}, {r:2, c:4, v:1},
+        {r:3, c:0, v:1}, {r:3, c:4, v:1},
+        {r:4, c:0, v:1}, {r:4, c:4, v:1},
+        {r:5, c:0, v:1}, {r:5, c:4, v:1},
+        {r:6, c:1, v:1}, {r:6, c:2, v:1}, {r:6, c:3, v:1},
+        // wire to some diodes
+        {r:3, c:5, v:1}, {r:3, c:6, v:1}, {r:3, c:7, v:1},
+        {r:3, c:8, v:1}, {r:3, c:9, v:1}, {r:3, c:10, v:1},
+        {r:3, c:11, v:1},
+        {r:2, c:11, v:1}, {r:1, c:12, v:1}, {r:1, c:13, v:1},
+        {r:4, c:11, v:1}, {r:5, c:12, v:1}, {r:5, c:13, v:1},
+        {r:1, c:14, v:1}, {r:5, c:14, v:1},
+        {r:1, c:11, v:1}, {r:5, c:11, v:1},
+        // diode
+        {r:0, c:15, v:1}, {r:1, c:15, v:1}, {r:2, c:15, v:1},
+        {r:0, c:16, v:1}, {r:2, c:16, v:1},
+        {r:1, c:17, v:1}, {r:1, c:18, v:1},
+        // reverse diode
+        {r:4, c:15, v:1}, {r:6, c:15, v:1},
+        {r:4, c:16, v:1}, {r:5, c:16, v:1}, {r:6, c:16, v:1},
+        {r:5, c:17, v:1}, {r:5, c:18, v:1},
+        // faster clock
+        {r:9, c:0, v:1}, {r:8, c:1, v:1}, {r:8, c:2, v:1},
+        {r:8, c:3, v:1}, {r:8, c:4, v:3}, {r:8, c:5, v:2},
+        {r:10, c:1, v:1}, {r:10, c:2, v:1}, {r:10, c:3, v:1},
+        {r:10, c:4, v:1}, {r:10, c:5, v:1}, {r:9, c:6, v:1},
+        {r:9, c:7, v:1}, {r:9, c:8, v:1}, {r:9, c:9, v:1},
+        {r:9, c:10, v:1}, {r:9, c:11, v:1}, {r:9, c:12, v:1},
+        {r:9, c:13, v:1}, {r:9, c:14, v:1},
+        // diode
+        {r:8, c:15, v:1}, {r:9, c:15, v:1}, {r:10, c:15, v:1},
+        {r:8, c:16, v:1}, {r:10, c:16, v:1},
+        {r:9, c:17, v:1}, {r:9, c:18, v:1},
+        // xor
+        {r:1, c:19, v:1}, {r:9, c:19, v:1},
+        {r:1, c:20, v:1}, {r:1, c:21, v:1}, {r:1, c:22, v:1},
+        {r:2, c:23, v:1}, {r:3, c:23, v:1}, {r:1, c:23, v:1},
+        {r:4, c:22, v:1}, {r:4, c:23, v:1}, {r:4, c:24, v:1},
+        {r:4, c:25, v:1}, {r:5, c:22, v:1}, {r:5, c:25, v:1},
+        {r:5, c:26, v:1}, {r:6, c:22, v:1}, {r:6, c:23, v:1},
+        {r:6, c:24, v:1}, {r:6, c:25, v:1}, {r:9, c:23, v:1},
+        {r:9, c:20, v:1}, {r:9, c:21, v:1}, {r:9, c:22, v:1},
+        {r:7, c:23, v:1}, {r:8, c:23, v:1}, {r:5, c:27, v:1},
+        // flip flop
+        {r:5, c:28, v:1}, {r:5, c:29, v:1}, {r:4, c:29, v:1},
+        {r:3, c:29, v:1}, {r:2, c:29, v:1}, {r:1, c:29, v:1}, 
+        {r:0, c:29, v:1}, {r:0, c:30, v:1}, {r:0, c:31, v:1},
+        {r:0, c:32, v:1}, {r:2, c:32, v:1}, {r:2, c:33, v:1},
+        {r:1, c:33, v:1}, {r:3, c:33, v:1}, {r:2, c:34, v:1},
+        {r:2, c:35, v:1}, {r:3, c:35, v:1}, {r:3, c:36, v:1},
+        {r:4, c:32, v:2}, {r:4, c:35, v:1}, {r:4, c:37, v:1},
+        {r:4, c:38, v:1}, {r:4, c:39, v:1}, {r:5, c:31, v:3},
+        {r:5, c:33, v:1}, {r:5, c:34, v:1}, {r:5, c:35, v:1},
+        {r:5, c:36, v:1}, {r:6, c:32, v:1}, {r:6, c:35, v:1},
+        {r:4, c:40, v:1},
+        // wire
+        {r:3, c:40, v:1}, {r:2, c:40, v:1}, {r:1, c:40, v:1},
+        {r:0, c:40, v:1}, {r:0, c:41, v:1}, {r:0, c:42, v:1},
+        {r:0, c:43, v:1}, {r:0, c:44, v:1}, {r:0, c:45, v:1},
+        {r:0, c:46, v:1}, {r:0, c:47, v:1}, {r:1, c:47, v:1},
+        {r:2, c:47, v:1}, {r:3, c:47, v:1}, {r:4, c:47, v:1},
+        {r:5, c:47, v:1}, {r:6, c:47, v:1}, {r:7, c:47, v:1},
+        {r:8, c:47, v:1}, {r:9, c:47, v:1}, {r:10, c:47, v:1},
+        {r:11, c:47, v:1}, {r:12, c:47, v:1},
+        {r:12, c:47, v:1}, {r:12, c:46, v:1}, {r:12, c:45, v:1},
+        {r:12, c:44, v:1}, {r:12, c:43, v:1}, {r:12, c:42, v:1},
+        {r:12, c:41, v:1}, {r:12, c:40, v:1}, {r:12, c:39, v:1},
+        {r:12, c:38, v:1}, {r:12, c:37, v:1}, {r:12, c:36, v:1},
+        {r:12, c:35, v:1}, {r:12, c:34, v:1}, {r:12, c:33, v:1},
+        {r:12, c:32, v:1}, {r:12, c:31, v:1}, {r:12, c:30, v:1},
+        {r:12, c:29, v:1}, {r:12, c:28, v:1}, {r:12, c:27, v:1},
+        {r:12, c:26, v:1}, {r:12, c:25, v:1}, {r:12, c:24, v:1},
+        {r:12, c:23, v:1}, {r:12, c:22, v:1}, {r:12, c:21, v:1},
+        {r:12, c:20, v:1}, {r:12, c:19, v:1}, {r:12, c:18, v:1},
+        {r:12, c:17, v:1}, {r:12, c:16, v:1}, {r:12, c:15, v:1},
+        {r:12, c:14, v:1}, {r:12, c:13, v:1}, {r:12, c:12, v:1},
+        {r:12, c:11, v:1}, {r:12, c:10, v:1}, {r:12, c:9, v:1},
+        {r:12, c:8, v:1}, {r:12, c:7, v:1}, {r:12, c:6, v:1},
+        {r:12, c:5, v:1}, {r:12, c:4, v:1}, {r:12, c:3, v:1},
+        {r:12, c:2, v:1}, {r:12, c:1, v:1}, {r:12, c:0, v:1},
+        {r:13, c:0, v:1},
+        // W
+        {r:14, c:0, v:1}, {r:15, c:0, v:1}, {r:16, c:0, v:1},
+        {r:17, c:0, v:1}, {r:18, c:0, v:1}, {r:19, c:0, v:1},
+        {r:19, c:1, v:1}, {r:19, c:2, v:1}, {r:18, c:2, v:1},
+        {r:17, c:2, v:1}, {r:16, c:2, v:1}, {r:19, c:3, v:1},
+        {r:19, c:4, v:1}, {r:18, c:4, v:1}, {r:17, c:4, v:1},
+        {r:16, c:4, v:1}, {r:15, c:4, v:1}, {r:14, c:4, v:1},
+        {r:14, c:5, v:1},
+        // I
+        {r:14, c:6, v:1}, {r:14, c:7, v:1}, {r:15, c:8, v:1},
+        {r:16, c:8, v:1}, {r:17, c:8, v:1}, {r:18, c:8, v:1},
+        {r:19, c:7, v:1}, {r:19, c:6, v:1}, {r:19, c:8, v:1},
+        {r:14, c:8, v:1}, {r:14, c:9, v:1}, {r:14, c:10, v:1},
+        {r:19, c:9, v:1}, {r:19, c:10, v:1},
+        // R
+        {r:14, c:11, v:1}, {r:14, c:12, v:1}, {r:15, c:12, v:1},
+        {r:16, c:12, v:1}, {r:17, c:12, v:1}, {r:18, c:12, v:1},
+        {r:19, c:12, v:1}, {r:17, c:13, v:1}, {r:17, c:14, v:1},
+        {r:18, c:15, v:1}, {r:19, c:15, v:1}, {r:14, c:13, v:1},
+        {r:15, c:15, v:1}, {r:16, c:15, v:1}, {r:14, c:14, v:1},
+        // E
+        {r:19, c:16, v:1}, {r:19, c:17, v:1}, {r:18, c:17, v:1},
+        {r:17, c:17, v:1}, {r:16, c:17, v:1}, {r:15, c:17, v:1},
+        {r:14, c:17, v:1}, {r:14, c:18, v:1}, {r:17, c:18, v:1},
+        {r:19, c:18, v:1}, {r:14, c:19, v:1}, {r:17, c:19, v:1},
+        {r:19, c:19, v:1}, {r:19, c:20, v:1}, {r:19, c:21, v:1},
+        {r:14, c:20, v:1}, {r:17, c:20, v:1},
+        // W
+        {r:19, c:22, v:1}, {r:18, c:22, v:1}, {r:17, c:22, v:1},
+        {r:16, c:22, v:1}, {r:15, c:22, v:1}, {r:14, c:22, v:1},
+        {r:19, c:23, v:1}, {r:19, c:24, v:1}, {r:18, c:24, v:1},
+        {r:17, c:24, v:1}, {r:16, c:24, v:1}, {r:19, c:25, v:1},
+        {r:19, c:26, v:1}, {r:18, c:26, v:1}, {r:17, c:26, v:1},
+        {r:16, c:26, v:1}, {r:15, c:26, v:1}, {r:14, c:26, v:1},
+        // O
+        {r:14, c:27, v:1}, {r:14, c:28, v:1}, {r:15, c:28, v:1},
+        {r:16, c:28, v:1}, {r:17, c:28, v:1}, {r:18, c:28, v:1},
+        {r:19, c:28, v:1}, {r:14, c:29, v:1}, {r:14, c:30, v:1},
+        {r:19, c:29, v:1}, {r:19, c:30, v:1}, {r:19, c:31, v:1},
+        {r:18, c:31, v:1}, {r:17, c:31, v:1}, {r:16, c:31, v:1},
+        {r:15, c:31, v:1}, {r:14, c:31, v:1}, {r:14, c:32, v:1},
+        // R
+        {r:14, c:33, v:1}, {r:14, c:34, v:1}, {r:15, c:34, v:1},
+        {r:16, c:34, v:1}, {r:17, c:34, v:1}, {r:18, c:34, v:1},
+        {r:19, c:34, v:1}, {r:17, c:35, v:1}, {r:17, c:35, v:1},
+        {r:17, c:36, v:1}, {r:18, c:37, v:1}, {r:19, c:37, v:1},
+        {r:14, c:35, v:1}, {r:14, c:36, v:1}, {r:15, c:37, v:1},
+        {r:16, c:37, v:1}, {r:19, c:38, v:1},
+        // L
+        {r:19, c:39, v:1}, {r:18, c:39, v:1}, {r:17, c:39, v:1},
+        {r:16, c:39, v:1}, {r:15, c:39, v:1}, {r:14, c:39, v:1},
+        {r:19, c:40, v:1}, {r:19, c:41, v:1}, {r:19, c:42, v:1},
+        // D
+        {r:19, c:43, v:1}, {r:18, c:43, v:1},
+        {r:17, c:43, v:1}, {r:16, c:43, v:1}, {r:15, c:43, v:1},
+        {r:14, c:43, v:1}, {r:14, c:44, v:1}, {r:14, c:45, v:1},
+        {r:19, c:44, v:1}, {r:19, c:45, v:1}, {r:15, c:46, v:1},
+        {r:16, c:46, v:1}, {r:17, c:46, v:1}, {r:18, c:46, v:1},
+        // wire
+        {r:19, c:47, v:1}, {r:20, c:47, v:1}, {r:21, c:47, v:1},
+        {r:21, c:46, v:1}, {r:21, c:45, v:1}, {r:21, c:44, v:1},
+        {r:21, c:43, v:1}, {r:21, c:42, v:1}, {r:21, c:41, v:1},
+        {r:21, c:40, v:1}, {r:21, c:39, v:1}, {r:21, c:38, v:1},
+        {r:21, c:37, v:1}, {r:21, c:36, v:1}, {r:21, c:35, v:1},
+        {r:21, c:34, v:1}, {r:21, c:33, v:1}, {r:21, c:32, v:1},
+        {r:21, c:31, v:1}, {r:21, c:30, v:1}, {r:21, c:29, v:1},
+        {r:21, c:28, v:1}, {r:21, c:27, v:1}, {r:21, c:26, v:1},
+        {r:21, c:25, v:1}, {r:21, c:24, v:1}, {r:21, c:23, v:1},
+        {r:21, c:22, v:1}, {r:21, c:21, v:1}, {r:21, c:20, v:1},
+        {r:21, c:19, v:1}, {r:21, c:18, v:1}, {r:21, c:17, v:1},
+        {r:21, c:16, v:1}, {r:21, c:15, v:1}, {r:21, c:14, v:1},
+        {r:21, c:13, v:1}, {r:21, c:12, v:1}, {r:21, c:11, v:1},
+        {r:21, c:10, v:1}, {r:21, c:9, v:1}, {r:21, c:8, v:1},
+        {r:21, c:7, v:1}, {r:21, c:6, v:1}, {r:21, c:5, v:1},
+        {r:21, c:4, v:1}, {r:21, c:3, v:1}, {r:21, c:2, v:1},
+        {r:21, c:1, v:1}, {r:21, c:0, v:1}, {r:22, c:0, v:1},
+        {r:23, c:0, v:1}, {r:24, c:0, v:1}, {r:25, c:0, v:1},
+        {r:26, c:0, v:1}, {r:26, c:1, v:1}, {r:26, c:2, v:1},
+        {r:25, c:2, v:1}, {r:24, c:2, v:1}, {r:23, c:2, v:1},
+        {r:23, c:3, v:1}, {r:23, c:4, v:1}, {r:24, c:4, v:1},
+        {r:25, c:4, v:1}, {r:26, c:4, v:1}, {r:26, c:5, v:1},
+        {r:26, c:6, v:1}, {r:25, c:6, v:1}, {r:24, c:6, v:1},
+        {r:24, c:6, v:1}, {r:23, c:6, v:1}, {r:23, c:7, v:1},
+        {r:23, c:8, v:1}, {r:24, c:8, v:1}, {r:25, c:8, v:1},
+        {r:26, c:8, v:1}, {r:26, c:9, v:1}, {r:26, c:10, v:1},
+        {r:25, c:10, v:1}, {r:24, c:10, v:1}, {r:23, c:10, v:1},
+        {r:23, c:11, v:1}, {r:23, c:12, v:1}, {r:24, c:12, v:1},
+        {r:25, c:12, v:1}, {r:26, c:12, v:1}, {r:26, c:13, v:1},
+        {r:26, c:14, v:1}, {r:25, c:14, v:1}, {r:24, c:14, v:1},
+        {r:23, c:14, v:1}, {r:23, c:15, v:1}, {r:23, c:16, v:1},
+        {r:24, c:16, v:1}, {r:25, c:16, v:1}, {r:26, c:16, v:1},
+        {r:26, c:17, v:1}, {r:26, c:18, v:1}, {r:25, c:18, v:1},
+        {r:24, c:18, v:1}, {r:23, c:18, v:1}, {r:23, c:19, v:1},
+        {r:23, c:20, v:1}, {r:24, c:20, v:1}, {r:25, c:20, v:1},
+        {r:26, c:20, v:1}, {r:26, c:21, v:1}, {r:26, c:22, v:1},
+        {r:25, c:22, v:1}, {r:24, c:22, v:1}, {r:23, c:22, v:1},
+        {r:23, c:23, v:1}, {r:23, c:24, v:1}, {r:24, c:24, v:1},
+        {r:25, c:24, v:1}, {r:26, c:24, v:1}, {r:26, c:25, v:1},
+        {r:26, c:26, v:1}, {r:25, c:26, v:1}, {r:24, c:26, v:1},
+        {r:23, c:26, v:1}, {r:23, c:27, v:1}, {r:23, c:28, v:1},
+        {r:24, c:28, v:1}, {r:25, c:28, v:1}, {r:26, c:28, v:1},
+        {r:26, c:29, v:1}, {r:26, c:30, v:1}, {r:25, c:30, v:1},
+        {r:24, c:30, v:1}, {r:23, c:30, v:1}, {r:23, c:31, v:1},
+        {r:23, c:32, v:1}, {r:24, c:32, v:1}, {r:25, c:32, v:1},
+        {r:26, c:32, v:1}, {r:26, c:33, v:1}, {r:26, c:34, v:1},
+        {r:25, c:34, v:1}, {r:24, c:34, v:1}, {r:23, c:34, v:1},
+        {r:23, c:35, v:1}, {r:23, c:36, v:1}, {r:24, c:36, v:1},
+        {r:25, c:36, v:1}, {r:26, c:36, v:1}, {r:26, c:37, v:1},
+        {r:26, c:38, v:1}, {r:25, c:38, v:1}, {r:24, c:38, v:1},
+        {r:23, c:38, v:1}, {r:23, c:39, v:1}, {r:23, c:40, v:1},
+        {r:24, c:40, v:1}, {r:25, c:40, v:1}, {r:26, c:40, v:1},
+        {r:26, c:41, v:1}, {r:26, c:42, v:1}, {r:25, c:42, v:1},
+        {r:24, c:42, v:1}, {r:23, c:42, v:1}, {r:23, c:43, v:1},
+        {r:23, c:44, v:1}, {r:24, c:44, v:1}, {r:25, c:44, v:1},
+        {r:26, c:44, v:1}, {r:26, c:45, v:1}, {r:26, c:46, v:1},
+        {r:25, c:46, v:1}, {r:24, c:46, v:1}, {r:23, c:46, v:1},
+    ];
+    for (var i = 0; i < wwCells.length; i++) {
+        var cell = wwCells[i];
+        ww.cells[cell.r][cell.c] = cell.v;
+    }
+};
+initWW();
+
 // setup rendering
 var golCanvas = document.getElementById("gol-canvas");
 var wwCanvas = document.getElementById("wireworld-canvas");
 var framesPerSecond = 3;
-function renderAutomata() {
-    setTimeout(function() {
-        gol.render(golCanvas);
-        ww.render(wwCanvas);
-        gol.update();
-        ww.update();
-        requestAnimationFrame(renderAutomata);
-    }, 1000 / framesPerSecond);
+function startRender(renderFunc, updateFunc, pauseButton) {
+    function render() {
+        setTimeout(function() {
+            renderFunc();
+            if (pauseButton.innerHTML == "PAUSE") {
+                updateFunc();
+            }
+            requestAnimationFrame(render);
+        }, 1000 / framesPerSecond);
+    }
+    window.requestAnimationFrame(render);
 }
-window.requestAnimationFrame(renderAutomata);
+startRender(function() {
+    gol.render(golCanvas);
+}, function() {
+    gol.update();
+}, document.getElementById("gol-pause"));
+startRender(function() {
+    ww.render(wwCanvas);
+}, function() {
+    ww.update();
+}, document.getElementById("wireworld-pause"));
+function togglePause(div) {
+    div.innerHTML = div.innerHTML == "PAUSE" ? "RESUME" : "PAUSE";
+}
 </script>
 
 <!--comments tile-->

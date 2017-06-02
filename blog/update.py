@@ -28,7 +28,7 @@ def process_post(filename):
     # run pandoc
     call_and_print(["pandoc", "-o", html_name,
                     filename, "--highlight-style=pygments",
-                    "-s", "--template="+TEMPLATE_POST])
+                    "-s", "--template="+TEMPLATE_POST, "--wrap=none"])
 
 def main():
     # check args
