@@ -52,7 +52,7 @@ pagetitle: "BenTheElder - Blog: Automata"
 <script src="/scripts/automata.js" type="text/javascript"></script>
 
 <div class="tile blog-content">
-<p class="title">Automata - June 1st, 2017</p>
+<p class="title">Automata - June 2nd, 2017</p>
 
 
 <div style="float:right; width: 6.91em; padding: 1em; padding-right:0em;"><img style="margin-top:-.15em" src="/images/Game_of_life_pulsar.gif"></img><div class="centered-text"><a href="https://en.wikipedia.org/wiki/File:Game_of_life_pulsar.gif">A pulsar.</a></div></div>
@@ -122,11 +122,59 @@ At the top left and just below are two clocks, circles of `Conductor` around
  and an `Electron head`) continuously circle. More `Conductor` cells coming off
  of these circles allow 'electrons' to flow to a series of 
  <a href="https://en.wikipedia.org/wiki/Logic_gate">gates</a> and
- <a href="https://en.wikipedia.org/wiki/Diode">diodes</a>. Some more in-depth
- overviews of logic elements in Wireworld can be found at
+ <a href="https://en.wikipedia.org/wiki/Diode">diodes</a>. Some in-depth
+ overviews of logic elements in Wireworld can be found at:
  <a href="https://www.quinapalus.com/wi-index.html">www.quinalpalus.com</a>,
  <a href="http://www.heise.ws/wireworld.html">www.heise.ws</a>,
  and <a href="http://karlscherer.com/Wireworld.html">karlscherer.com</a>.
+</div>
+
+
+<div class="tile">
+<p class="title">Rule 110</p>
+<p><a href="https://en.wikipedia.org/wiki/Rule_110">Rule 110</a> is an
+ <a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">elementary cellular automata</a>
+ , meaning that it is a one-dimensional / single-row ceullar automata.
+With only two states (`0` and `1`) and eight rules, this automata is interesting
+ because it is the only Turing-complete elementary cellular automata despite its
+ seemingly simple patterns. Cells in Rule 110 update based on their current
+ value and that of their left and right neighbors according to the following
+ rules:</p>
+<!--
+<table class="bordered" style="margin: .5em auto; text-align: center">
+<thead>
+<tr>
+<td>Left</td>
+<td>Current</td>
+<td>Right</td>
+<td><spam class="underline">Next</span></td>
+</tr>
+</thead>
+<tbody>
+<tr><td>`1`</td><td>`1`</td><td>`1`</td><td>`0`</td></tr>
+<tr><td>`1`</td><td>`1`</td><td>`0`</td><td>`1`</td></tr>
+<tr><td>`1`</td><td>`0`</td><td>`1`</td><td>`1`</td></tr>
+<tr><td>`1`</td><td>`0`</td><td>`0`</td><td>`0`</td></tr>
+<tr><td>`0`</td><td>`1`</td><td>`1`</td><td>`1`</td></tr>
+<tr><td>`0`</td><td>`1`</td><td>`0`</td><td>`1`</td></tr>
+<tr><td>`0`</td><td>`0`</td><td>`1`</td><td>`1`</td></tr>
+<tr><td>`0`</td><td>`0`</td><td>`0`</td><td>`0`</td></tr>
+</tbody>
+</table>-->
+<p>If left neighbor, current value, right neighbor are ...</p>
+<p class="centered-text">
+ `1` `1` `1`,&nbsp;&nbsp;the next value is `0`  
+ `1` `1` `0`,&nbsp;&nbsp;the next value is `1`  
+ `1` `0` `1`,&nbsp;&nbsp;the next value is `1`  
+ `1` `0` `0`,&nbsp;&nbsp;the next value is `0`  
+ `0` `1` `1`,&nbsp;&nbsp;the next value is `1`  
+ `0` `1` `0`,&nbsp;&nbsp;the next value is `1`  
+ `0` `0` `1`,&nbsp;&nbsp;the next value is `1`  
+ `0` `0` `0`,&nbsp;&nbsp;the next value is `0`  
+</p>
+<canvas id="rule110-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
+<div class="centered-text"><div class="button" id="rule110-pause" onclick="togglePause(event, this)">PAUSE</div><div class="button" onclick="initRule110()">RESET</div></div>
+<div class="centered-text">Rule 110, the <span class="color-green-a400">green</span> box bounds the current (bottom) row.</div>
 </div>
 
 <!-- script for demos -->
@@ -343,9 +391,18 @@ var initWW = function() {
 };
 initWW();
 
+var rule110 = new automata.Rule110(27, 48);
+function initRule110() {
+    rule110.init();
+    rule110.cells[rule110.rows-1][rule110.cols-1] = true;
+}
+initRule110();
+
 // setup rendering
 var golCanvas = document.getElementById("gol-canvas");
 var wwCanvas = document.getElementById("wireworld-canvas");
+var rule110Canvas = document.getElementById("rule110-canvas");
+
 var framesPerSecond = 3;
 function startRender(renderFunc, updateFunc, pauseButton) {
     function render() {
@@ -369,6 +426,11 @@ startRender(function() {
 }, function() {
     ww.update();
 }, document.getElementById("wireworld-pause"));
+startRender(function() {
+    rule110.render(rule110Canvas);
+}, function() {
+    rule110.update();
+}, document.getElementById("rule110-pause"));
 
 function togglePause(event, div) {
     if (event.stopPropagation) {

@@ -4,6 +4,7 @@ automata.colorLightBlue900 = "#01579B";
 automata.colorYellow600 = "#FDD835";
 automata.colorRed600 = "#E53935";
 automata.colorBlue600 = "#1E88E5";
+automata.colorGreenA400 = "#00E676";
 
 automata.make2DArray = function(rows, cols, valueFunc) {
     var arr = new Array(rows);
@@ -186,3 +187,66 @@ automata.Wireworld.prototype.render = function(canvas) {
     ctx.fillRect(0, canvas.height-lineThickness, canvas.width, lineThickness);
     ctx.fillRect(canvas.width-lineThickness, 0, lineThickness, canvas.height);
 }
+
+// Rule110 inherits from GridWorld, though it is an elementary automata
+automata.Rule110 = function(rows, cols) {
+    automata.GridWorld.call(this, rows, cols);
+    this.zeroColor = "black";
+    this.oneColor = "white";
+    this.currentRowColor = automata.colorGreenA400;
+}
+automata.Rule110.prototype = Object.create(automata.GridWorld.prototype);
+automata.Rule110.prototype.constructor = automata.Rule110;
+
+automata.Rule110.prototype.makeDefaultCells = function() {
+    return automata.make2DArray(this.rows, this.cols, function(i, j) { return false; });
+}
+
+automata.Rule110.prototype.nextCellValue = function(row, col) {
+    if (row == this.rows-1) {
+        var left = this.isInBounds(row, col-1) && this.cells[row][col-1];
+        var right = this.isInBounds(row, col+1) && this.cells[row][col+1];
+        var n = 100 * left + 10 * this.cells[row][col] + 1 * right;
+        return (n != 111 && n != 100 && n != 0);
+    } else {
+        return this.cells[row+1][col];
+    }
+}
+
+
+
+// renders current state to canvas
+automata.Rule110.prototype.render = function(canvas) {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = this.zeroColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    var cellWidth = canvas.width / this.cols;
+    var cellHeight = canvas.height / this.rows;
+    ctx.fillStyle = this.oneColor
+    for (var r = 0; r < this.rows; r++) {
+        for (var c = 0; c < this.cols; c++) {
+            if (this.cells[r][c]) {
+                ctx.fillRect(c*cellHeight, r*cellWidth, cellHeight, cellWidth);
+            }
+        }
+    }
+    var lineThickness = 4;
+    var halfLineThickness = 2;
+    ctx.fillStyle = this.lineColor;
+    for (var r = 1; r < this.rows; r++) {
+        ctx.fillRect(0, r*cellHeight-halfLineThickness, canvas.width, lineThickness);
+    }
+    for (var c = 1; c < this.cols; c++) {
+        ctx.fillRect(c*cellWidth-lineThickness, 0, lineThickness, canvas.height);
+    }
+    ctx.fillRect(0, 0, canvas.width, lineThickness);
+    ctx.fillRect(0, 0, lineThickness, canvas.height);
+    ctx.fillRect(canvas.width-lineThickness, 0, lineThickness, canvas.height);
+    // box around current row
+    ctx.fillStyle = this.currentRowColor;
+    ctx.fillRect(0, (this.rows-1)*cellHeight-halfLineThickness, canvas.width, lineThickness);
+    ctx.fillRect(0, canvas.height-lineThickness, canvas.width, lineThickness);
+    ctx.fillRect(0, canvas.height-cellHeight, lineThickness, cellHeight);
+    ctx.fillRect(canvas.width-lineThickness, canvas.height-cellHeight, lineThickness, cellHeight);
+}
+

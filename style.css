@@ -199,6 +199,21 @@ canvas {
 
 .tile table td { padding: .2em; }
 
+.tile .bordered {
+  border: .1em solid black;
+  border-collapse: collapse;
+}
+
+.tile .bordered td {
+  border: .1em solid black;
+  padding: .3em;
+}
+
+.tile .bordered thead {
+  background-color: #1565C0;
+  color: white;
+}
+
 .warning { background-color: #FDD835; }
 
 .error { background-color: #FF1744; }
@@ -208,6 +223,7 @@ canvas {
 .color-yellow-600 { color: #FDD835;}
 .color-red-600 { color: #E53935; }
 .color-blue-600 { color: #1E88E5; }
+.color-green-a400 { color: #00E676; }
 
 .footer {
   position: static;
@@ -253,6 +269,10 @@ p.small-indent {
 
 .centered-text {
   text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .clear {
