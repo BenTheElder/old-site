@@ -99,7 +99,9 @@ Across the top starting from the top left you can see the <a href="http://conway
 <div class="tile">
 <p class="title">Wireworld</p>
 <a href="https://en.wikipedia.org/wiki/Wireworld">Wireworld</a> is a cellular automata created by <a href="hhttps://en.wikipedia.org/wiki/Brian_Silverman">Brian Silverman</a>.
-While also relatively simple, it is Turing-complete and easy to construct logic circuits in. Wireworld has the following states (and their colors in the demo below): 
+While relatively simple, it is and easy to construct logic circuits in and
+is Turing-complete. Wireworld has the following states
+ (and their colors in the demo below): 
 
 1) `Empty` (<span class="bold">Black</span>)
 2) `Conductor` (<span class="bold color-yellow-600">Yellow</span>)
@@ -133,34 +135,13 @@ At the top left and just below are two clocks, circles of `Conductor` around
 <div class="tile">
 <p class="title">Rule 110</p>
 <p><a href="https://en.wikipedia.org/wiki/Rule_110">Rule 110</a> is an
- <a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">elementary cellular automata</a>
- , meaning that it is a one-dimensional / single-row ceullar automata.
-With only two states (`0` and `1`) and eight rules, this automata is interesting
- because it is the only Turing-complete elementary cellular automata despite its
- seemingly simple patterns. Cells in Rule 110 update based on their current
- value and that of their left and right neighbors according to the following
- rules:</p>
-<!--
-<table class="bordered" style="margin: .5em auto; text-align: center">
-<thead>
-<tr>
-<td>Left</td>
-<td>Current</td>
-<td>Right</td>
-<td><spam class="underline">Next</span></td>
-</tr>
-</thead>
-<tbody>
-<tr><td>`1`</td><td>`1`</td><td>`1`</td><td>`0`</td></tr>
-<tr><td>`1`</td><td>`1`</td><td>`0`</td><td>`1`</td></tr>
-<tr><td>`1`</td><td>`0`</td><td>`1`</td><td>`1`</td></tr>
-<tr><td>`1`</td><td>`0`</td><td>`0`</td><td>`0`</td></tr>
-<tr><td>`0`</td><td>`1`</td><td>`1`</td><td>`1`</td></tr>
-<tr><td>`0`</td><td>`1`</td><td>`0`</td><td>`1`</td></tr>
-<tr><td>`0`</td><td>`0`</td><td>`1`</td><td>`1`</td></tr>
-<tr><td>`0`</td><td>`0`</td><td>`0`</td><td>`0`</td></tr>
-</tbody>
-</table>-->
+ <a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">elementary cellular automata</a>,
+ meaning that it is a one-dimensional / single-row ceullar automata.
+With only two states (`0` and `1`) and eight rules, this simple automata is
+ interesting because it because it produces intricate patterns and is the only
+ Turing-complete elementary cellular automata. Cells in Rule 110 update based
+ on their current value and that of their left and right neighbors according
+ to the following rules:</p>
 <p>If left neighbor, current value, right neighbor are ...</p>
 <p class="centered-text">
  `1` `1` `1`,&nbsp;&nbsp;the next value is `0`  
