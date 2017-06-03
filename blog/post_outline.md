@@ -40,7 +40,7 @@ pagetitle: "BenTheElder - Blog: Title"
 </div>
 
 
-<!-- under construction cart -->
+<!-- under construction tile -->
 <div class="tile centered-text warning"><p class="title">This post is under construction (!)</p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
 
 

@@ -42,11 +42,8 @@ pagetitle: "BenTheElder - Blog: Automata"
 
 <!-- noscript warning -->
 <noscript>
-  <div class="tile centered-text error"><p class="title">JavaScript is required to view the demos on this page.</h3><h3 class="bold no-margin">Please <a href="http://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer">enable JavaScript</a>.</h3></div>
+  <div class="tile centered-text warning"><p class="title">JavaScript is required to view the demos on this page.</h3><h3 class="bold no-margin">Please <a href="http://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer">enable JavaScript</a>.</h3></div>
 </noscript>
-
-<!-- under construction cart -->
-<div class="tile centered-text warning"><p class="title">This post is under construction (!)</p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
 
 <!-- include demo scripts -->
 <script src="/scripts/automata.js" type="text/javascript"></script>
@@ -173,10 +170,10 @@ For more on elementary cellular automata visit
 There are many, many other automata - there are 256 elementary cellular automata
  alone (!) Some other notable automata include:
 
- - <a href="https://en.wikipedia.org/wiki/Turing_machine">Turing Machines</a> e.g. the one in <a href="https://www.google.com/doodles/alan-turings-100th-birthday">The Google Doodle For Alan Turing's 100th Birthday</a>
  - <a href="https://en.wikipedia.org/wiki/Finite-state_machine">Finite State Machines</a> - useful for describing many forms of computation
- - <a href="https://en.wikipedia.org/wiki/Pushdown_automaton">Pushdown Automata</a> - more powerful than Finite State Machines but less powerful than Turing Machines 
-  - <a href="https://minecraft.net/">Minecraft</a>'s <a href="http://minecraft.gamepedia.com/Redstone">Redstone</a> logic (essentually a cellular automata)
+ - <a href="https://en.wikipedia.org/wiki/Pushdown_automaton">Pushdown Automata</a> - more powerful than Finite State Machines, these have a <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack</a>
+ - <a href="https://en.wikipedia.org/wiki/Turing_machine">Turing Machines</a> - The most powerful Automata, a nice example is the one in <a href="https://www.google.com/doodles/alan-turings-100th-birthday">the Google Doodle for Alan Turing's 100th Birthday</a>
+  - <a href="https://minecraft.net/">Minecraft</a>'s <a href="http://minecraft.gamepedia.com/Redstone">Redstone</a> logic - essentially a 3D cellular automata
 </div>
 
 <!-- script for demos -->
