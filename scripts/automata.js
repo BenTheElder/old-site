@@ -204,8 +204,8 @@ automata.Rule110.prototype.makeDefaultCells = function() {
 
 automata.Rule110.prototype.nextCellValue = function(row, col) {
     if (row == this.rows-1) {
-        var left = this.isInBounds(row, col-1) && this.cells[row][col-1];
-        var right = this.isInBounds(row, col+1) && this.cells[row][col+1];
+        var left = this.cells[row][(col+this.cols-1)%this.cols];
+        var right = this.cells[row][(col+1)%this.cols];
         var n = 100 * left + 10 * this.cells[row][col] + 1 * right;
         return (n != 111 && n != 100 && n != 0);
     } else {

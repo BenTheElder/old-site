@@ -52,7 +52,7 @@ pagetitle: "BenTheElder - Blog: Automata"
 <script src="/scripts/automata.js" type="text/javascript"></script>
 
 <div class="tile blog-content">
-<p class="title">Automata - June 2nd, 2017</p>
+<p class="title">Automata - June 3rd, 2017</p>
 
 
 <div style="float:right; width: 6.91em; padding: 1em; padding-right:0em;"><img style="margin-top:-.15em" src="/images/Game_of_life_pulsar.gif"></img><div class="centered-text"><a href="https://en.wikipedia.org/wiki/File:Game_of_life_pulsar.gif">A pulsar.</a></div></div>
@@ -160,12 +160,23 @@ With only two states (`0` and `1`) and eight rules, this simple automata is
 <div class="centered-text"><div class="button" id="rule110-pause" onclick="togglePause(event, this)">PAUSE</div><div class="button" onclick="doReset(event, this, initRule110)">RESET</div></div>
 <div class="centered-text">Rule 110, the <span class="color-green-a400">green</span> box bounds the current (bottom) row.</div>
 NOTE: the colors in this demo are inverted from the standard style for
- asthetic purposes, and a "real" Rule 110 automata has an infinitely wide row.
-Since this demo uses a fixed-width row for the current state the output
-is different.  
+ asthetic purposes, and a typical Rule 110 automata implementation has an
+ infinitely wide row. Since this demo uses a fixed-width row for the current
+ state I've wrapped the left and right edges around to be neighbors instead.  
 
 For more on elementary cellular automata visit
  <a href="http://mathworld.wolfram.com/ElementaryCellularAutomaton.html">The Wolfram Mathworld Entry</a>.
+</div>
+
+<div class="tile">
+<p class="title">Other Automata</p>
+There are many, many other automata - there are 256 elementary cellular automata
+ alone (!) Some other notable automata include:
+
+ - <a href="https://en.wikipedia.org/wiki/Turing_machine">Turing Machines</a> e.g. the one in <a href="https://www.google.com/doodles/alan-turings-100th-birthday">The Google Doodle For Alan Turing's 100th Birthday</a>
+ - <a href="https://en.wikipedia.org/wiki/Finite-state_machine">Finite State Machines</a> - useful for describing many forms of computation
+ - <a href="https://en.wikipedia.org/wiki/Pushdown_automaton">Pushdown Automata</a> - more powerful than Finite State Machines but less powerful than Turing Machines 
+  - <a href="https://minecraft.net/">Minecraft</a>'s <a href="http://minecraft.gamepedia.com/Redstone">Redstone</a> logic (essentually a cellular automata)
 </div>
 
 <!-- script for demos -->

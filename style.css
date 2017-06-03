@@ -179,7 +179,7 @@ canvas {
   font-weight: bold;
 }
 
-.tile p {
+.tile p, .tile li {
   font-size: 110%;
   font-family: 'Open Sans', sans-serif;
 }
