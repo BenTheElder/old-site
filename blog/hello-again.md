@@ -74,10 +74,6 @@ The <a href="https://bentheelder.github.io">old site</a> will be redirected to t
 <noscript><p>Comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a> require <a href="http://www.enable-javascript.com/">JavaScript enabled</a> to view.</a></p></noscript>
 </div>
 
-<!--footer-->
-<div class="tile footer">
-<p>This Website is Open-<a href="https://github.com/BenTheElder/site">Source</a>.</p>
-</div>
 </body>
 </html>
 

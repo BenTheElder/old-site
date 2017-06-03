@@ -138,9 +138,5 @@ I may just have to explore that for my next project (I [replied back](https://tw
 <noscript><p>Comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a> require <a href="http://www.enable-javascript.com/">JavaScript enabled</a> to view.</a></p></noscript>
 </div>
 
-<!--footer-->
-<div class="tile footer">
-<p>This Website is Open-<a href="https://github.com/BenTheElder/site">Source</a>.</p>
-</div>
 </body>
 </html>
