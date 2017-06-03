@@ -92,7 +92,10 @@ In the top right of the demo we have a <a href="http://conwaylife.com/w/index.ph
 In the bottom left is a <a href="http://conwaylife.com/wiki/Pentadecathlon">pentadecathlon</a>.
 Across the top starting from the top left you can see the <a href="http://conwaylife.com/wiki/Gosper%27s_glider_gun">Gosper's Glider Gun</a>
  a particularly interesting pattern that generates <a href="http://conwaylife.com/wiki/Glider">gliders</a>, a small repetitve pattern
- that 'glides' accross the grid.
+ that 'glides' accross the grid.  
+
+NOTE: The colors in this demo are inverted from the standard style for
+ asthetic purposes.
 </div>
 
 
@@ -156,6 +159,13 @@ With only two states (`0` and `1`) and eight rules, this simple automata is
 <canvas id="rule110-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
 <div class="centered-text"><div class="button" id="rule110-pause" onclick="togglePause(event, this)">PAUSE</div><div class="button" onclick="doReset(event, this, initRule110)">RESET</div></div>
 <div class="centered-text">Rule 110, the <span class="color-green-a400">green</span> box bounds the current (bottom) row.</div>
+NOTE: the colors in this demo are inverted from the standard style for
+ asthetic purposes, and a "real" Rule 110 automata has an infinitely wide row.
+Since this demo uses a fixed-width row for the current state the output
+is different.  
+
+For more on elementary cellular automata visit
+ <a href="http://mathworld.wolfram.com/ElementaryCellularAutomaton.html">The Wolfram Mathworld Entry</a>.
 </div>
 
 <!-- script for demos -->

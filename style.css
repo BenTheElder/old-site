@@ -321,11 +321,10 @@ p.small-indent {
   margin: .33em;
   margin-left: .5em;
   margin-right: .5em;
-  background-color: #2196F3;/*#4285f4;*/
+  background-color: #2196F3;
   color: white;
   border-radius: .1em;
   cursor: pointer;
-  /*transition: all 0.2s linear;*/
   transition: box-shadow .4s cubic-bezier(0.25,0.8,0.25,1), background-color .4s cubic-bezier(0.25,0.8,0.25,1);
   transition-delay: 0.2s;
   letter-spacing: .05em;
