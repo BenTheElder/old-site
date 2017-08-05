@@ -9,13 +9,17 @@ import os
 import sys
 import subprocess
 import glob
+
+
 # get the directory containing this file
 DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE_POST = os.path.join(DIR, "pandoc_template.html")
 
+
 def call_and_print(arglist):
     print(" ".join(arglist))
     subprocess.check_call(arglist)
+
 
 def process_post(filename):
     # get filename without path
@@ -44,6 +48,7 @@ def main():
             line = line.rstrip()
             if line.endswith(".md"):
                 process_post(line)
+
 
 if __name__ == "__main__":
     main()
