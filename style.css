@@ -1,7 +1,7 @@
 /* style elements */
 html {
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -139,7 +139,7 @@ canvas {
 }
 
 .tile {
-  font-size: 1.11111em;
+  font-size: 1em;
   padding: 1.25em;
   background-color: #fdfdfd;
   max-width: 49em;
