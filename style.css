@@ -25,10 +25,10 @@ h2 {
 }
 
 hr {
-  color: rgba(0,0,0,0.12);
-  background-color: rgba(0,0,0,0.12);
+  color: rgba(0,0,0,0.13);
+  background-color: rgba(0,0,0,0.13);
   border: none;
-  height: 0.11111111111rem;
+  height: 1px;
   margin-bottom: 1.25em;
   margin-top: 1.25em;
 }
@@ -315,13 +315,15 @@ p.small-indent {
 .button {
   display: inline-block;
   font-family: 'Roboto', sans-serif;
-  padding: .3em;
+  padding: .2em;
   padding-left: .75em;
   padding-right: .75em;
+  padding-top: .25em;
   margin: .33em;
   margin-left: .5em;
   margin-right: .5em;
-  background-color: #2196F3;
+  background-color: #0288D1;
+  line-height: 1.5em;
   color: white;
   border-radius: .1em;
   cursor: pointer;
