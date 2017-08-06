@@ -99,7 +99,7 @@ NOTE: The colors in this demo are inverted from the standard style for
 <div class="tile">
 <p class="title">Wireworld</p>
 <a href="https://en.wikipedia.org/wiki/Wireworld">Wireworld</a> is a cellular automata created by <a href="hhttps://en.wikipedia.org/wiki/Brian_Silverman">Brian Silverman</a>.
-While relatively simple, it is and easy to construct logic circuits in and
+While relatively simple, it is easy to construct logic circuits in and
 is Turing-complete. Wireworld has the following states
  (and their colors in the demo below): 
 
