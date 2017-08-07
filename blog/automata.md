@@ -46,7 +46,7 @@ pagetitle: "BenTheElder - Blog: Automata"
 </noscript>
 
 <!-- include demo scripts -->
-<script src="/scripts/automata.js" type="text/javascript"></script>
+<script async src="/scripts/automata.js" type="text/javascript"></script>
 
 <div class="tile blog-content">
 <p class="title">Automata - June 3rd, 2017</p>
