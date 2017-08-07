@@ -176,6 +176,20 @@ There are many, many other automata - there are 256 elementary cellular automata
 
 <!-- script for demos -->
 <script>
+var framesPerSecond = 3;
+function startRender(renderFunc, updateFunc, pauseButton) {
+    function render() {
+        setTimeout(function() {
+            renderFunc();
+            if (pauseButton.innerHTML == "PAUSE") {
+                updateFunc();
+            }
+            requestAnimationFrame(render);
+        }, 1000 / framesPerSecond);
+    }
+    window.requestAnimationFrame(render);
+}
+
 var init = function() {
     // setup game of life
     var gol = new automata.GameOfLife(27, 48);
@@ -214,6 +228,7 @@ var init = function() {
         }
     };
     initGOL();
+    window.initGOL = initGOL;
 
     // setup wireworld
     var ww = new automata.Wireworld(27, 48);
@@ -388,6 +403,7 @@ var init = function() {
         }
     };
     initWW();
+    window.initWW = initWW;
 
     var rule110 = new automata.Rule110(27, 48);
     function initRule110() {
@@ -395,25 +411,13 @@ var init = function() {
         rule110.cells[rule110.rows-1][rule110.cols-1] = true;
     }
     initRule110();
+    window.initRule110 = initRule110;
 
     // setup rendering
     var golCanvas = document.getElementById("gol-canvas");
     var wwCanvas = document.getElementById("wireworld-canvas");
     var rule110Canvas = document.getElementById("rule110-canvas");
 
-    var framesPerSecond = 3;
-    function startRender(renderFunc, updateFunc, pauseButton) {
-        function render() {
-            setTimeout(function() {
-                renderFunc();
-                if (pauseButton.innerHTML == "PAUSE") {
-                    updateFunc();
-                }
-                requestAnimationFrame(render);
-            }, 1000 / framesPerSecond);
-        }
-        window.requestAnimationFrame(render);
-    }
     startRender(function() {
         gol.render(golCanvas);
     }, function() {
@@ -429,8 +433,9 @@ var init = function() {
     }, function() {
         rule110.update();
     }, document.getElementById("rule110-pause"));
+}
 
-    function togglePause(event, div) {
+function togglePause(event, div) {
         if (event.stopPropagation) {
             event.stopPropagation();   // W3C model
         } else {
@@ -453,7 +458,7 @@ var init = function() {
             div.classList.remove("pressed");
         }, 1600 / framesPerSecond);
     }
-}
+
 // FROM: https://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file
 function loadScript(url, callback)
 {
