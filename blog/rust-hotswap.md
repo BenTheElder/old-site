@@ -30,7 +30,7 @@ pagetitle: "BenTheElder - Blog: Rust Hotswap"
 <html lang="en">
 <body>
 
-<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500" rel="stylesheet" lazyload="1" />
+<div><link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500" rel="stylesheet" lazyload="1" /></div>
 
 <div class="header">
 <div class="header-content">
