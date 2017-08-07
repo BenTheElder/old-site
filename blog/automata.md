@@ -45,8 +45,6 @@ pagetitle: "BenTheElder - Blog: Automata"
   <div class="tile centered-text warning"><p class="title">JavaScript is required to view the demos on this page.</h3><h3 class="bold no-margin">Please <a href="http://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer">enable JavaScript</a>.</h3></div>
 </noscript>
 
-<!-- include demo scripts -->
-<script async src="/scripts/automata.js" type="text/javascript"></script>
 
 <div class="tile blog-content">
 <p class="title">Automata - June 3rd, 2017</p>
@@ -178,282 +176,302 @@ There are many, many other automata - there are 256 elementary cellular automata
 
 <!-- script for demos -->
 <script>
-// setup game of life
-var gol = new automata.GameOfLife(27, 48);
-var initGOL = function() {
-    gol.init();
-    // set up starting pattern
-    var liveCells = [
-        // start with gosper's glider gun
-        {r:0, c:24}, {r:1, c:22}, {r:1, c:24}, {r:2, c:12}, {r:2, c:13},
-        {r:2, c:20}, {r:2, c:21}, {r:2, c:21}, {r:2, c:34}, {r:2, c:35},
-        {r:3, c:11}, {r:3, c:15}, {r:3, c:20}, {r:3, c:21}, {r:3, c:34},
-        {r:3, c:35}, {r:4, c:0}, {r:4, c:1}, {r:4, c:10}, {r:4, c:16},
-        {r:4, c:20}, {r:4, c:21}, {r:5, c:0}, {r:5, c:1}, {r:5, c:10},
-        {r:5, c:14}, {r:5, c:16}, {r:5, c:17}, {r:5, c:22}, {r:5, c:24},
-        {r:6, c:10}, {r:6, c:16}, {r:6, c:24}, {r:7, c:11}, {r:7, c:15},
-        {r:8, c:12}, {r:8, c:13},
-        // blinker
-        {r:3, c:41}, {r:4, c:41}, {r:5, c:41},
-        // beacon
-        {r:0, c:44}, {r:0, c:45}, {r:1, c:44}, {r:2, c:47}, {r:3, c:46},
-        {r:3, c:47},
-        // pentadecathlon
-        {r:21, c:4}, {r:21, c:5}, {r:22, c:6}, {r:20, c:6}, {r:21, c:7},
-        {r:21, c:8}, {r:21, c:9}, {r:21, c:10}, {r:22, c:11},
-        {r:20, c:11}, {r:21, c:12}, {r:21, c:13},
-        // oscillator
-        {r:11, c:38}, {r:11, c:39}, {r:11, c:43}, {r:11, c:44},
-        {r:12, c:39}, {r:12, c:41}, {r:12, c:43},
-        {r:13, c:39}, {r:13, c:40}, {r:13, c:42}, {r:13, c:43},
-        {r:14, c:39}, {r:14, c:41}, {r:14, c:43},
-        {r:15, c:38}, {r:15, c:39}, {r:15, c:43}, {r:15, c:44}
-    ];
-    for (var i = 0; i < liveCells.length; i++) {
-        var cell = liveCells[i];
-        gol.cells[cell.r][cell.c] = true;
+var init = function() {
+    // setup game of life
+    var gol = new automata.GameOfLife(27, 48);
+    var initGOL = function() {
+        gol.init();
+        // set up starting pattern
+        var liveCells = [
+            // start with gosper's glider gun
+            {r:0, c:24}, {r:1, c:22}, {r:1, c:24}, {r:2, c:12}, {r:2, c:13},
+            {r:2, c:20}, {r:2, c:21}, {r:2, c:21}, {r:2, c:34}, {r:2, c:35},
+            {r:3, c:11}, {r:3, c:15}, {r:3, c:20}, {r:3, c:21}, {r:3, c:34},
+            {r:3, c:35}, {r:4, c:0}, {r:4, c:1}, {r:4, c:10}, {r:4, c:16},
+            {r:4, c:20}, {r:4, c:21}, {r:5, c:0}, {r:5, c:1}, {r:5, c:10},
+            {r:5, c:14}, {r:5, c:16}, {r:5, c:17}, {r:5, c:22}, {r:5, c:24},
+            {r:6, c:10}, {r:6, c:16}, {r:6, c:24}, {r:7, c:11}, {r:7, c:15},
+            {r:8, c:12}, {r:8, c:13},
+            // blinker
+            {r:3, c:41}, {r:4, c:41}, {r:5, c:41},
+            // beacon
+            {r:0, c:44}, {r:0, c:45}, {r:1, c:44}, {r:2, c:47}, {r:3, c:46},
+            {r:3, c:47},
+            // pentadecathlon
+            {r:21, c:4}, {r:21, c:5}, {r:22, c:6}, {r:20, c:6}, {r:21, c:7},
+            {r:21, c:8}, {r:21, c:9}, {r:21, c:10}, {r:22, c:11},
+            {r:20, c:11}, {r:21, c:12}, {r:21, c:13},
+            // oscillator
+            {r:11, c:38}, {r:11, c:39}, {r:11, c:43}, {r:11, c:44},
+            {r:12, c:39}, {r:12, c:41}, {r:12, c:43},
+            {r:13, c:39}, {r:13, c:40}, {r:13, c:42}, {r:13, c:43},
+            {r:14, c:39}, {r:14, c:41}, {r:14, c:43},
+            {r:15, c:38}, {r:15, c:39}, {r:15, c:43}, {r:15, c:44}
+        ];
+        for (var i = 0; i < liveCells.length; i++) {
+            var cell = liveCells[i];
+            gol.cells[cell.r][cell.c] = true;
+        }
+    };
+    initGOL();
+
+    // setup wireworld
+    var ww = new automata.Wireworld(27, 48);
+    var initWW = function() {
+        ww.init();
+        var wwCells = [
+            // clock
+            {r:0, c:1, v:3}, {r:0, c:2, v:2}, {r:0, c:3, v:1},
+            {r:1, c:0, v:1}, {r:1, c:4, v:1},
+            {r:2, c:0, v:1}, {r:2, c:4, v:1},
+            {r:3, c:0, v:1}, {r:3, c:4, v:1},
+            {r:4, c:0, v:1}, {r:4, c:4, v:1},
+            {r:5, c:0, v:1}, {r:5, c:4, v:1},
+            {r:6, c:1, v:1}, {r:6, c:2, v:1}, {r:6, c:3, v:1},
+            // wire to some diodes
+            {r:3, c:5, v:1}, {r:3, c:6, v:1}, {r:3, c:7, v:1},
+            {r:3, c:8, v:1}, {r:3, c:9, v:1}, {r:3, c:10, v:1},
+            {r:3, c:11, v:1},
+            {r:2, c:11, v:1}, {r:1, c:12, v:1}, {r:1, c:13, v:1},
+            {r:4, c:11, v:1}, {r:5, c:12, v:1}, {r:5, c:13, v:1},
+            {r:1, c:14, v:1}, {r:5, c:14, v:1},
+            {r:1, c:11, v:1}, {r:5, c:11, v:1},
+            // diode
+            {r:0, c:15, v:1}, {r:1, c:15, v:1}, {r:2, c:15, v:1},
+            {r:0, c:16, v:1}, {r:2, c:16, v:1},
+            {r:1, c:17, v:1}, {r:1, c:18, v:1},
+            // reverse diode
+            {r:4, c:15, v:1}, {r:6, c:15, v:1},
+            {r:4, c:16, v:1}, {r:5, c:16, v:1}, {r:6, c:16, v:1},
+            {r:5, c:17, v:1}, {r:5, c:18, v:1},
+            // faster clock
+            {r:9, c:0, v:1}, {r:8, c:1, v:1}, {r:8, c:2, v:1},
+            {r:8, c:3, v:1}, {r:8, c:4, v:3}, {r:8, c:5, v:2},
+            {r:10, c:1, v:1}, {r:10, c:2, v:1}, {r:10, c:3, v:1},
+            {r:10, c:4, v:1}, {r:10, c:5, v:1}, {r:9, c:6, v:1},
+            {r:9, c:7, v:1}, {r:9, c:8, v:1}, {r:9, c:9, v:1},
+            {r:9, c:10, v:1}, {r:9, c:11, v:1}, {r:9, c:12, v:1},
+            {r:9, c:13, v:1}, {r:9, c:14, v:1},
+            // diode
+            {r:8, c:15, v:1}, {r:9, c:15, v:1}, {r:10, c:15, v:1},
+            {r:8, c:16, v:1}, {r:10, c:16, v:1},
+            {r:9, c:17, v:1}, {r:9, c:18, v:1},
+            // xor
+            {r:1, c:19, v:1}, {r:9, c:19, v:1},
+            {r:1, c:20, v:1}, {r:1, c:21, v:1}, {r:1, c:22, v:1},
+            {r:2, c:23, v:1}, {r:3, c:23, v:1}, {r:1, c:23, v:1},
+            {r:4, c:22, v:1}, {r:4, c:23, v:1}, {r:4, c:24, v:1},
+            {r:4, c:25, v:1}, {r:5, c:22, v:1}, {r:5, c:25, v:1},
+            {r:5, c:26, v:1}, {r:6, c:22, v:1}, {r:6, c:23, v:1},
+            {r:6, c:24, v:1}, {r:6, c:25, v:1}, {r:9, c:23, v:1},
+            {r:9, c:20, v:1}, {r:9, c:21, v:1}, {r:9, c:22, v:1},
+            {r:7, c:23, v:1}, {r:8, c:23, v:1}, {r:5, c:27, v:1},
+            // flip flop
+            {r:5, c:28, v:1}, {r:5, c:29, v:1}, {r:4, c:29, v:1},
+            {r:3, c:29, v:1}, {r:2, c:29, v:1}, {r:1, c:29, v:1}, 
+            {r:0, c:29, v:1}, {r:0, c:30, v:1}, {r:0, c:31, v:1},
+            {r:0, c:32, v:1}, {r:2, c:32, v:1}, {r:2, c:33, v:1},
+            {r:1, c:33, v:1}, {r:3, c:33, v:1}, {r:2, c:34, v:1},
+            {r:2, c:35, v:1}, {r:3, c:35, v:1}, {r:3, c:36, v:1},
+            {r:4, c:32, v:2}, {r:4, c:35, v:1}, {r:4, c:37, v:1},
+            {r:4, c:38, v:1}, {r:4, c:39, v:1}, {r:5, c:31, v:3},
+            {r:5, c:33, v:1}, {r:5, c:34, v:1}, {r:5, c:35, v:1},
+            {r:5, c:36, v:1}, {r:6, c:32, v:1}, {r:6, c:35, v:1},
+            {r:4, c:40, v:1},
+            // wire
+            {r:3, c:40, v:1}, {r:2, c:40, v:1}, {r:1, c:40, v:1},
+            {r:0, c:40, v:1}, {r:0, c:41, v:1}, {r:0, c:42, v:1},
+            {r:0, c:43, v:1}, {r:0, c:44, v:1}, {r:0, c:45, v:1},
+            {r:0, c:46, v:1}, {r:0, c:47, v:1}, {r:1, c:47, v:1},
+            {r:2, c:47, v:1}, {r:3, c:47, v:1}, {r:4, c:47, v:1},
+            {r:5, c:47, v:1}, {r:6, c:47, v:1}, {r:7, c:47, v:1},
+            {r:8, c:47, v:1}, {r:9, c:47, v:1}, {r:10, c:47, v:1},
+            {r:11, c:47, v:1}, {r:12, c:47, v:1}, {r:13, c:47, v:1},
+            {r:14, c:47, v:1},
+            {r:15, c:47, v:1}, {r:15, c:46, v:1}, {r:15, c:45, v:1},
+            {r:15, c:44, v:1}, {r:15, c:43, v:1}, {r:15, c:42, v:1},
+            {r:15, c:41, v:1}, {r:15, c:40, v:1}, {r:15, c:39, v:1},
+            {r:15, c:38, v:1}, {r:15, c:37, v:1}, {r:15, c:36, v:1},
+            {r:15, c:35, v:1}, {r:15, c:34, v:1}, {r:15, c:33, v:1},
+            {r:15, c:32, v:1}, {r:15, c:31, v:1}, {r:15, c:30, v:1},
+            {r:15, c:29, v:1}, {r:15, c:28, v:1}, {r:15, c:27, v:1},
+            {r:15, c:26, v:1}, {r:15, c:25, v:1}, {r:15, c:24, v:1},
+            {r:15, c:23, v:1}, {r:15, c:22, v:1}, {r:15, c:21, v:1},
+            {r:15, c:20, v:1}, {r:15, c:19, v:1}, {r:15, c:18, v:1},
+            {r:15, c:17, v:1}, {r:15, c:16, v:1}, {r:15, c:15, v:1},
+            {r:15, c:14, v:1}, {r:15, c:13, v:1}, {r:15, c:12, v:1},
+            {r:15, c:11, v:1}, {r:15, c:10, v:1}, {r:15, c:9, v:1},
+            {r:15, c:8, v:1}, {r:15, c:7, v:1}, {r:15, c:6, v:1},
+            {r:15, c:5, v:1}, {r:15, c:4, v:1}, {r:15, c:3, v:1},
+            {r:15, c:2, v:1}, {r:15, c:1, v:1}, {r:15, c:0, v:1},
+            {r:15, c:0, v:1}, {r:16, c:0, v:1}, {r:17, c:0, v:1},
+            // W
+            {r:18, c:0, v:1}, {r:19, c:0, v:1}, {r:20, c:0, v:1},
+            {r:21, c:0, v:1}, {r:22, c:0, v:1}, {r:23, c:0, v:1},
+            {r:23, c:1, v:1}, {r:23, c:2, v:1}, {r:22, c:2, v:1},
+            {r:21, c:2, v:1}, {r:20, c:2, v:1}, {r:23, c:3, v:1},
+            {r:23, c:4, v:1}, {r:22, c:4, v:1}, {r:21, c:4, v:1},
+            {r:20, c:4, v:1}, {r:19, c:4, v:1}, {r:18, c:4, v:1},
+            {r:18, c:5, v:1},
+            // I
+            {r:18, c:6, v:1}, {r:18, c:7, v:1}, {r:19, c:8, v:1},
+            {r:20, c:8, v:1}, {r:21, c:8, v:1}, {r:22, c:8, v:1},
+            {r:23, c:7, v:1}, {r:23, c:6, v:1}, {r:23, c:8, v:1},
+            {r:18, c:8, v:1}, {r:18, c:9, v:1}, {r:18, c:10, v:1},
+            {r:23, c:9, v:1}, {r:23, c:10, v:1},
+            // R
+            {r:18, c:11, v:1}, {r:18, c:12, v:1}, {r:19, c:12, v:1},
+            {r:20, c:12, v:1}, {r:21, c:12, v:1}, {r:22, c:12, v:1},
+            {r:23, c:12, v:1}, {r:21, c:13, v:1}, {r:21, c:14, v:1},
+            {r:22, c:15, v:1}, {r:23, c:15, v:1}, {r:18, c:13, v:1},
+            {r:19, c:15, v:1}, {r:20, c:15, v:1}, {r:18, c:14, v:1},
+            // E
+            {r:23, c:16, v:1}, {r:23, c:17, v:1}, {r:22, c:17, v:1},
+            {r:21, c:17, v:1}, {r:20, c:17, v:1}, {r:19, c:17, v:1},
+            {r:18, c:17, v:1}, {r:18, c:18, v:1}, {r:21, c:18, v:1},
+            {r:23, c:18, v:1}, {r:18, c:19, v:1}, {r:21, c:19, v:1},
+            {r:23, c:19, v:1}, {r:23, c:20, v:1}, {r:23, c:21, v:1},
+            {r:18, c:20, v:1}, {r:21, c:20, v:1},
+            // W
+            {r:23, c:22, v:1}, {r:22, c:22, v:1}, {r:21, c:22, v:1},
+            {r:20, c:22, v:1}, {r:19, c:22, v:1}, {r:18, c:22, v:1},
+            {r:23, c:23, v:1}, {r:23, c:24, v:1}, {r:22, c:24, v:1},
+            {r:21, c:24, v:1}, {r:20, c:24, v:1}, {r:23, c:25, v:1},
+            {r:23, c:26, v:1}, {r:22, c:26, v:1}, {r:21, c:26, v:1},
+            {r:20, c:26, v:1}, {r:19, c:26, v:1}, {r:18, c:26, v:1},
+            // O
+            {r:18, c:27, v:1}, {r:18, c:28, v:1}, {r:19, c:28, v:1},
+            {r:20, c:28, v:1}, {r:21, c:28, v:1}, {r:22, c:28, v:1},
+            {r:23, c:28, v:1}, {r:18, c:29, v:1}, {r:18, c:30, v:1},
+            {r:23, c:29, v:1}, {r:23, c:30, v:1}, {r:23, c:31, v:1},
+            {r:22, c:31, v:1}, {r:21, c:31, v:1}, {r:20, c:31, v:1},
+            {r:19, c:31, v:1}, {r:18, c:31, v:1}, {r:18, c:32, v:1},
+            // R
+            {r:18, c:33, v:1}, {r:18, c:34, v:1}, {r:19, c:34, v:1},
+            {r:20, c:34, v:1}, {r:21, c:34, v:1}, {r:22, c:34, v:1},
+            {r:23, c:34, v:1}, {r:21, c:35, v:1}, {r:21, c:35, v:1},
+            {r:21, c:36, v:1}, {r:22, c:37, v:1}, {r:23, c:37, v:1},
+            {r:18, c:35, v:1}, {r:18, c:36, v:1}, {r:19, c:37, v:1},
+            {r:20, c:37, v:1}, {r:23, c:38, v:1},
+            // L
+            {r:23, c:39, v:1}, {r:22, c:39, v:1}, {r:21, c:39, v:1},
+            {r:20, c:39, v:1}, {r:19, c:39, v:1}, {r:18, c:39, v:1},
+            {r:23, c:40, v:1}, {r:23, c:41, v:1}, {r:23, c:42, v:1},
+            // D
+            {r:23, c:43, v:1}, {r:22, c:43, v:1},
+            {r:21, c:43, v:1}, {r:20, c:43, v:1}, {r:19, c:43, v:1},
+            {r:18, c:43, v:1}, {r:18, c:44, v:1}, {r:18, c:45, v:1},
+            {r:23, c:44, v:1}, {r:23, c:45, v:1}, {r:19, c:46, v:1},
+            {r:20, c:46, v:1}, {r:21, c:46, v:1}, {r:22, c:46, v:1},
+            // wire
+            {r:23, c:47, v:1}, {r:24, c:47, v:1}, {r:25, c:47, v:1},
+            {r:26, c:47, v:1}, {r:26, c:46, v:1}, {r:26, c:45, v:1},
+            {r:26, c:44, v:1}, {r:26, c:43, v:1}, {r:26, c:42, v:1},
+            {r:26, c:41, v:1}, {r:26, c:40, v:1}, {r:26, c:39, v:1},
+            {r:26, c:38, v:1}, {r:26, c:37, v:1}, {r:26, c:36, v:1},
+            {r:26, c:35, v:1}, {r:26, c:34, v:1}, {r:26, c:33, v:1},
+            {r:26, c:32, v:1}, {r:26, c:31, v:1}, {r:26, c:30, v:1},
+            {r:26, c:29, v:1}, {r:26, c:28, v:1}, {r:26, c:27, v:1},
+            {r:26, c:26, v:1}, {r:26, c:25, v:1}, {r:26, c:24, v:1},
+            {r:26, c:23, v:1}, {r:26, c:22, v:1}, {r:26, c:21, v:1},
+            {r:26, c:20, v:1}, {r:26, c:19, v:1}, {r:26, c:18, v:1},
+            {r:26, c:17, v:1}, {r:26, c:16, v:1}, {r:26, c:15, v:1},
+            {r:26, c:14, v:1}, {r:26, c:13, v:1}, {r:26, c:12, v:1},
+            {r:26, c:11, v:1}, {r:26, c:10, v:1}, {r:26, c:9, v:1},
+            {r:26, c:8, v:1}, {r:26, c:7, v:1}, {r:26, c:6, v:1},
+            {r:26, c:5, v:1}, {r:26, c:4, v:1}, {r:26, c:3, v:1},
+            {r:26, c:2, v:1}, {r:26, c:1, v:1}, {r:26, c:0, v:1},
+        ];
+        for (var i = 0; i < wwCells.length; i++) {
+            var cell = wwCells[i];
+            ww.cells[cell.r][cell.c] = cell.v;
+        }
+    };
+    initWW();
+
+    var rule110 = new automata.Rule110(27, 48);
+    function initRule110() {
+        rule110.init();
+        rule110.cells[rule110.rows-1][rule110.cols-1] = true;
     }
-};
-initGOL();
+    initRule110();
 
-// setup wireworld
-var ww = new automata.Wireworld(27, 48);
-var initWW = function() {
-    ww.init();
-    var wwCells = [
-        // clock
-        {r:0, c:1, v:3}, {r:0, c:2, v:2}, {r:0, c:3, v:1},
-        {r:1, c:0, v:1}, {r:1, c:4, v:1},
-        {r:2, c:0, v:1}, {r:2, c:4, v:1},
-        {r:3, c:0, v:1}, {r:3, c:4, v:1},
-        {r:4, c:0, v:1}, {r:4, c:4, v:1},
-        {r:5, c:0, v:1}, {r:5, c:4, v:1},
-        {r:6, c:1, v:1}, {r:6, c:2, v:1}, {r:6, c:3, v:1},
-        // wire to some diodes
-        {r:3, c:5, v:1}, {r:3, c:6, v:1}, {r:3, c:7, v:1},
-        {r:3, c:8, v:1}, {r:3, c:9, v:1}, {r:3, c:10, v:1},
-        {r:3, c:11, v:1},
-        {r:2, c:11, v:1}, {r:1, c:12, v:1}, {r:1, c:13, v:1},
-        {r:4, c:11, v:1}, {r:5, c:12, v:1}, {r:5, c:13, v:1},
-        {r:1, c:14, v:1}, {r:5, c:14, v:1},
-        {r:1, c:11, v:1}, {r:5, c:11, v:1},
-        // diode
-        {r:0, c:15, v:1}, {r:1, c:15, v:1}, {r:2, c:15, v:1},
-        {r:0, c:16, v:1}, {r:2, c:16, v:1},
-        {r:1, c:17, v:1}, {r:1, c:18, v:1},
-        // reverse diode
-        {r:4, c:15, v:1}, {r:6, c:15, v:1},
-        {r:4, c:16, v:1}, {r:5, c:16, v:1}, {r:6, c:16, v:1},
-        {r:5, c:17, v:1}, {r:5, c:18, v:1},
-        // faster clock
-        {r:9, c:0, v:1}, {r:8, c:1, v:1}, {r:8, c:2, v:1},
-        {r:8, c:3, v:1}, {r:8, c:4, v:3}, {r:8, c:5, v:2},
-        {r:10, c:1, v:1}, {r:10, c:2, v:1}, {r:10, c:3, v:1},
-        {r:10, c:4, v:1}, {r:10, c:5, v:1}, {r:9, c:6, v:1},
-        {r:9, c:7, v:1}, {r:9, c:8, v:1}, {r:9, c:9, v:1},
-        {r:9, c:10, v:1}, {r:9, c:11, v:1}, {r:9, c:12, v:1},
-        {r:9, c:13, v:1}, {r:9, c:14, v:1},
-        // diode
-        {r:8, c:15, v:1}, {r:9, c:15, v:1}, {r:10, c:15, v:1},
-        {r:8, c:16, v:1}, {r:10, c:16, v:1},
-        {r:9, c:17, v:1}, {r:9, c:18, v:1},
-        // xor
-        {r:1, c:19, v:1}, {r:9, c:19, v:1},
-        {r:1, c:20, v:1}, {r:1, c:21, v:1}, {r:1, c:22, v:1},
-        {r:2, c:23, v:1}, {r:3, c:23, v:1}, {r:1, c:23, v:1},
-        {r:4, c:22, v:1}, {r:4, c:23, v:1}, {r:4, c:24, v:1},
-        {r:4, c:25, v:1}, {r:5, c:22, v:1}, {r:5, c:25, v:1},
-        {r:5, c:26, v:1}, {r:6, c:22, v:1}, {r:6, c:23, v:1},
-        {r:6, c:24, v:1}, {r:6, c:25, v:1}, {r:9, c:23, v:1},
-        {r:9, c:20, v:1}, {r:9, c:21, v:1}, {r:9, c:22, v:1},
-        {r:7, c:23, v:1}, {r:8, c:23, v:1}, {r:5, c:27, v:1},
-        // flip flop
-        {r:5, c:28, v:1}, {r:5, c:29, v:1}, {r:4, c:29, v:1},
-        {r:3, c:29, v:1}, {r:2, c:29, v:1}, {r:1, c:29, v:1}, 
-        {r:0, c:29, v:1}, {r:0, c:30, v:1}, {r:0, c:31, v:1},
-        {r:0, c:32, v:1}, {r:2, c:32, v:1}, {r:2, c:33, v:1},
-        {r:1, c:33, v:1}, {r:3, c:33, v:1}, {r:2, c:34, v:1},
-        {r:2, c:35, v:1}, {r:3, c:35, v:1}, {r:3, c:36, v:1},
-        {r:4, c:32, v:2}, {r:4, c:35, v:1}, {r:4, c:37, v:1},
-        {r:4, c:38, v:1}, {r:4, c:39, v:1}, {r:5, c:31, v:3},
-        {r:5, c:33, v:1}, {r:5, c:34, v:1}, {r:5, c:35, v:1},
-        {r:5, c:36, v:1}, {r:6, c:32, v:1}, {r:6, c:35, v:1},
-        {r:4, c:40, v:1},
-        // wire
-        {r:3, c:40, v:1}, {r:2, c:40, v:1}, {r:1, c:40, v:1},
-        {r:0, c:40, v:1}, {r:0, c:41, v:1}, {r:0, c:42, v:1},
-        {r:0, c:43, v:1}, {r:0, c:44, v:1}, {r:0, c:45, v:1},
-        {r:0, c:46, v:1}, {r:0, c:47, v:1}, {r:1, c:47, v:1},
-        {r:2, c:47, v:1}, {r:3, c:47, v:1}, {r:4, c:47, v:1},
-        {r:5, c:47, v:1}, {r:6, c:47, v:1}, {r:7, c:47, v:1},
-        {r:8, c:47, v:1}, {r:9, c:47, v:1}, {r:10, c:47, v:1},
-        {r:11, c:47, v:1}, {r:12, c:47, v:1}, {r:13, c:47, v:1},
-        {r:14, c:47, v:1},
-        {r:15, c:47, v:1}, {r:15, c:46, v:1}, {r:15, c:45, v:1},
-        {r:15, c:44, v:1}, {r:15, c:43, v:1}, {r:15, c:42, v:1},
-        {r:15, c:41, v:1}, {r:15, c:40, v:1}, {r:15, c:39, v:1},
-        {r:15, c:38, v:1}, {r:15, c:37, v:1}, {r:15, c:36, v:1},
-        {r:15, c:35, v:1}, {r:15, c:34, v:1}, {r:15, c:33, v:1},
-        {r:15, c:32, v:1}, {r:15, c:31, v:1}, {r:15, c:30, v:1},
-        {r:15, c:29, v:1}, {r:15, c:28, v:1}, {r:15, c:27, v:1},
-        {r:15, c:26, v:1}, {r:15, c:25, v:1}, {r:15, c:24, v:1},
-        {r:15, c:23, v:1}, {r:15, c:22, v:1}, {r:15, c:21, v:1},
-        {r:15, c:20, v:1}, {r:15, c:19, v:1}, {r:15, c:18, v:1},
-        {r:15, c:17, v:1}, {r:15, c:16, v:1}, {r:15, c:15, v:1},
-        {r:15, c:14, v:1}, {r:15, c:13, v:1}, {r:15, c:12, v:1},
-        {r:15, c:11, v:1}, {r:15, c:10, v:1}, {r:15, c:9, v:1},
-        {r:15, c:8, v:1}, {r:15, c:7, v:1}, {r:15, c:6, v:1},
-        {r:15, c:5, v:1}, {r:15, c:4, v:1}, {r:15, c:3, v:1},
-        {r:15, c:2, v:1}, {r:15, c:1, v:1}, {r:15, c:0, v:1},
-        {r:15, c:0, v:1}, {r:16, c:0, v:1}, {r:17, c:0, v:1},
-        // W
-        {r:18, c:0, v:1}, {r:19, c:0, v:1}, {r:20, c:0, v:1},
-        {r:21, c:0, v:1}, {r:22, c:0, v:1}, {r:23, c:0, v:1},
-        {r:23, c:1, v:1}, {r:23, c:2, v:1}, {r:22, c:2, v:1},
-        {r:21, c:2, v:1}, {r:20, c:2, v:1}, {r:23, c:3, v:1},
-        {r:23, c:4, v:1}, {r:22, c:4, v:1}, {r:21, c:4, v:1},
-        {r:20, c:4, v:1}, {r:19, c:4, v:1}, {r:18, c:4, v:1},
-        {r:18, c:5, v:1},
-        // I
-        {r:18, c:6, v:1}, {r:18, c:7, v:1}, {r:19, c:8, v:1},
-        {r:20, c:8, v:1}, {r:21, c:8, v:1}, {r:22, c:8, v:1},
-        {r:23, c:7, v:1}, {r:23, c:6, v:1}, {r:23, c:8, v:1},
-        {r:18, c:8, v:1}, {r:18, c:9, v:1}, {r:18, c:10, v:1},
-        {r:23, c:9, v:1}, {r:23, c:10, v:1},
-        // R
-        {r:18, c:11, v:1}, {r:18, c:12, v:1}, {r:19, c:12, v:1},
-        {r:20, c:12, v:1}, {r:21, c:12, v:1}, {r:22, c:12, v:1},
-        {r:23, c:12, v:1}, {r:21, c:13, v:1}, {r:21, c:14, v:1},
-        {r:22, c:15, v:1}, {r:23, c:15, v:1}, {r:18, c:13, v:1},
-        {r:19, c:15, v:1}, {r:20, c:15, v:1}, {r:18, c:14, v:1},
-        // E
-        {r:23, c:16, v:1}, {r:23, c:17, v:1}, {r:22, c:17, v:1},
-        {r:21, c:17, v:1}, {r:20, c:17, v:1}, {r:19, c:17, v:1},
-        {r:18, c:17, v:1}, {r:18, c:18, v:1}, {r:21, c:18, v:1},
-        {r:23, c:18, v:1}, {r:18, c:19, v:1}, {r:21, c:19, v:1},
-        {r:23, c:19, v:1}, {r:23, c:20, v:1}, {r:23, c:21, v:1},
-        {r:18, c:20, v:1}, {r:21, c:20, v:1},
-        // W
-        {r:23, c:22, v:1}, {r:22, c:22, v:1}, {r:21, c:22, v:1},
-        {r:20, c:22, v:1}, {r:19, c:22, v:1}, {r:18, c:22, v:1},
-        {r:23, c:23, v:1}, {r:23, c:24, v:1}, {r:22, c:24, v:1},
-        {r:21, c:24, v:1}, {r:20, c:24, v:1}, {r:23, c:25, v:1},
-        {r:23, c:26, v:1}, {r:22, c:26, v:1}, {r:21, c:26, v:1},
-        {r:20, c:26, v:1}, {r:19, c:26, v:1}, {r:18, c:26, v:1},
-        // O
-        {r:18, c:27, v:1}, {r:18, c:28, v:1}, {r:19, c:28, v:1},
-        {r:20, c:28, v:1}, {r:21, c:28, v:1}, {r:22, c:28, v:1},
-        {r:23, c:28, v:1}, {r:18, c:29, v:1}, {r:18, c:30, v:1},
-        {r:23, c:29, v:1}, {r:23, c:30, v:1}, {r:23, c:31, v:1},
-        {r:22, c:31, v:1}, {r:21, c:31, v:1}, {r:20, c:31, v:1},
-        {r:19, c:31, v:1}, {r:18, c:31, v:1}, {r:18, c:32, v:1},
-        // R
-        {r:18, c:33, v:1}, {r:18, c:34, v:1}, {r:19, c:34, v:1},
-        {r:20, c:34, v:1}, {r:21, c:34, v:1}, {r:22, c:34, v:1},
-        {r:23, c:34, v:1}, {r:21, c:35, v:1}, {r:21, c:35, v:1},
-        {r:21, c:36, v:1}, {r:22, c:37, v:1}, {r:23, c:37, v:1},
-        {r:18, c:35, v:1}, {r:18, c:36, v:1}, {r:19, c:37, v:1},
-        {r:20, c:37, v:1}, {r:23, c:38, v:1},
-        // L
-        {r:23, c:39, v:1}, {r:22, c:39, v:1}, {r:21, c:39, v:1},
-        {r:20, c:39, v:1}, {r:19, c:39, v:1}, {r:18, c:39, v:1},
-        {r:23, c:40, v:1}, {r:23, c:41, v:1}, {r:23, c:42, v:1},
-        // D
-        {r:23, c:43, v:1}, {r:22, c:43, v:1},
-        {r:21, c:43, v:1}, {r:20, c:43, v:1}, {r:19, c:43, v:1},
-        {r:18, c:43, v:1}, {r:18, c:44, v:1}, {r:18, c:45, v:1},
-        {r:23, c:44, v:1}, {r:23, c:45, v:1}, {r:19, c:46, v:1},
-        {r:20, c:46, v:1}, {r:21, c:46, v:1}, {r:22, c:46, v:1},
-        // wire
-        {r:23, c:47, v:1}, {r:24, c:47, v:1}, {r:25, c:47, v:1},
-        {r:26, c:47, v:1}, {r:26, c:46, v:1}, {r:26, c:45, v:1},
-        {r:26, c:44, v:1}, {r:26, c:43, v:1}, {r:26, c:42, v:1},
-        {r:26, c:41, v:1}, {r:26, c:40, v:1}, {r:26, c:39, v:1},
-        {r:26, c:38, v:1}, {r:26, c:37, v:1}, {r:26, c:36, v:1},
-        {r:26, c:35, v:1}, {r:26, c:34, v:1}, {r:26, c:33, v:1},
-        {r:26, c:32, v:1}, {r:26, c:31, v:1}, {r:26, c:30, v:1},
-        {r:26, c:29, v:1}, {r:26, c:28, v:1}, {r:26, c:27, v:1},
-        {r:26, c:26, v:1}, {r:26, c:25, v:1}, {r:26, c:24, v:1},
-        {r:26, c:23, v:1}, {r:26, c:22, v:1}, {r:26, c:21, v:1},
-        {r:26, c:20, v:1}, {r:26, c:19, v:1}, {r:26, c:18, v:1},
-        {r:26, c:17, v:1}, {r:26, c:16, v:1}, {r:26, c:15, v:1},
-        {r:26, c:14, v:1}, {r:26, c:13, v:1}, {r:26, c:12, v:1},
-        {r:26, c:11, v:1}, {r:26, c:10, v:1}, {r:26, c:9, v:1},
-        {r:26, c:8, v:1}, {r:26, c:7, v:1}, {r:26, c:6, v:1},
-        {r:26, c:5, v:1}, {r:26, c:4, v:1}, {r:26, c:3, v:1},
-        {r:26, c:2, v:1}, {r:26, c:1, v:1}, {r:26, c:0, v:1},
-    ];
-    for (var i = 0; i < wwCells.length; i++) {
-        var cell = wwCells[i];
-        ww.cells[cell.r][cell.c] = cell.v;
+    // setup rendering
+    var golCanvas = document.getElementById("gol-canvas");
+    var wwCanvas = document.getElementById("wireworld-canvas");
+    var rule110Canvas = document.getElementById("rule110-canvas");
+
+    var framesPerSecond = 3;
+    function startRender(renderFunc, updateFunc, pauseButton) {
+        function render() {
+            setTimeout(function() {
+                renderFunc();
+                if (pauseButton.innerHTML == "PAUSE") {
+                    updateFunc();
+                }
+                requestAnimationFrame(render);
+            }, 1000 / framesPerSecond);
+        }
+        window.requestAnimationFrame(render);
     }
-};
-initWW();
+    startRender(function() {
+        gol.render(golCanvas);
+    }, function() {
+        gol.update();
+    }, document.getElementById("gol-pause"));
+    startRender(function() {
+        ww.render(wwCanvas);
+    }, function() {
+        ww.update();
+    }, document.getElementById("wireworld-pause"));
+    startRender(function() {
+        rule110.render(rule110Canvas);
+    }, function() {
+        rule110.update();
+    }, document.getElementById("rule110-pause"));
 
-var rule110 = new automata.Rule110(27, 48);
-function initRule110() {
-    rule110.init();
-    rule110.cells[rule110.rows-1][rule110.cols-1] = true;
-}
-initRule110();
-
-// setup rendering
-var golCanvas = document.getElementById("gol-canvas");
-var wwCanvas = document.getElementById("wireworld-canvas");
-var rule110Canvas = document.getElementById("rule110-canvas");
-
-var framesPerSecond = 3;
-function startRender(renderFunc, updateFunc, pauseButton) {
-    function render() {
-        setTimeout(function() {
-            renderFunc();
-            if (pauseButton.innerHTML == "PAUSE") {
-                updateFunc();
-            }
-            requestAnimationFrame(render);
-        }, 1000 / framesPerSecond);
+    function togglePause(event, div) {
+        if (event.stopPropagation) {
+            event.stopPropagation();   // W3C model
+        } else {
+            event.cancelBubble = true; // IE model
+        }
+        if (div.innerHTML == "PAUSE") {
+            div.classList.add("pressed");
+            div.innerHTML = "RESUME";
+        } else {
+            div.classList.remove("pressed");
+            div.innerHTML = "PAUSE";
+        }
+        //div.innerHTML = div.innerHTML == "PAUSE" ? "RESUME" : "PAUSE";
     }
-    window.requestAnimationFrame(render);
-}
-startRender(function() {
-    gol.render(golCanvas);
-}, function() {
-    gol.update();
-}, document.getElementById("gol-pause"));
-startRender(function() {
-    ww.render(wwCanvas);
-}, function() {
-    ww.update();
-}, document.getElementById("wireworld-pause"));
-startRender(function() {
-    rule110.render(rule110Canvas);
-}, function() {
-    rule110.update();
-}, document.getElementById("rule110-pause"));
 
-function togglePause(event, div) {
-    if (event.stopPropagation) {
-        event.stopPropagation();   // W3C model
-    } else {
-        event.cancelBubble = true; // IE model
-    }
-    if (div.innerHTML == "PAUSE") {
+    function doReset(event, div, resetFunc) {
         div.classList.add("pressed");
-        div.innerHTML = "RESUME";
-    } else {
-        div.classList.remove("pressed");
-        div.innerHTML = "PAUSE";
+        resetFunc();
+        setTimeout(function() {
+            div.classList.remove("pressed");
+        }, 1600 / framesPerSecond);
     }
-    //div.innerHTML = div.innerHTML == "PAUSE" ? "RESUME" : "PAUSE";
 }
+// FROM: https://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file
+function loadScript(url, callback)
+{
+    // Adding the script tag to the head as suggested before
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
 
-function doReset(event, div, resetFunc) {
-    div.classList.add("pressed");
-    resetFunc();
-    setTimeout(function() {
-        div.classList.remove("pressed");
-    }, 1600 / framesPerSecond);
-}
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+    script.onreadystatechange = callback;
+    script.onload = callback;
+
+    // Fire the loading
+    head.appendChild(script);
+};
+loadScript("/scripts/automata.js", init);
 </script>
 
 <!--comments tile-->
