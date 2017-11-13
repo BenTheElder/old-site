@@ -10,9 +10,9 @@ To Future Ben, to set this up from scratch:
 - login to docker
 - get a kubernetes cluster up and running (in this case, kubeadm on ubuntu)
   - further in this case:
-  - use the `nginx-ingress` configuration for bare metal
+  - use the [`nginx-ingress`](https://github.com/kubernetes/ingress-nginx) configuration [for bare metal](https://github.com/kubernetes/ingress-nginx/blob/master/deploy/README.md#baremetal)
     - edit the deployment to have `hostNetwork: true` and `hostPort`s
   - deploy `default-http-backend`
 - run `./push_image.sh` to build the site binary and push the site image
-- `kubectl create -f ...` for each of `deployment.yaml`, `service.yaml`, `ingress.yaml`
+- `kubectl create -f ...` for each of `k8s/*.yaml`
 - setup `kube-lego` for https

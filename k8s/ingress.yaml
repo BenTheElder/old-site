@@ -4,12 +4,17 @@ metadata:
   name: site-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/tls-acme: "true"
 spec:
+  tls:
+  - hosts:
+    - "home.bentheelder.io"
+    secretName: home-bentheelder-tls
   rules:
   - host: "home.bentheelder.io"
     http:
       paths:
-      - backend:
+      - path: /
+        backend:
           serviceName: site-service
           servicePort: 8080
-
