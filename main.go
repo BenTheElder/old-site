@@ -88,7 +88,7 @@ func main() {
 	addGitHubHookHandler("/github-hook-site", gitHubSiteSecret, func() {
 		log.Print("Received Hook, Updating Site.")
 		cmd := exec.Command("bash", "-c", "./on_hook.sh")
-		cmd.Wait()
+		cmd.Run()
 		log.Print("Updating Site Complete.")
 	})
 	http.Handle("/",

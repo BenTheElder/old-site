@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 git pull
-www/blog/update.sh
+./www/blog/update.sh
