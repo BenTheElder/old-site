@@ -1,0 +1,32 @@
+# you need to first create a secret for the github hook with:
+# kubectl create secret generic github-site-hook-secret \
+#    --from-literal=secret='<the_github_hook_secret>'
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: site-deployment
+  labels:
+    app: site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: site
+  template:
+    metadata:
+      labels:
+        app: site
+    spec:
+      containers:
+      - name: site
+        image: bentheelder/site:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8080
+        env:
+        - name: GITHUB_SITE_HOOK_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: github-site-hook-secret
+              key: secret
