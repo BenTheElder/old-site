@@ -1,5 +1,13 @@
+# editor(s)
 .vscode
+
+# macOS
 .DS_Store
 *.DS_Store
+
+# blog
 www/blog/*.html
 !www/blog/pandoc_template.html
+
+# binaries
+site
