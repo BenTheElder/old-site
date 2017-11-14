@@ -1,3 +1,5 @@
+# ingress for the site-service with tls via kube-lego
+# obviously the hosts are specific to my site
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -8,9 +10,17 @@ metadata:
 spec:
   tls:
   - hosts:
+    - "bentheelder.io"
     - "home.bentheelder.io"
-    secretName: home-bentheelder-tls
+    secretName: site-ingress-tls
   rules:
+  - host: "bentheelder.io"
+    http:
+        paths:
+        - path: /
+          backend:
+            serviceName: site-service
+            servicePort: 8080
   - host: "home.bentheelder.io"
     http:
       paths:

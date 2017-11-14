@@ -1,11 +1,13 @@
+# complete setup for kube-lego
+# the only thing specific to my cluster here is the lego.email setting.
+#
+# the rest is just kube-lego with rbac.
+# Thanks to comments at: https://github.com/jetstack/kube-lego/issues/99
 apiVersion: v1
 kind: Namespace
 metadata:
   name: kube-lego
 ---
-# This second entry is specific to our cluster,
-# the rest is just kube-lego with rbac.
-# Thanks to comments at: https://github.com/jetstack/kube-lego/issues/99
 apiVersion: v1
 metadata:
   name: kube-lego

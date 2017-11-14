@@ -1,3 +1,4 @@
+# this makes sure we can resolve external services using google's public DNS
 apiVersion: v1
 kind: ConfigMap
 metadata:
