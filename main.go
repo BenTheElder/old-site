@@ -14,6 +14,7 @@ import (
 	"os"
 	"os/exec"
 	"path"
+	"time"
 )
 
 func verifyGitHubHook(secret, receivedSignature, body []byte) bool {
@@ -85,12 +86,27 @@ func interceptExact(
 
 func main() {
 	gitHubSiteSecret := []byte(os.Getenv("GITHUB_SITE_HOOK_SECRET"))
-	addGitHubHookHandler("/github-hook-site", gitHubSiteSecret, func() {
-		log.Print("Received Hook, Updating Site.")
+	// updates / regenerates the static content to the latest version
+	updateSite := func() {
+		log.Print("Updating Site.")
 		cmd := exec.Command("bash", "-c", "./on_hook.sh")
 		cmd.Run()
 		log.Print("Updating Site Complete.")
+	}
+	// periodically run site update in the background
+	// TODO(bentheelder): what should the tick rate really be?
+	go func() {
+		for _ = range time.Tick(10 * time.Minute) {
+			log.Print("Periodic Background Update.")
+			updateSite()
+		}
+	}()
+	// setup http handlers
+	addGitHubHookHandler("/github-hook-site", gitHubSiteSecret, func() {
+		log.Print("Received /github-hook-site")
+		updateSite()
 	})
+	// TODO(bentheelder): add a nice 404 page / nicer error pages
 	http.Handle("/",
 		interceptExact("/",
 			http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
