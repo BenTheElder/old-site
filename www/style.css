@@ -257,7 +257,7 @@ p.small-indent {
   font-weight: bold;
 }
 
-.big {
+.big, p.big {
   font-size: 120%;
 }
 
