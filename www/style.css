@@ -257,7 +257,7 @@ p.small-indent {
   font-weight: bold;
 }
 
-.big, p.big {
+.big, p.big, .section-title.big {
   font-size: 120%;
 }
 
