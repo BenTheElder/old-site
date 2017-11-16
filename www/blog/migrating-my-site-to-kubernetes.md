@@ -41,12 +41,8 @@ pagetitle: "BenTheElder - Blog: Migrating My Site To Kubernetes"
 </div>
 
 
-<!-- under construction tile -->
-<div class="tile centered-text warning"><p class="title">This post is under construction (!)</p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
-
-
 <div class="tile blog-content">
-<p class="title">Migrating My Site To Kubernetes - November 15th, 2017</p>
+<p class="title">Migrating My Site To Kubernetes - November 16th, 2017</p>
 
 <p class="big bold padded centered-text warning">Disclaimer:&nbsp;&nbsp;I work at Google in Cloud on Kubernetes things, but this is a personal post.</p>
 
