@@ -1,4 +1,4 @@
-# this makes sure we can resolve external services using google's public DNS
+# resolve external services using Google's public DNS
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -6,4 +6,5 @@ metadata:
   namespace: kube-system
 data:
   upstreamNameservers: |
-    ["8.8.8.8"]
+    [“8.8.8.8”]
+

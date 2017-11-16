@@ -173,13 +173,13 @@ canvas {
   font-weight: bold;
 }
 
-.tile .section-title {
+.tile>.section-title {
   font-size: 110%;
   margin-top: 0;
   font-weight: bold;
 }
 
-.tile p, .tile li {
+.tile>* {
   font-size: 110%;
   font-family: 'Open Sans', sans-serif;
 }
@@ -188,7 +188,7 @@ canvas {
   font-family: 'Roboto', sans-serif;
 }
 
-.tile table {
+.tile>table {
   font-size: 110%;
   text-align: left;
   line-height: 150%;
@@ -281,6 +281,10 @@ p.small-indent {
   text-align: left;
 }
 
+.padded {
+  padding: .5em;
+}
+
 .flex-container {
   display: inline-flex;
   flex-direction: row;
@@ -292,6 +296,11 @@ p.small-indent {
 .flex-container img {
   flex: 0 0 auto;
   object-fit: scale-down;
+}
+
+img.emoji {
+  height: 1.5em;
+  margin-bottom: -.25em;
 }
 
 .flex-container.vertical-center {
@@ -440,7 +449,7 @@ code>span.op { color: #373B41; } /* Operator */
      font-size: 2vw;
      max-width: 100%;
   }
-  .tile p {
+  .tile>* {
     font-size: 110%;
   }
 }

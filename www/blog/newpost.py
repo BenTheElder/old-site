@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# TODO(bentheelder): actually use some better templating here and automate this
+# a bit more...
 # a script to make a copy of the blog-post template file with a new name
 import os
 import shutil

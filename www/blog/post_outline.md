@@ -35,8 +35,8 @@ pagetitle: "BenTheElder - Blog: Title"
 
 <div class="header">
 <div class="header-content">
-<span class="brand"><a href="//bentheelder.io">BenTheElder</a></span><div class="nav"><span><a href="//bentheelder.io/projects">PROJECTS</a>
-</span></span><span><a class="current" href="//bentheelder.io/blog">BLOG</a></span><span><a href="//bentheelder.io/about">ABOUT</a></div>
+<span class="brand"><a href="/">BenTheElder</a></span><div class="nav"><span><a href="/projects">PROJECTS</a>
+</span></span><span><a class="current" href="/blog">BLOG</a></span><span><a href="//about">ABOUT</a></div>
 </div>
 </div>
 
