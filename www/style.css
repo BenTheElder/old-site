@@ -299,7 +299,9 @@ p.small-indent {
 }
 
 img.emoji {
-  height: 1.5em;
+  line-height: 1em;
+  height: 1.25em;
+  margin: 0;
   margin-bottom: -.25em;
 }
 

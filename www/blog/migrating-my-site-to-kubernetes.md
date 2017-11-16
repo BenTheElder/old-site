@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?reload-please"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?reload-please=2"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -225,7 +225,7 @@ In conclusion:
 - If you haven't given Kubernetes a try but you are already comfortable with Docker
  you should give it a try. Kubernetes makes managing services *easy and portable*.
 The same `kubectl` commands I use to debug our services for the Kubernetes project's
- infrstructure on GKE work just as well on my toy cluster at home <img src="/images/emoji/emoji_u1f604.png" alt="grin" title="grin" class="emoji"></img>
+ infrstructure on GKE work just as well on my toy cluster at home. <img src="/images/emoji/emoji_u1f604.png" alt="grin" title="grin" class="emoji"></img>
 
 - If you want to give Kubernetes a try with much less effort [Google Cloud](https://cloud.google.com/) offers both [a free 12 month, $300 credit](https://cloud.google.com/free/) and an [always-free tier](https://cloud.google.com/free/) which both include [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).  
 We use GKE heavily for the project infrastructure and I can speak highly to it's ease of use
