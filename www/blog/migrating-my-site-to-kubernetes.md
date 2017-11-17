@@ -227,7 +227,7 @@ In conclusion:
 The same `kubectl` commands I use to debug our services for the Kubernetes project's
  infrstructure on GKE work just as well on my toy cluster at home. <img src="/images/emoji/emoji_u1f604.png" alt="grin" title="grin" class="emoji"></img>
 
-- If you want to give Kubernetes a try with much less effort [Google Cloud](https://cloud.google.com/) offers both [a free 12 month, $300 credit](https://cloud.google.com/free/) and an [always-free tier](https://cloud.google.com/free/) which both include [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).  
+- If you want to give Kubernetes a try with much less effort [Google Cloud](https://cloud.google.com/) offers [a free 12 month, $300 credit](https://cloud.google.com/free/) and an [always-free tier](https://cloud.google.com/free/) which both include [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).  
 We use GKE heavily for the project infrastructure and I can speak highly to it's ease of use
  and freedom to focus on your services without worrying about setting up and maintaining all of the pluggable Kubernetes bits such as [logging](https://kubernetes.io/docs/tasks/debug-application-cluster/logging-stackdriver/), [master upgrades](https://cloud.google.com/kubernetes-engine/docs/clusters/upgrade), [node auto repair](https://cloud.google.com/kubernetes-engine/docs/node-auto-repair), [IAM](https://cloud.google.com/iam/), [cluster networking](https://kubernetes.io/docs/concepts/cluster-administration/networking/#google-compute-engine-gce), etc. 
 
@@ -241,6 +241,7 @@ Addendum:
 
 1) I also used [Calico](https://www.projectcalico.org/) for my overlay network, but I haven't really exercised it yet so I can't really comment on it.
 2) Kubernetes [secrets](https://kubernetes.io/docs/concepts/configuration/secret/) are awesome. My simple Go service can just read in the GitHub webhook secret as an environment variable injected into the container without worrying about how the secret is loaded and stored. <img src="/images/emoji/emoji_u1f510.png" title="Locked with Key" class="emoji"></img> 
+3) To get a one node cluster working you need to [remove the master taint](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#master-isolation). This is terrible idea for a production cluster but great for tinkering and effectively using kubelet as your PID1.
 
 <div style="clear: both;"></div>
 </div>
