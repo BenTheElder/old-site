@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/bentheelder
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://bentheelder.io
+  * I am bentheelder (https://keybase.io/bentheelder) on keybase.
+  * I have a public key ASAhLfKfO-I7o4IVyCnsq7M6hCce7WTc5aXbc1y8HKeMzQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012054e3ee051c9f3f3a148b47d04f1630aa348c2d0fd795ecdbd90c9978b4fe25400a",
+      "host": "keybase.io",
+      "kid": "0120212df29f3be23ba38215c829ecabb33a84271eed64dce5a5db735cbc1ca78ccd0a",
+      "uid": "2a19ac19b17265e426ae4047cfe34a19",
+      "username": "bentheelder"
+    },
+    "merkle_root": {
+      "ctime": 1511296076,
+      "hash": "b760bf0ad5e0c7fa1e14821fe7d7ed356a80d1d676772e6664bb47f1732647750e8a74ed843e0c474d42b83c74b091c49eab5af4ee6458f5c7738b55c4265cc6",
+      "hash_meta": "62db34c39f22b46e1ad9680f7542df7e5a32db0f3bac204400f388ca27933c67",
+      "seqno": 1727627
+    },
+    "service": {
+      "hostname": "bentheelder.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.36"
+  },
+  "ctime": 1511296091,
+  "expire_in": 504576000,
+  "prev": "627edb9a8ee7dd2cd29e8addc7adf657baf4147ab30b7af86d5155651b6d3296",
+  "seqno": 15,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgIS3ynzviO6OCFcgp7KuzOoQnHu1k3OWl23NcvBynjM0Kp3BheWxvYWTFA0p7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNTRlM2VlMDUxYzlmM2YzYTE0OGI0N2QwNGYxNjMwYWEzNDhjMmQwZmQ3OTVlY2RiZDkwYzk5NzhiNGZlMjU0MDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMjEyZGYyOWYzYmUyM2JhMzgyMTVjODI5ZWNhYmIzM2E4NDI3MWVlZDY0ZGNlNWE1ZGI3MzVjYmMxY2E3OGNjZDBhIiwidWlkIjoiMmExOWFjMTliMTcyNjVlNDI2YWU0MDQ3Y2ZlMzRhMTkiLCJ1c2VybmFtZSI6ImJlbnRoZWVsZGVyIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTExMjk2MDc2LCJoYXNoIjoiYjc2MGJmMGFkNWUwYzdmYTFlMTQ4MjFmZTdkN2VkMzU2YTgwZDFkNjc2NzcyZTY2NjRiYjQ3ZjE3MzI2NDc3NTBlOGE3NGVkODQzZTBjNDc0ZDQyYjgzYzc0YjA5MWM0OWVhYjVhZjRlZTY0NThmNWM3NzM4YjU1YzQyNjVjYzYiLCJoYXNoX21ldGEiOiI2MmRiMzRjMzlmMjJiNDZlMWFkOTY4MGY3NTQyZGY3ZTVhMzJkYjBmM2JhYzIwNDQwMGYzODhjYTI3OTMzYzY3Iiwic2Vxbm8iOjE3Mjc2Mjd9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiYmVudGhlZWxkZXIuaW8iLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4zNiJ9LCJjdGltZSI6MTUxMTI5NjA5MSwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiI2MjdlZGI5YThlZTdkZDJjZDI5ZThhZGRjN2FkZjY1N2JhZjQxNDdhYjMwYjdhZjg2ZDUxNTU2NTFiNmQzMjk2Iiwic2Vxbm8iOjE1LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQP/ClyvxWzXkwinr68WWkRW/k5I6Fo3Y9yKSFn+s2Lq14I9Hctru46QARvpBzsucWUgp/88OW04oFs1oqRtxuQ6oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCA92zL3rt3gRNdBFMlcKBaVu4WhSW7akrZNMN+ailIg4aN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bentheelder
+
+==================================================================
