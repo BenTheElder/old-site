@@ -55,7 +55,7 @@ canvas {
   margin: 0;
   text-align: center;
   font-size: 1.333em;
-  font-weight: 500;
+  font-weight: normal;
   letter-spacing: .02em;
   color: #f5f5f5;
   min-width: 100%;
@@ -301,7 +301,7 @@ p.small-indent {
 img.emoji {
   line-height: 1em;
   height: 1.25em;
-  margin: 0;
+  margin: 0 .1em;
   margin-bottom: -.25em;
 }
 
@@ -353,6 +353,30 @@ img.emoji {
   box-shadow: 0 0.44444444444em 0.94444444444em 0 rgba(0, 0, 0, 0.2);
   background-color: #1976D2;
   transition-delay: 0s;
+}
+
+.white {
+  color: white;
+}
+
+.double-size {
+  font-size: 2em;
+}
+.triple-size {
+  font-size: 3em;
+}
+
+
+.error-page {
+  color: white;
+}
+.error-page .header {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: .5em;
+}
+.error-page .button {
+  font-size: 1.5em;
 }
 
 /*

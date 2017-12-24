@@ -8,3 +8,5 @@ env GOOS=linux go build . && \
 docker build -t "${IMAGE_NAME}" . && \
 docker tag "${IMAGE_NAME}" "${DOCKER_ID_USER}/${IMAGE_NAME}"
 docker push "${DOCKER_ID_USER}/${IMAGE_NAME}"
+# cleanup
+rm site

@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?reload-please=2"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514090175"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -23,20 +23,20 @@ header-includes:
     <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
     <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
-pagetitle: "BenTheElder - Blog: Migrating My Site To Kubernetes"
+pagetitle: "BenTheElder.io - Migrating My Site To Kubernetes"
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <body>
 
-<div><link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500" rel="stylesheet" lazyload="1" /></div>
+<div><link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700" rel="stylesheet" lazyload="1" /></div>
 
 
 <div class="header">
 <div class="header-content">
 <span class="brand"><a href="/">BenTheElder</a></span><div class="nav"><span><a href="/projects">PROJECTS</a>
-</span></span><span><a class="current" href="/blog">BLOG</a></span><span><a href="/about">ABOUT</a></div>
+</span></span><span><a class="current" href="/posts">POSTS</a></span><span><a href="/about">ABOUT</a></div>
 </div>
 </div>
 
@@ -72,6 +72,7 @@ data:
 
 My `k8s/kube-lego.yaml` contained:
 
+<details>
 ```yaml
 # Complete setup for kube-lego.
 # The only thing specific to my cluster here is the lego.email setting,
@@ -213,7 +214,7 @@ spec:
           timeoutSeconds: 1
 ---
 ```
-<br>
+</details>
 
 After applying these two changes the rest of [my very simple config](https://github.com/BenTheElder/site/tree/master/k8s) to deploy the Go service
  behind automatic TLS termination worked flawlessly. Since then managing the

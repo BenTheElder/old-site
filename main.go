@@ -7,6 +7,7 @@ import (
 	"crypto/hmac"
 	"crypto/sha1"
 	"encoding/hex"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -14,6 +15,7 @@ import (
 	"os"
 	"os/exec"
 	"path"
+	"strings"
 	"time"
 )
 
@@ -55,13 +57,18 @@ func addGitHubHookHandler(path string, secret []byte, onHook func()) {
 	})
 }
 
+func dupeRequest(original *http.Request) *http.Request {
+	r2 := new(http.Request)
+	*r2 = *original
+	r2.URL = new(url.URL)
+	*r2.URL = *original.URL
+	return r2
+}
+
 func defaultExtension(extension string, h http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if path.Ext(r.URL.Path) == "" {
-			r2 := new(http.Request)
-			*r2 = *r
-			r2.URL = new(url.URL)
-			*r2.URL = *r.URL
+			r2 := dupeRequest(r)
 			r2.URL.Path = r.URL.Path + extension
 			h.ServeHTTP(w, r2)
 		} else {
@@ -84,6 +91,68 @@ func interceptExact(
 	})
 }
 
+func redirectPrefix(
+	prefix string,
+	replacementPrefix string,
+	defaultHandler http.Handler,
+) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if strings.HasPrefix(r.URL.Path, prefix) {
+			r2 := dupeRequest(r)
+			r2.URL.Path = strings.Replace(r2.URL.Path, prefix, replacementPrefix, 1)
+			http.Redirect(w, r2, r2.URL.String(), http.StatusMovedPermanently)
+		} else {
+			defaultHandler.ServeHTTP(w, r)
+		}
+	})
+}
+
+// handle custom 404 page etc by intercepting WriteHeader calls
+type errorResponseWriter struct {
+	next           http.ResponseWriter
+	request        *http.Request
+	errorHandler   http.Handler
+	headerDisabled bool
+	writeDisabled  bool
+}
+
+func (w *errorResponseWriter) WriteHeader(status int) {
+	if status == http.StatusNotFound {
+		// clear out error headers
+		w.next.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.next.Header().Del("X-Content-Type-Options")
+		// still set the status
+		w.next.WriteHeader(status)
+		w.headerDisabled = true
+		// serve the error page
+		r2 := dupeRequest(w.request)
+		r2.URL.Path = fmt.Sprintf("%d.html", status)
+		w.errorHandler.ServeHTTP(w, r2)
+		// stop access to the underyling writer from other handlers
+		w.writeDisabled = true
+	} else if !w.headerDisabled {
+		w.next.WriteHeader(status)
+	}
+}
+
+func (w *errorResponseWriter) Write(b []byte) (int, error) {
+	if !w.writeDisabled {
+		return w.next.Write(b)
+	}
+	return len(b), nil
+}
+
+func (w *errorResponseWriter) Header() http.Header {
+	return w.next.Header()
+}
+
+// inject custom error page handler using custom http.ResponseWriter above
+func injectCustomErrorWriter(errorHandler http.Handler, defaultHandler http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		defaultHandler.ServeHTTP(&errorResponseWriter{w, r, errorHandler, false, false}, r)
+	})
+}
+
 func main() {
 	gitHubSiteSecret := []byte(os.Getenv("GITHUB_SITE_HOOK_SECRET"))
 	// updates / regenerates the static content to the latest version
@@ -96,6 +165,7 @@ func main() {
 	// periodically run site update in the background
 	// TODO(bentheelder): what should the tick rate really be?
 	go func() {
+		updateSite()
 		for _ = range time.Tick(10 * time.Minute) {
 			log.Print("Periodic Background Update.")
 			updateSite()
@@ -106,14 +176,19 @@ func main() {
 		log.Print("Received /github-hook-site")
 		updateSite()
 	})
-	// TODO(bentheelder): add a nice 404 page / nicer error pages
+	// setup content handling
+	fileServer := defaultExtension(".html", http.FileServer(http.Dir("./www")))
 	http.Handle("/",
-		interceptExact("/",
-			http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-				http.ServeFile(w, r, "./www/index.html")
-			}),
-			defaultExtension(".html",
-				http.FileServer(http.Dir("./www")))),
+		injectCustomErrorWriter(
+			fileServer,
+			interceptExact("/",
+				http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+					http.ServeFile(w, r, "./www/index.html")
+				}),
+				redirectPrefix(
+					"/blog",
+					"/posts",
+					fileServer))),
 	)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
