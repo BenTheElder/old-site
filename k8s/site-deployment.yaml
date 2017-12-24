@@ -24,9 +24,17 @@ spec:
         ports:
         - name: http
           containerPort: 8080
+        volumeMounts:
+        - mountPath: /workspace
+          name: workspace
         env:
+        - name: WORKSPACE
+          value: /workspace
         - name: GITHUB_SITE_HOOK_SECRET
           valueFrom:
             secretKeyRef:
               name: github-site-hook-secret
               key: secret
+      volumes:
+      - name: workspace
+        emptyDir: {}
