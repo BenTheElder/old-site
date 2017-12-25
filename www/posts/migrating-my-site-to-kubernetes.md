@@ -23,7 +23,7 @@ header-includes:
     <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
     <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
-pagetitle: "BenTheElder.io - Migrating My Site To Kubernetes"
+pagetitle: "Migrating My Site To Kubernetes | BenTheElder"
 ---
 
 <!DOCTYPE html>
@@ -241,7 +241,7 @@ You may also want to look around the list of the many [CNCF certified Kubernetes
 Addendum:
 
 1) I also used [Calico](https://www.projectcalico.org/) for my overlay network, but I haven't really exercised it yet so I can't really comment on it.
-2) Kubernetes [secrets](https://kubernetes.io/docs/concepts/configuration/secret/) are awesome. My simple Go service can just read in the GitHub webhook secret as an environment variable injected into the container without worrying about how the secret is loaded and stored. <img src="/images/emoji/emoji_u1f510.png" title="Locked with Key" class="emoji"></img> 
+2) Kubernetes [secrets](https://kubernetes.io/docs/concepts/configuration/secret/) are awesome. My simple Go service can just read in the GitHub webhook secret as an environment variable injected into the container without worrying about how the secret is loaded and stored.<!-- <img src="/images/emoji/emoji_u1f510.png" title="Locked with Key" class="emoji"></img> -->
 3) To get a one node cluster working you need to [remove the master taint](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#master-isolation). This is terrible idea for a production cluster but great for tinkering and effectively using kubelet as your PID1.
 
 <div style="clear: both;"></div>

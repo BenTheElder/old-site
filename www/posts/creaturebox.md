@@ -23,7 +23,7 @@ header-includes:
     <meta name="msapplication-square150x150logo" content="/images/icons/mstile-150x150.png" />
     <meta name="msapplication-wide310x150logo" content="/images/icons/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="/images/icons/mstile-310x310.png" />
-pagetitle: "BenTheElder.io - CreatureBox"
+pagetitle: "CreatureBox | BenTheElder"
 ---
 
 <!DOCTYPE html>
