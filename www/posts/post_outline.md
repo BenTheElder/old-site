@@ -42,7 +42,7 @@ pagetitle: "BenTheElder.io - Title"
 
 
 <!-- under construction tile -->
-<div class="tile centered-text warning"><p class="title">This post is under construction (!)</p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
+<div class="tile centered-text warning"><p class="title">This post is under construction <img src="/images/emoji/emoji_u1f6a7.png" class="emoji" alt="Construction"></img></p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
 
 
 <div class="tile blog-content">
