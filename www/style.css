@@ -54,7 +54,7 @@ canvas {
 }
 
 a.white:hover,
-.white a:hover{
+.white a:hover {
   border-bottom: .055555em solid white;
 }
 
@@ -151,7 +151,7 @@ a.white:hover,
   font-size: 1em;
   padding: 1.25em;
   background-color: #fdfdfd;
-  max-width: 52em;
+  max-width: 60em;
   margin: 0 auto;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -382,6 +382,14 @@ img.emoji {
 }
 .error-page .button {
   font-size: 1.5em;
+}
+
+.blueprint-title {
+  color: white;
+  margin: 0 auto;
+  border: .1em solid white;
+  line-height: 1.1em;
+  padding: 0.25em 0;
 }
 
 /*
