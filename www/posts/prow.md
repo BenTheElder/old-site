@@ -46,7 +46,7 @@ pagetitle: "BenTheElder.io - Prow"
 
 
 <!--prow diagram-->
-<div class="white double-size centered-text" style="margin: 0 auto; margin-top:.5em"><a href="https://github.com/kubernetes/test-infra/tree/master/prow" class="white bold">Prow</a>: Guiding the way to Kubernetes Next</div>
+<div class="white double-size centered-text" style="margin: 0 auto; margin-top:.5em"><a href="https://github.com/kubernetes/test-infra/tree/master/prow" class="white bold">Prow</a>: Testing the way to Kubernetes Next</div>
 <img src="/images/prow_diagram.svg" style="max-width: 100%; margin: 0 auto; display: block"></img>
 
 
@@ -58,15 +58,15 @@ href="https://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0 Attribu
 
 
 <div class="tile blog-content">
-<p class="title">Prow - December 24th, 2017</p>
+<p class="title">Prow - December 26th, 2017</p>
 <a href="https://kubernetes.io/">The Kubernetes project</a> does <a href="http://velodrome.k8s.io/dashboard/db/bigquery-metrics?orgId=1" class="italic">a lot</a> of testing,
- <span class="bold">on the order of 10000 jobs per day</span>.
+ <span class="bold">on the order of 10000 jobs per day</span> covering everything from build and unit tests to end-to-end testing on real clusters deployed from source all the way up to ~5000 node <a href="https://k8s-testgrid.appspot.com/sig-scalability-gce#Summary">scalability and performance tests</a>.
 
 <img src="/images/test_metrics.png"></img>
 <p class="centered-text"><a href="http://velodrome.k8s.io/dashboard/db/bigquery-metrics?orgId=1">Velodrome metrics</a></p>
 The system handling all of this leverages Kubernetes, naturally, and of-course has a number
  of nautically-named components. This system is <a href="https://github.com/kubernetes/test-infra/tree/master/prow" class="italic">Prow</a>, and is used to manage automatic validation and merging of
- human-reviewed pull requests and to verify branch-health leading up to each release.
+ human-approved pull requests and to verify branch-health leading up to each release.
 
 With Prow each job is a single-container <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/">pod</a>, created in a dedicated build and test cluster by "plank", a micro-service running in the services cluster. 
 Each Prow component (roughly outlined above, along with <a href="http://testgrid.k8s.io">Testgrid</a>) is a small Go service structured around managing these one-off single-pod "ProwJobs". 
