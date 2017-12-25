@@ -49,6 +49,15 @@ canvas {
   background-color: black;
 }
 
+.white {
+  color: white;
+}
+
+a.white:hover,
+.white a:hover{
+  border-bottom: .055555em solid white;
+}
+
 /* content layout and style */
 .header {
   line-height: normal;
@@ -353,10 +362,6 @@ img.emoji {
   box-shadow: 0 0.44444444444em 0.94444444444em 0 rgba(0, 0, 0, 0.2);
   background-color: #1976D2;
   transition-delay: 0s;
-}
-
-.white {
-  color: white;
 }
 
 .double-size {

@@ -254,8 +254,8 @@ Addendum:
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = "https://bentheelder.io/blog/migrating-my-site-to-kubernetes";
-        this.page.identifier = "blog/migrating-my-site-to-kubernetes";
+        this.page.url = "https://bentheelder.io/posts/migrating-my-site-to-kubernetes";
+        this.page.identifier = "posts/migrating-my-site-to-kubernetes";
     };
     (function() {
         var d = document, s = d.createElement('script');

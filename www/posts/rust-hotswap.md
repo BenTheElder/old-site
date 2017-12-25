@@ -239,8 +239,8 @@ glob = "*"
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = "https://bentheelder.io/blog/rust-hotswap";
-        this.page.identifier = "blog/rust-hotswap";
+        this.page.url = "https://bentheelder.io/posts/rust-hotswap";
+        this.page.identifier = "posts/rust-hotswap";
     };
     (function() {
         var d = document, s = d.createElement('script');

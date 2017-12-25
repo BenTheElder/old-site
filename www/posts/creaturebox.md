@@ -125,8 +125,8 @@ I may just have to explore that for my next project (I [replied back](https://tw
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = "https://bentheelder.io/blog/creaturebox";
-        this.page.identifier = "blog/creaturebox";
+        this.page.url = "https://bentheelder.io/posts/creaturebox";
+        this.page.identifier = "posts/creaturebox";
     };
     (function() {
         var d = document, s = d.createElement('script');

@@ -485,8 +485,8 @@ loadScript("/scripts/automata.js", init);
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = "https://bentheelder.io/blog/automata";
-        this.page.identifier = "blog/automata";
+        this.page.url = "https://bentheelder.io/posts/automata";
+        this.page.identifier = "posts/automata";
     };
     (function() {
         var d = document, s = d.createElement('script');

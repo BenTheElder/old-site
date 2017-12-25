@@ -61,8 +61,8 @@ The <a href="https://bentheelder.github.io">old site</a> will be redirected to t
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = "https://bentheelder.io/blog/hello-again";
-        this.page.identifier = "blog/hello-again";
+        this.page.url = "https://bentheelder.io/posts/hello-again";
+        this.page.identifier = "posts/hello-again";
     };
     (function() {
         var d = document, s = d.createElement('script');

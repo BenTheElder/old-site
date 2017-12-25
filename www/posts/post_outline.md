@@ -67,8 +67,8 @@ pagetitle: "BenTheElder.io - Title"
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = "https://bentheelder.io/blog/POST_FILE_EXTENSIONLESS_HERE";
-        this.page.identifier = "blog/POST_FILE_EXTENSIONLESS_HERE";
+        this.page.url = "https://bentheelder.io/posts/POST_FILE_EXTENSIONLESS_HERE";
+        this.page.identifier = "posts/POST_FILE_EXTENSIONLESS_HERE";
     };
     (function() {
         var d = document, s = d.createElement('script');
