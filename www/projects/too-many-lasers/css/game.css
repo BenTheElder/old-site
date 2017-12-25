@@ -1,0 +1,15 @@
+body {
+  font-family: 'Titillium Web';
+  background-color: black;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.game-container {
+  width: 100%;
+  text-align: center;
+}
+
+.game-container canvas {
+  margin: 0 auto;
+}

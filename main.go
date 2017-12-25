@@ -67,7 +67,7 @@ func dupeRequest(original *http.Request) *http.Request {
 
 func defaultExtension(extension string, h http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if path.Ext(r.URL.Path) == "" {
+		if len(r.URL.Path) > 0 && r.URL.Path[len(r.URL.Path)-1] != '/' && path.Ext(r.URL.Path) == "" {
 			r2 := dupeRequest(r)
 			r2.URL.Path = r.URL.Path + extension
 			h.ServeHTTP(w, r2)
