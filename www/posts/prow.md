@@ -69,15 +69,15 @@ The system handling all of this leverages Kubernetes, naturally, and of-course h
  human-reviewed pull requests and to verify branch-health leading up to each release.
 
 With Prow each job is a single-container <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/">pod</a>, created in a dedicated build and test cluster by "plank", a micro-service running in the services cluster. 
-Each Prow component is a small Go service structured around managing these one-off single-pod "ProwJobs". 
+Each Prow component (roughly outlined above, along with <a href="http://testgrid.k8s.io">Testgrid</a>) is a small Go service structured around managing these one-off single-pod "ProwJobs". 
+
 Using Kubernetes frees us from worrying about most of the resource management and scheduling / bin-packing of these
  jobs once they have been created and has generally been a pleasant experience.
 
 Prow / "hook" also provides <a href="http://prow.k8s.io/plugin-help.html">a number of GitHub automation plugins</a>
- used to provide things like issue and pull request slash commands for applying and removing labels, opening and closing issues, etc.
+ used to provide things like issue and pull request <a href="https://github.com/kubernetes/test-infra/blob/master/commands.md">slash commands</a> for applying and removing labels, opening and closing issues, etc.
  This has been particularly helpful since <a href="https://help.github.com/articles/repository-permission-levels-for-an-organization/">GitHub's permissions model is not particularly granular</a> and we'd like contributors to be able to label issues without write permissions. <img src="/images/emoji/emoji_u1f643.png" class="emoji" alt="Upside-Down Face"></img>
 
-<br>
 If any of this sounds interesting to you come check out <a href="https://github.com/kubernetes/test-infra/tree/master/prow">Prow's source code</a> and join our <a href="https://github.com/kubernetes/community/blob/master/sig-testing/README.md">SIG Testing</a> meetings for more. 
 
 <hr>
@@ -85,8 +85,8 @@ If any of this sounds interesting to you come check out <a href="https://github.
 Notes:
 
  - There are many other tools that didn't make the diagram or dicussion above, you can find these and more about everything at <a href="https://github.com/kubernetes/test-infra">github.com/kubernetes/test-infra</a>.
- - These are all open source, except Testgrid. We hope to open source a more performant rewrite of Testgrid sometime in Spring 2018.
- - A number of other groups / projects including <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://istio.io/">Istio</a>, and <a href="https://www.jetstack.io/">Jetstack</a> are also using and contributing to Prow and the rest of Kubernetes "test-infra".
+ - These are all open source, except Testgrid, which is actually a <a href="testgrid.k8s.io">publicly hosted</a> and <a href="https://github.com/kubernetes/test-infra/tree/master/testgrid/config">configured</a> version of an internal tool developed at Google. We hope to open source a more performant rewrite of Testgrid sometime in Spring 2018.
+ - A number of other projects / groups including <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://istio.io/">Istio</a>, and <a href="https://www.jetstack.io/">Jetstack</a> are also using and contributing (greatly!) to Prow and the rest of Kubernetes "test-infra".
 </div>
 
 
