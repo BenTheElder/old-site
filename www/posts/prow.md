@@ -36,7 +36,7 @@ pagetitle: "Prow | BenTheElder"
 <div class="header">
 <div class="header-content">
 <span class="brand"><a href="/">BenTheElder</a></span><div class="nav"><span><a href="/projects">PROJECTS</a>
-</span></span><span><a class="current" href="/posts">POSTS</a></span><span><a href="//about">ABOUT</a></div>
+</span></span><span><a class="current" href="/posts">POSTS</a></span><span><a href="/about">ABOUT</a></div>
 </div>
 </div>
 
