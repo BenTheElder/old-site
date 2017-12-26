@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514266052"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514267127"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -44,7 +44,7 @@ pagetitle: "Migrating My Site To Kubernetes | BenTheElder"
 <div class="card blog-content">
 <p class="title">Migrating My Site To Kubernetes - November 16th, 2017</p>
 
-<p class="big bold padded centered-text warning">Disclaimer:&nbsp;&nbsp;I work at Google in Cloud on Kubernetes things, but this is a personal post.</p>
+<p class="big bold warning title centered-text">Disclaimer:&nbsp;&nbsp;I work at Google in Cloud on Kubernetes things, but this is a personal post.</p>
 
 [Previously](https://bentheelder.io/blog/hello-again) when I brought my my site back online I breifly mentioned the simple setup I threw together with Caddy running on a tiny [GCE](https://cloud.google.com/compute/) VM with a few scripts&nbsp;&nbsp;—&nbsp;&nbsp;Since then I've had plenty of time to experience the awesomeness that is managing services with [Kubernetes](https://kubernetes.io/) at work while developing Kubernetes's [testing infrastructure](https://github.com/kubernetes/test-infra/) (which we run on [GKE](https://cloud.google.com/kubernetes-engine/)).
 

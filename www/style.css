@@ -265,6 +265,10 @@ a.white:hover,
 }
 
 .warning { background-color: #FDD835; }
+p.warning {
+  padding: .5em !important;
+  margin: 1em auto !important;
+}
 
 .error { background-color: #FF1744; }
 
@@ -331,10 +335,6 @@ p.small-indent {
 
 .left-text {
   text-align: left;
-}
-
-.padded {
-  padding: .5em;
 }
 
 .flex-container {
