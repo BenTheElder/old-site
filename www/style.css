@@ -198,18 +198,19 @@ a.white:hover,
 .tile .title, 
 .card .title {
   font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   font-size: 140%;
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
-  font-weight: bold;
 }
 
 .tile>.section-title,
 .card>.section-title {
-  font-size: 110%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 120%;
   margin-top: 0;
-  font-weight: bold;
 }
 
 .tile>*,
