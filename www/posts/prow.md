@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514267127"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514277082"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -46,7 +46,7 @@ pagetitle: "Prow | BenTheElder"
 
 
 <!--prow diagram-->
-<div class="blueprint-title double-size centered-text" style="max-width: 20em; margin-top: .5em;"><a href="https://github.com/kubernetes/test-infra/tree/master/prow" class="white bold">Prow</a>: Testing the way to Kubernetes Next</div>
+<div class="blueprint-title double-size centered-text" style="max-width: 20em"><a href="https://github.com/kubernetes/test-infra/tree/master/prow" class="white bold">Prow</a>: Testing the way to Kubernetes Next</div>
 <div><img src="/images/prow_diagram.svg" style="max-width: 100%; margin: 0 auto; display: block">
 </img></div>
 
@@ -54,7 +54,7 @@ pagetitle: "Prow | BenTheElder"
 
 <!--diagram attribution-->
 <div class="card" style="margin-top: 0"><p class="no-margin"><span class="bold italic">Prow</span> - extended nautical metaphor diagram by Benjamin Elder. <a href="https://blog.golang.org/gopher">Go Gopher</a> originally by <a href="http://reneefrench.blogspot.com/">Renee French</a>, <a href="https://github.com/golang-samples/gopher-vector#gopher">SVG version</a> by <a href="https://twitter.com/tenntenn">Takuya Ueda</a>, modified under the <a 
-href="https://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0 Attributions license</a>. Ship's wheel from <a href="https://github.com/kubernetes/kubernetes/blob/master/logo/logo.svg">Kubernetes logo.svg</a> by <a href="http://www.hockin.org/~thockin/save/">Tim Hockin</a>.</p></div>
+href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0 license</a>. Ship's wheel from <a href="https://github.com/kubernetes/kubernetes/blob/master/logo/logo.svg">Kubernetes logo.svg</a> by <a href="http://www.hockin.org/~thockin/save/">Tim Hockin</a>.</p></div>
 
 
 
