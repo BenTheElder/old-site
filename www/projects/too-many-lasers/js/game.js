@@ -638,6 +638,7 @@ var Game;
             this.preloadBar.anchor.setTo(0.5, 0.5);
             this.preloadBar.scale.setTo(4, 4);
             pressKey.anchor.setTo(0.5, 0.5);
+            this.sound.volume = 0.05;
             this.input.onDown.addOnce(this.startDifficultyMenu, this);
         }
         startDifficultyMenu() {
