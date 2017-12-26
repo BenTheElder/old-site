@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514233837"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514257221"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -40,7 +40,7 @@ pagetitle: "CreatureBox | BenTheElder"
 </div>
 
 
-<div class="tile blog-content">
+<div class="card blog-content">
 <p class="title">CreatureBox: An obstacle avoidance evolutionary simulation - January 2nd, 2016</p>
 
 <a href="https://github.com/BenTheElder/creaturebox">CreatureBox</a> is a simple evolutionary obstacle avoidance demo I wrote inspired by [studio otoro](http://otoro.net)'s awesome
@@ -119,8 +119,8 @@ I may just have to explore that for my next project (I [replied back](https://tw
 <div style="clear: both;"></div>
 </div>
 
-<!--comments tile-->
-<div class="tile">
+<!--comments card-->
+<div class="card">
 <p class="title">Comments</p>
 <div id="disqus_thread"></div>
 <script>

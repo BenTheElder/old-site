@@ -147,7 +147,8 @@ a.white:hover,
   padding-bottom: 0.01em;
 }
 
-.tile {
+.tile, 
+.card {
   font-size: 1em;
   padding: 1.25em;
   background-color: #fdfdfd;
@@ -159,23 +160,32 @@ a.white:hover,
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.tile:hover {
+.card {
+  border-radius: .125rem;
+}
+
+.tile:hover,
+.card:hover {
   box-shadow: 0 0.7777rem 1.5555rem rgba(0,0,0,0.25), 0 0.5555rem 0.5555rem rgba(0,0,0,0.22);
   box-shadow: 0 -0.1111rem 1.5555rem rgba(0,0,0,0.25), 0 0.5555rem 0.5555rem rgba(0,0,0,0.22);
 }
 
-.tile img {
+.tile img,
+.card img {
   max-width: 100%;
   height: auto;
   margin: 0.25em auto;
   padding: 0;
 }
 
-.tile .last {
+.tile .last,
+.card .last {
   clear: both;
 }
 
-.tile .title {
+.tile .title, 
+.card .title {
+  font-family: 'Roboto', sans-serif;
   font-size: 140%;
   margin-top: 0;
   margin-bottom: 0;
@@ -183,41 +193,44 @@ a.white:hover,
   font-weight: bold;
 }
 
-.tile>.section-title {
+.tile>.section-title,
+.card>.section-title {
   font-size: 110%;
   margin-top: 0;
   font-weight: bold;
 }
 
-.tile>* {
+.tile>*,
+.card>* {
   font-size: 110%;
   font-family: 'Open Sans', sans-serif;
 }
 
-.tile .title {
-  font-family: 'Roboto', sans-serif;
-}
-
-.tile>table {
+.tile>table,
+.card>table {
   font-size: 110%;
   text-align: left;
   line-height: 150%;
   font-family: 'Open Sans', sans-serif;
 }
 
-.tile table td { padding: .2em; }
+.tile table td,
+.card table td { padding: .2em; }
 
-.tile .bordered {
+.tile .bordered,
+.card .bordered {
   border: .1em solid black;
   border-collapse: collapse;
 }
 
-.tile .bordered td {
+.tile .bordered td,
+.card .bordered td {
   border: .1em solid black;
   padding: .3em;
 }
 
-.tile .bordered thead {
+.tile .bordered thead,
+.card .bordered thead {
   background-color: #1565C0;
   color: white;
 }
@@ -486,7 +499,8 @@ code>span.op { color: #373B41; } /* Operator */
 
 /* reduce padding for mobile */
 @media (max-width: 60em) {
-  .tile {
+  .tile,
+  .card {
     padding: 0.5em !important;
   }
   .footer {
@@ -500,17 +514,20 @@ code>span.op { color: #373B41; } /* Operator */
 }
 /* fluid font scaling for smaller screens */
 @media (max-width: 57em) {
-  .tile {
+  .tile,
+  .card {
      font-size: 2vw;
      max-width: 100%;
   }
-  .tile>* {
+  .tile>*,
+  .card>* {
     font-size: 110%;
   }
 }
 /* switch to fixed minimum font size */
 @media (max-width: 52em) {
-  .tile {
+  .tile,
+  .card {
     font-size: 0.888888em;
   }
 }

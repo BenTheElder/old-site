@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514233837"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514257221"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -41,7 +41,7 @@ pagetitle: "Migrating My Site To Kubernetes | BenTheElder"
 </div>
 
 
-<div class="tile blog-content">
+<div class="card blog-content">
 <p class="title">Migrating My Site To Kubernetes - November 16th, 2017</p>
 
 <p class="big bold padded centered-text warning">Disclaimer:&nbsp;&nbsp;I work at Google in Cloud on Kubernetes things, but this is a personal post.</p>
@@ -248,8 +248,8 @@ Addendum:
 </div>
 </div>
 
-<!--comments tile-->
-<div class="tile">
+<!--comments card-->
+<div class="card">
 <p class="title">Comments</p>
 <div id="disqus_thread"></div>
 <script>

@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514233837"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514257221"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -40,7 +40,7 @@ pagetitle: "Hello Again | BenTheElder"
 </div>
 
 
-<div class="tile blog-content">
+<div class="card blog-content">
 <p class="title">Hello Again - March 19th, 2017</p>
 Hello World! I am now the proud owner of <a href="https://bentheelder.io">bentheelder.io</a>.  
 
@@ -55,8 +55,8 @@ The <a href="https://bentheelder.github.io">old site</a> will be redirected to t
 </div>
 </div>
 
-<!--comments tile-->
-<div class="tile">
+<!--comments card-->
+<div class="card">
 <p class="title">Comments</p>
 <div id="disqus_thread"></div>
 <script>

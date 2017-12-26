@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514233837"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514257221"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -42,11 +42,11 @@ pagetitle: "Automata | BenTheElder"
 
 <!-- noscript warning -->
 <noscript>
-  <div class="tile centered-text warning"><p class="title">JavaScript is required to view the demos on this page.</h3><h3 class="bold no-margin">Please <a href="http://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer">enable JavaScript</a>.</h3></div>
+  <div class="card centered-text warning"><p class="title">JavaScript is required to view the demos on this page.</h3><h3 class="bold no-margin">Please <a href="http://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer">enable JavaScript</a>.</h3></div>
 </noscript>
 
 
-<div class="tile blog-content">
+<div class="card blog-content">
 <p class="title">Automata - June 3rd, 2017</p>
 
 
@@ -65,7 +65,7 @@ pagetitle: "Automata | BenTheElder"
 </div>
 
 
-<div class="tile">
+<div class="card">
 <p class="title">Conway's Game of Life</p>
 <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a> is a cellular automata created by <a href="https://en.wikipedia.org/wiki/John_Horton_Conway">John Conway</a> where all cells are `live` or `dead`. Conway's Game of Life updates with the following rules:
 
@@ -94,7 +94,7 @@ NOTE: The colors in this demo are inverted from the standard style for
 </div>
 
 
-<div class="tile">
+<div class="card">
 <p class="title">Wireworld</p>
 <a href="https://en.wikipedia.org/wiki/Wireworld">Wireworld</a> is a cellular automata created by <a href="hhttps://en.wikipedia.org/wiki/Brian_Silverman">Brian Silverman</a>.
 While relatively simple, it is easy to construct logic circuits in and
@@ -130,7 +130,7 @@ At the top left and just below are two clocks, circles of `Conductor` around
 </div>
 
 
-<div class="tile">
+<div class="card">
 <p class="title">Rule 110</p>
 <p><a href="https://en.wikipedia.org/wiki/Rule_110">Rule 110</a> is an
  <a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">elementary cellular automata</a>,
@@ -163,7 +163,7 @@ For more on elementary cellular automata visit
  <a href="http://mathworld.wolfram.com/ElementaryCellularAutomaton.html">The Wolfram Mathworld Entry</a>.
 </div>
 
-<div class="tile">
+<div class="card">
 <p class="title">Other Automata</p>
 There are many, many other automata - there are 256 elementary cellular automata
  alone (!) Some other notable automata include:
@@ -479,8 +479,8 @@ function loadScript(url, callback)
 loadScript("/scripts/automata.js", init);
 </script>
 
-<!--comments tile-->
-<div class="tile">
+<!--comments card-->
+<div class="card">
 <p class="title">Comments</p>
 <div id="disqus_thread"></div>
 <script>

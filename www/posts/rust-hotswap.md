@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514233837"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514257221"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -40,9 +40,9 @@ pagetitle: "Rust Hotstap | BenTheElder"
 </div>
 
 <!-- under construction cart -->
-<div class="tile centered-text warning"><p class="title">This post is old (!)</p><p class="no-margin">Rust has changed since this post was written, it may not still be accurate.</p></div>
+<div class="card centered-text warning"><p class="title">This post is old (!)</p><p class="no-margin">Rust has changed since this post was written, it may not still be accurate.</p></div>
 
-<div class="tile blog-content">
+<div class="card blog-content">
 <p class="title">Rust Hotswap - January 12th, 2015</p>
 
 Mozilla's [rust](http://rust-lang.org) language has just [reached 1.0 alpha](http://blog.rust-lang.org/2015/01/09/Rust-1.0-alpha.html).
@@ -233,8 +233,8 @@ glob = "*"
 </div>
 </div>
 
-<!--comments tile-->
-<div class="tile">
+<!--comments card-->
+<div class="card">
 <p class="title">Comments</p>
 <div id="disqus_thread"></div>
 <script>
