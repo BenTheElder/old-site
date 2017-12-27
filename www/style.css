@@ -194,7 +194,7 @@ a.white:hover,
 }
 .tile>div.full-bleed.list-item,
 .card>div.full-bleed.list-item {
-  margin-top: -0px;
+  margin-top: 0px;
   margin-bottom: 0;
   border-top: none;
   /*background-color: rgba(0,0,0,0.001);*/
@@ -204,10 +204,10 @@ a.white:hover,
   margin-top: 1em;
   border-top: 1px solid rgba(0,0,0,0.13);
 }
-.tile>div.full-bleed.list-item.list,
-.card>div.full-bleed.list-item.liast {
-  margin-top: 1em;
-  border-bottom: 1px solid rgba(0,0,0,0.13);
+.tile>.full-bleed.list-item:last-child,
+.card>.full-bleed.list-item:last-child {
+  margin-bottom: -0.55em;
+  border-bottom: none;
 }
 
 /* card vs tile */
