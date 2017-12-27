@@ -46,7 +46,8 @@ pagetitle: "Title | BenTheElder"
 
 
 <div class="card blog-content">
-<p class="title">POST NAME HERE - POST DATE HERE</p>
+<p class="title">POST NAME HERE</p>
+<p class="sub-title">POST DATE HERE</p>
 
 
 //Post Markdown Here
