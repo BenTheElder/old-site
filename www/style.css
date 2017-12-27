@@ -201,10 +201,12 @@ a.white:hover,
 ::selection,
 ::selection {
   background: #00e676;
+  color: rgba(0,0,0,0.87);
 }
 ::-moz-selection,
 ::-moz-selection {
   background: #00e676;
+  color: rgba(0,0,0,0.87);
 }
 
 .tile>.full-bleed,
