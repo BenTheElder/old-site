@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514346283"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514365462"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -154,7 +154,7 @@ With only two states (`0` and `1`) and eight rules, this simple automata is
 </p>
 <canvas id="rule110-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
 <div class="centered-text"><div class="button" id="rule110-pause" onclick="togglePause(event, this)">PAUSE</div><div class="button" onclick="doReset(event, this, initRule110)">RESET</div></div>
-<div class="centered-text">Rule 110, the <span class="color-green-a400">green</span> box bounds the current (bottom) row.</div>
+<div class="centered-text">Rule 110, the <code class="color-green-a400 bg-color-dark">green</code> box bounds the current (bottom) row.</div>
 NOTE: the colors in this demo are inverted from the standard style for
  asthetic purposes, and a typical Rule 110 automata implementation has an
  infinitely wide row. Since this demo uses a fixed-width row for the current

@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514346283"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514365462"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -65,7 +65,7 @@ href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0 license</a>. Ship'
 <a href="https://kubernetes.io/">The Kubernetes project</a> does <a href="http://velodrome.k8s.io/dashboard/db/bigquery-metrics?orgId=1" class="italic">a lot</a> of testing,
  <span class="bold">on the order of 10000 jobs per day</span> covering everything from build and unit tests, to end-to-end testing on real clusters deployed from source all the way up to ~5000 node <a href="https://k8s-testgrid.appspot.com/sig-scalability-gce#Summary">scalability and performance tests</a>.
 
-<img src="/images/test_metrics.png"></img>
+<img src="/images/test_metrics.png" alt="Velodrome job metrics" title="Velodrome job metrics"></img>
 <p class="centered-text"><a href="http://velodrome.k8s.io/dashboard/db/bigquery-metrics?orgId=1">Velodrome metrics</a></p>
 The system handling all of this leverages Kubernetes, naturally, and of-course has a number
  of nautically-named components. This system is <a href="https://github.com/kubernetes/test-infra/tree/master/prow" class="italic">Prow</a>, and is used to manage automatic validation and merging of
