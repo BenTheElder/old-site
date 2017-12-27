@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514277082"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514334293"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -42,7 +42,7 @@ pagetitle: "Prow | BenTheElder"
 
 
 <!-- under construction tile -->
-<div class="card centered-text warning"><p class="title">This post is under construction <img src="/images/emoji/emoji_u1f6a7.png" class="emoji" alt="Construction"></img></p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>
+<!--<div class="card centered-text warning"><p class="title">This post is under construction <img src="/images/emoji/emoji_u1f6a7.png" class="emoji" alt="Construction"></img></p><p class="no-margin">If you found this post, please know that it is currently incomplete.</p></div>-->
 
 
 <!--prow diagram-->
@@ -59,9 +59,10 @@ href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0 license</a>. Ship'
 
 
 <div class="card blog-content">
-<p class="title">Prow - December 26th, 2017</p>
+<p class="title">Prow</p>
+<p class="sub-title">December 26th, 2017</p>
 <a href="https://kubernetes.io/">The Kubernetes project</a> does <a href="http://velodrome.k8s.io/dashboard/db/bigquery-metrics?orgId=1" class="italic">a lot</a> of testing,
- <span class="bold">on the order of 10000 jobs per day</span> covering everything from build and unit tests to end-to-end testing on real clusters deployed from source all the way up to ~5000 node <a href="https://k8s-testgrid.appspot.com/sig-scalability-gce#Summary">scalability and performance tests</a>.
+ <span class="bold">on the order of 10000 jobs per day</span> covering everything from build and unit tests, to end-to-end testing on real clusters deployed from source all the way up to ~5000 node <a href="https://k8s-testgrid.appspot.com/sig-scalability-gce#Summary">scalability and performance tests</a>.
 
 <img src="/images/test_metrics.png"></img>
 <p class="centered-text"><a href="http://velodrome.k8s.io/dashboard/db/bigquery-metrics?orgId=1">Velodrome metrics</a></p>

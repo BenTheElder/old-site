@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514277082"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514334293"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -41,7 +41,8 @@ pagetitle: "Hello Again | BenTheElder"
 
 
 <div class="card blog-content">
-<p class="title">Hello Again - March 19th, 2017</p>
+<p class="title">Hello Again</p>
+<p class="sub-title">March 19th, 2017</p>
 Hello World! I am now the proud owner of <a href="https://bentheelder.io">bentheelder.io</a>.  
 
 If you are curious, you can find the page source for the new site <a href="https://github.com/BenTheElder/site">here</a>, and the scripts used to set up the <a href="https://cloud.google.com/compute/">GCE</a> VM <a href="https://github.com/BenTheElder/site-scripts">here</a>.  

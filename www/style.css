@@ -38,11 +38,24 @@ a {
   padding-bottom: 0.05em;
   padding-left: 0.1em;
   padding-right: 0.1em;
-  color: #1565C0;
+  color: #1967D2;
 }
 
 a:hover {
-  border-bottom: .055555em solid #1565C0;
+  border-bottom: .055555em solid #1967D2;
+}
+
+.card a:visited,
+.tile a:visited {
+  color: #609;
+}
+.card a:visited:hover,
+.tile a:visited:hover {
+  border-bottom: .055555em solid #609;
+}
+
+a.button:hover {
+  border-bottom: none;
 }
 
 canvas {
@@ -166,6 +179,37 @@ a.white:hover,
   0 1px 5px 0 rgba(0,0,0,0.20);
 }
 
+.tile>.full-bleed,
+.card>.full-bleed {
+  margin-left: -1.14em !important;
+  margin-right: -1.14em !important;
+}
+.tile>div.full-bleed,
+.card>div.full-bleed {
+  padding: .25em 1em;
+  border-top: 1px solid rgba(0,0,0,0.13);
+  border-bottom: 1px solid rgba(0,0,0,0.13);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.tile>div.full-bleed.list-item,
+.card>div.full-bleed.list-item {
+  margin-top: -0px;
+  margin-bottom: 0;
+  border-top: none;
+  /*background-color: rgba(0,0,0,0.001);*/
+}
+.tile>div.full-bleed.list-item.first,
+.card>div.full-bleed.list-item.first {
+  margin-top: 1em;
+  border-top: 1px solid rgba(0,0,0,0.13);
+}
+.tile>div.full-bleed.list-item.list,
+.card>div.full-bleed.list-item.liast {
+  margin-top: 1em;
+  border-bottom: 1px solid rgba(0,0,0,0.13);
+}
+
 /* card vs tile */
 .card {
   border-radius: 2px;
@@ -200,17 +244,31 @@ a.white:hover,
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 140%;
-  margin-top: 0;
+  /*margin-top: 0;*/
   margin-bottom: 0;
   padding: 0;
 }
 
-.tile>.section-title,
-.card>.section-title {
+.tile .title:first-of-type, 
+.card .title:first-of-type {
+  margin-top: 0;
+}
+
+.tile .sub-title, 
+.card .sub-title {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 120%;
   margin-top: 0;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.tile .section-title,
+.card .section-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 120%;
+  /*margin-top: 0;*/
 }
 
 .tile>*,
@@ -265,10 +323,6 @@ a.white:hover,
 }
 
 .warning { background-color: #FDD835; }
-p.warning {
-  padding: .5em !important;
-  margin: 1em auto !important;
-}
 
 .error { background-color: #FF1744; }
 
@@ -517,6 +571,11 @@ code>span.op { color: #373B41; } /* Operator */
   .tile,
   .card {
     padding: 0.5em !important;
+  }
+  .tile>.full-bleed,
+  .card>.full-bleed {
+    margin-left: -0.41em !important;
+    margin-right: -0.41em !important;
   }
   .footer {
     padding: 0.75em !important;

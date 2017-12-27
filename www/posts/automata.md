@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514277082"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514334293"/>
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
     <link rel="/apple-touch-icon-precomposed" sizes="114x114" href="/images/icons/apple-touch-icon-114x114.png" />
@@ -47,10 +47,10 @@ pagetitle: "Automata | BenTheElder"
 
 
 <div class="card blog-content">
-<p class="title">Automata - June 3rd, 2017</p>
+<div style="float:right; width: 6.91em; padding-left: 1em; padding-bottom: 1em;"><img style="margin: auto" src="/images/Game_of_life_pulsar.gif"></img><div class="centered-text"><a href="https://en.wikipedia.org/wiki/File:Game_of_life_pulsar.gif">A pulsar.</a></div></div>
+<p class="title">Automata</p>
+<p class="sub-title">June 3rd, 2017</p>
 
-
-<div style="float:right; width: 6.91em; padding: 1em; padding-right:0em;"><img style="margin-top:-.15em" src="/images/Game_of_life_pulsar.gif"></img><div class="centered-text"><a href="https://en.wikipedia.org/wiki/File:Game_of_life_pulsar.gif">A pulsar.</a></div></div>
 
 'Automata' or <a href="https://en.wikipedia.org/wiki/Automaton">'automaton'</a> refer to self-operating machines or <span class="italic">devices that function automatically</span>. While the earliest usage of the term referred to mechanical devices, in computer science 'automata' and <a class="" href="https://en.wikipedia.org/wiki/Automata_theory">automata theory</a> include <span class="italic">abstract</span> machines instead of physical devices. Where a physical automaton might be constructed of complex gears and clockwork, an abstract automata is constructed of <a href="https://en.wikipedia.org/wiki/State_(computer_science)">state</a> and rules that define how state is updated in each iteration or 'generation' of the automata.
 
