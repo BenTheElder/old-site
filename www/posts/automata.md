@@ -85,7 +85,7 @@ This is probably the most famous of all cellular automata. Additionally, the
 <div class="centered-text white title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div>
 </canvas>
 </div>
-<div class="centered-text"><div class="button shadow-2dp" id="gol-pause" onclick="togglePause(event, this)"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></img></div><div class="button shadow-2dp" onclick="doReset(event, this, initGOL)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></img></div></div>
+<div class="centered-text"><div class="button shadow-2dp" id="gol-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></img></div><div class="button shadow-2dp" onclick="doReset(event, this, initGOL)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></img></div></div>
 <div class="centered-text">Conway's Game of Life with a beacon, blinker, monogram, and <a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gosper's Glider Gun</a>.</div>
 In the top right of the demo we have a <a href="http://conwaylife.com/w/index.php?title=Beacon">beacon</a> and <a href="http://conwaylife.com/w/index.php?title=Blinker">blinker</a>, both stable patterns (<a href="http://conwaylife.com/wiki/Oscillator">oscillators</a>) that will repeat endlessly between their two states. Below these you there is a <a href="http://conwaylife.com/wiki/Monogram">monogram</a> (another oscillator).
 In the bottom left is a <a href="http://conwaylife.com/wiki/Pentadecathlon">pentadecathlon</a>.
@@ -122,7 +122,7 @@ These states update with the following rules:
 <div class="centered-text title white" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div>
 </canvas>
 </div>
-<div class="centered-text"><div class="button shadow-2dp" id="wireworld-pause" onclick="togglePause(event, this)"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></div><div class="button shadow-2dp" onclick="doReset(event, this, initWW)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></div></div>
+<div class="centered-text"><div class="button shadow-2dp" id="wireworld-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></div><div class="button shadow-2dp" onclick="doReset(event, this, initWW)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></div></div>
 <div class="centered-text">Wireworld with some clocks and logic elements.</div>
 At the top left and just below are two clocks, circles of `Conductor` around
  each of which a single 'electron' (made of an `Electron Tail`
@@ -165,7 +165,7 @@ With only two states (`0` and `1`) and eight rules, this simple automata is
 </canvas>
 </div>
 
-<div class="centered-text"><div class="button shadow-2dp" id="rule110-pause" onclick="togglePause(event, this)"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></div><div class="button shadow-2dp" onclick="doReset(event, this, initRule110)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></div></div>
+<div class="centered-text"><div class="button shadow-2dp" id="rule110-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></div><div class="button shadow-2dp" onclick="doReset(event, this, initRule110)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></div></div>
 <div class="centered-text">Rule 110, the <code class="color-green-a400 bg-color-dark">green</code> box bounds the current (bottom) row.</div>
 NOTE: the colors in this demo are inverted from the standard style for
  asthetic purposes, and a typical Rule 110 automata implementation has an
@@ -190,13 +190,11 @@ There are many, many other automata - there are 256 elementary cellular automata
 <!-- script for demos -->
 <script>
 var framesPerSecond = 3;
-function startRender(renderFunc, updateFunc, pauseButton) {
+function startRender(renderFunc, updateFunc) {
     function render() {
         setTimeout(function() {
             renderFunc();
-            if (!pauseButton.hasAttribute("data-is-paused") || pauseButton.getAttribute("data-is-paused") == "false") {
-                updateFunc();
-            }
+            updateFunc();
             requestAnimationFrame(render);
         }, 1000 / framesPerSecond);
     }
@@ -431,38 +429,66 @@ var init = function() {
     var wwCanvas = document.getElementById("wireworld-canvas");
     var rule110Canvas = document.getElementById("rule110-canvas");
 
+    function makePauseFunction(pauseElem) {
+        var pause = '<img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause">';
+        var play = '<img src="/images/material_icons/ic_play_arrow_black_24px.svg" alt="play">';
+        var isPausedVal = false;
+        return {
+            pauseToggle: function() {
+                if (event.stopPropagation) {
+                    event.stopPropagation();   // W3C model
+                } else {
+                    event.cancelBubble = true; // IE model
+                }
+                if (pauseElem.innerHTML.includes("pause")) {
+                    pauseElem.innerHTML = play;
+                    isPausedVal = true;
+                } else {
+                    pauseElem.innerHTML = pause;
+                    isPausedVal = false;
+                }
+            },
+            isPaused: function() {
+                return isPausedVal;
+            },
+        };
+    };
+
+    var golPauseElem = document.getElementById("gol-pause");
+    golPause = makePauseFunction(golPauseElem);
+    golPauseElem.onclick = golPause.pauseToggle;
     startRender(function() {
         gol.render(golCanvas);
-    }, function() {
-        gol.update();
-    }, document.getElementById("gol-pause"));
+    },
+    function() {
+        if (!golPause.isPaused()) {
+             gol.update();
+        }
+    });
+
+    var wireworldPauseElem = document.getElementById("wireworld-pause");
+    wireworldPause = makePauseFunction(wireworldPauseElem);
+    wireworldPauseElem.onclick = wireworldPause.pauseToggle;
     startRender(function() {
         ww.render(wwCanvas);
-    }, function() {
-        ww.update();
-    }, document.getElementById("wireworld-pause"));
+    }, 
+    function() {
+        if (!wireworldPause.isPaused()) {
+            ww.update();
+        }
+    });
+
+    var rule110PauseElem = document.getElementById("rule110-pause");
+    rule110Pause = makePauseFunction(rule110PauseElem);
+    rule110PauseElem.onclick = rule110Pause.pauseToggle;
     startRender(function() {
         rule110.render(rule110Canvas);
-    }, function() {
-        rule110.update();
-    }, document.getElementById("rule110-pause"));
-}
-
-function togglePause(event, div) {
-    var pause = '<img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause">';
-    var play = '<img src="/images/material_icons/ic_play_arrow_black_24px.svg" alt="play">';
-    if (event.stopPropagation) {
-        event.stopPropagation();   // W3C model
-    } else {
-        event.cancelBubble = true; // IE model
-    }
-    if (div.innerHTML.includes("pause")) {
-        div.innerHTML = play;
-        div.setAttribute("data-is-paused", "true");
-    } else {
-        div.innerHTML = pause;
-        div.setAttribute("data-is-paused", "false");
-    }
+    }, 
+    function() {
+        if (!rule110Pause.isPaused()) {
+            rule110.update();
+        }
+    });
 }
 
 function doReset(event, div, resetFunc) {
