@@ -465,6 +465,7 @@ img.emoji {
   line-height: 14px;
   border-radius: 2px;
   cursor: pointer;
+  touch-action: manipulation;
   letter-spacing: .05em;
   min-width: 64px;
   user-select: none;
@@ -500,12 +501,12 @@ img.emoji {
   top: 0;
   left: 0;
   pointer-events: none;
-  background-image: radial-gradient(circle,#000 10%,transparent 10.01%);
+  background-image: radial-gradient(circle,#000 10%,transparent 10%);
   background-repeat: no-repeat;
   background-position: 50%;
   transform: scale(10,10);
   opacity: 0;
-  transition: transform .5s,opacity 1s;
+  transition: transform .33s,opacity .75s;
 }
 .button:active:after,
 .ripple:active:after {
