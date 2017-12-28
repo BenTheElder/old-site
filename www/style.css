@@ -465,8 +465,6 @@ img.emoji {
   line-height: 14px;
   border-radius: 2px;
   cursor: pointer;
-  transition: box-shadow .4s cubic-bezier(0.25,0.8,0.25,1), background-color .4s cubic-bezier(0.25,0.8,0.25,1);
-  transition-delay: 0.2s;
   letter-spacing: .05em;
   min-width: 64px;
   user-select: none;
@@ -474,7 +472,8 @@ img.emoji {
   color: black;
 }
 
-.button:hover {
+/*.button:hover*/
+.shadow-2dp {
   /* 2dp shadow */
   -webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,0.14),
   0 3px 4px 0 rgba(0,0,0,0.12),
@@ -482,7 +481,6 @@ img.emoji {
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.14),
   0 3px 4px 0 rgba(0,0,0,0.12),
   0 1px 5px 0 rgba(0,0,0,0.20);
-  transition-delay: 0s;
 }
 
 /* ripple effect */
