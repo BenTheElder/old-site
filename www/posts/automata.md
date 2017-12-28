@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514368341"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514431940"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -80,8 +80,11 @@ This is probably the most famous of all cellular automata. Additionally, the
  pulsar from the begining of this post is an example, though the demo's
  colors are reversed.  
 
-
-<canvas id="gol-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
+<div class="full-bleed" style="margin-bottom: 0.25em; padding: 0">
+<canvas id="gol-canvas" style="width: 100%;" height="1080" width="1920">
+<div class="centered-text white title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div>
+</canvas>
+</div>
 <div class="centered-text"><div class="button" id="gol-pause" onclick="togglePause(event, this)">PAUSE</div><div class="button" onclick="doReset(event, this, initGOL)">RESET</div></div>
 <div class="centered-text">Conway's Game of Life with a beacon, blinker, monogram, and <a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gosper's Glider Gun</a>.</div>
 In the top right of the demo we have a <a href="http://conwaylife.com/w/index.php?title=Beacon">beacon</a> and <a href="http://conwaylife.com/w/index.php?title=Blinker">blinker</a>, both stable patterns (<a href="http://conwaylife.com/wiki/Oscillator">oscillators</a>) that will repeat endlessly between their two states. Below these you there is a <a href="http://conwaylife.com/wiki/Monogram">monogram</a> (another oscillator).
@@ -114,8 +117,11 @@ These states update with the following rules:
 3) An `Electron Tail` becomes a `Conductor`
 4) A `Conductor` becomes an `Electron Head` if one or two neighbors are `Electron Head`, otherwise it stays a `Conductor`
 
-
-<canvas id="wireworld-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
+<div class="full-bleed" style="margin-bottom: 0.25em; padding: 0">
+<canvas id="wireworld-canvas" height="1080" width="1920" class="full-bleed" style="width: 100%">
+<div class="centered-text title white" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div>
+</canvas>
+</div>
 <div class="centered-text"><div class="button" id="wireworld-pause" onclick="togglePause(event, this)">PAUSE</div><div class="button" onclick="doReset(event, this, initWW)">RESET</div></div>
 <div class="centered-text">Wireworld with some clocks and logic elements.</div>
 At the top left and just below are two clocks, circles of `Conductor` around
@@ -152,7 +158,13 @@ With only two states (`0` and `1`) and eight rules, this simple automata is
  `0` `0` `1`,&nbsp;&nbsp;the next value is `1`  
  `0` `0` `0`,&nbsp;&nbsp;the next value is `0`  
 </p>
-<canvas id="rule110-canvas" style="margin-bottom: 0.5em; color: white; width: 100%;" height="1080" width="1920"><div class="centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div></canvas>
+
+<div class="full-bleed" style="margin-bottom: 0.25em; padding: 0">
+<canvas id="rule110-canvas" class="full-bleed" style="width: 100%;" height="1080" width="1920">
+<div class="white centered-text title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div>
+</canvas>
+</div>
+
 <div class="centered-text"><div class="button" id="rule110-pause" onclick="togglePause(event, this)">PAUSE</div><div class="button" onclick="doReset(event, this, initRule110)">RESET</div></div>
 <div class="centered-text">Rule 110, the <code class="color-green-a400 bg-color-dark">green</code> box bounds the current (bottom) row.</div>
 NOTE: the colors in this demo are inverted from the standard style for

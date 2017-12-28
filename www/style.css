@@ -5,6 +5,7 @@ html {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {
@@ -62,8 +63,6 @@ hr {
 a {
   text-decoration: none;
   padding-bottom: 0.05em;
-  padding-left: 0.1em;
-  padding-right: 0.1em;
   color: #1967D2;
 }
 
@@ -198,6 +197,7 @@ a.white:hover,
   0 1px 5px 0 rgba(0,0,0,0.20);
 }
 
+/*
 ::selection,
 ::selection {
   background: #00e676;
@@ -208,6 +208,7 @@ a.white:hover,
   background: #00e676;
   color: rgba(0,0,0,0.87);
 }
+*/
 
 .tile>.full-bleed,
 .card>.full-bleed {
@@ -455,24 +456,20 @@ img.emoji {
   display: inline-block;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  padding: .2em;
-  padding-left: .75em;
-  padding-right: .75em;
-  padding-top: .25em;
-  margin: .33em;
-  margin-left: .5em;
-  margin-right: .5em;
-  line-height: 1.5em;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 11px 16px 11px 16px;
+  margin: .33em .5em;
+  line-height: 14px;
   border-radius: 2px;
   cursor: pointer;
   transition: box-shadow .4s cubic-bezier(0.25,0.8,0.25,1), background-color .4s cubic-bezier(0.25,0.8,0.25,1);
   transition-delay: 0.2s;
   letter-spacing: .05em;
+  min-width: 64px;
   user-select: none;
   background-color: #00E676;
-  color: rgba(0,0,0,0.87);
-  /*background-color: #0288D1;
-  color: white;*/
+  color: black;
 }
 
 .button:hover {
@@ -496,7 +493,7 @@ img.emoji {
   0 1px 8px 0 rgba(0,0,0,0.20);
   transition-delay: 0s;
   /*background-color: #00C757;*/
-  background-color: #00CD5D;
+  background-color: #00b248;
   /*background-color: #1976D2;*/
 }
 
@@ -519,9 +516,6 @@ img.emoji {
   font-size: 2em;
   font-weight: bold;
   margin-top: .5em;
-}
-.error-page .button {
-  font-size: 1.5em;
 }
 
 .blueprint-title {
@@ -617,8 +611,8 @@ code>span.op { color: #373B41; } /* Operator */
   }
   .tile>.full-bleed,
   .card>.full-bleed {
-    margin-left: -0.41em !important;
-    margin-right: -0.41em !important;
+    margin-left: -0.415em !important;
+    margin-right: -0.415em !important;
   }
   .footer {
     padding: 0.75em !important;
