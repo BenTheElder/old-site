@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514431940"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514442948"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -455,20 +455,20 @@ function togglePause(event, div) {
             event.cancelBubble = true; // IE model
         }
         if (div.innerHTML == "PAUSE") {
-            div.classList.add("pressed");
+            //div.classList.add("pressed");
             div.innerHTML = "RESUME";
         } else {
-            div.classList.remove("pressed");
+            //div.classList.remove("pressed");
             div.innerHTML = "PAUSE";
         }
         //div.innerHTML = div.innerHTML == "PAUSE" ? "RESUME" : "PAUSE";
     }
 
     function doReset(event, div, resetFunc) {
-        div.classList.add("pressed");
+       // div.classList.add("pressed");
         resetFunc();
         setTimeout(function() {
-            div.classList.remove("pressed");
+            //div.classList.remove("pressed");
         }, 1600 / framesPerSecond);
     }
 
