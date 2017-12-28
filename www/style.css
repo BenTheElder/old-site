@@ -473,6 +473,11 @@ img.emoji {
   color: black;
 }
 
+.button>img {
+  height: 28px;
+  margin: -7px;
+}
+
 /*.button:hover*/
 .shadow-2dp {
   /* 2dp shadow */
