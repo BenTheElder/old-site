@@ -191,14 +191,20 @@ There are many, many other automata - there are 256 elementary cellular automata
 <script>
 var framesPerSecond = 3;
 function startRender(renderFunc, updateFunc) {
+    var then = new Date().getTime();
+    var interval = 1000 / framesPerSecond;
+
     function render() {
-        setTimeout(function() {
+        requestAnimationFrame(render);
+        var now = new Date().getTime();
+        var delta = now - then;
+        if (delta > interval) {
+            then = now - (delta % interval);
             renderFunc();
             updateFunc();
-            requestAnimationFrame(render);
-        }, 1000 / framesPerSecond);
+        }
     }
-    window.requestAnimationFrame(render);
+    render();
 }
 
 var init = function() {
@@ -493,8 +499,6 @@ var init = function() {
 
 function doReset(event, div, resetFunc) {
     resetFunc();
-    setTimeout(function() {
-    }, 1600 / framesPerSecond);
 }
 
 // FROM: https://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file
