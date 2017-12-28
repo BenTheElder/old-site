@@ -431,7 +431,8 @@ p.small-indent {
 img.emoji {
   line-height: 1em;
   height: 1.25em;
-  margin: 0 .1em;
+  padding-left: .1em;
+  padding-right: .1em;
   margin-bottom: -.25em;
 }
 
