@@ -122,6 +122,12 @@ automata.Wireworld = function(rows, cols) {
     this.conductorColor = automata.colorYellow600;
     this.electronHeadColor = automata.colorBlue600;
     this.electronTailColor = automata.colorRed600;
+    this.styles = {
+        0: this.emptyColor,
+        1: this.conductorColor,
+        2: this.electronHeadColor,
+        3: this.electronTailColor,
+    };
 }
 automata.Wireworld.prototype = Object.create(automata.GridWorld.prototype);
 automata.Wireworld.prototype.constructor = automata.Wireworld;
@@ -162,13 +168,9 @@ automata.Wireworld.prototype.render = function(canvas) {
     var cellHeight = canvas.height / this.rows;
     for (var r = 0; r < this.rows; r++) {
         for (var c = 0; c < this.cols; c++) {
-            ctx.fillStyle = {
-                0: this.emptyColor,
-                1: this.conductorColor,
-                2: this.electronHeadColor,
-                3: this.electronTailColor,
-            }[this.cells[r][c]];
-            if (ctx.fillStyle != this.emptyColor) {
+            var styleIndex = this.cells[r][c];
+            if (styleIndex != 0) {
+                ctx.fillStyle = this.styles[styleIndex];
                 ctx.fillRect(c*cellHeight, r*cellWidth, cellHeight, cellWidth);
             }
         }
