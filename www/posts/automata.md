@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514714400"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514715477"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -90,8 +90,8 @@ This is probably the most famous of all cellular automata. Additionally, the
 In the top right of the demo we have a <a href="http://conwaylife.com/w/index.php?title=Beacon">beacon</a> and <a href="http://conwaylife.com/w/index.php?title=Blinker">blinker</a>, both stable patterns (<a href="http://conwaylife.com/wiki/Oscillator">oscillators</a>) that will repeat endlessly between their two states. Below these you there is a <a href="http://conwaylife.com/wiki/Monogram">monogram</a> (another oscillator).
 In the bottom left is a <a href="http://conwaylife.com/wiki/Pentadecathlon">pentadecathlon</a>.
 Across the top starting from the top left you can see the <a href="http://conwaylife.com/wiki/Gosper%27s_glider_gun">Gosper's Glider Gun</a>
- a particularly interesting pattern that generates <a href="http://conwaylife.com/wiki/Glider">gliders</a>, a small repetitve pattern
- that 'glides' accross the grid.  
+ a particularly interesting pattern that generates <a href="http://conwaylife.com/wiki/Glider">gliders</a>, small repetitve patterns
+ that 'glide' accross the grid.  
 
 NOTE: The colors in this demo are inverted from the standard style for
  asthetic purposes.
@@ -166,7 +166,7 @@ With only two states (`0` and `1`) and eight rules, this simple automata is
 </div>
 
 <div class="centered-text"><button class="button" id="rule110-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></button><button class="button" onclick="doReset(event, this, initRule110)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></button></div>
-<div class="centered-text">Rule 110, the <code class="color-green-a400 bg-color-dark">green</code> box bounds the current (bottom) row.</div>
+<div class="centered-text">Rule 110, the <code class="bold color-secondary bg-color-black" style="border: .1em solid #00e676;">green</code> box bounds the current (bottom) row.</div>
 NOTE: the colors in this demo are inverted from the standard style for
  asthetic purposes, and a typical Rule 110 automata implementation has an
  infinitely wide row. Since this demo uses a fixed-width row for the current

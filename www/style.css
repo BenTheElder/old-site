@@ -23,6 +23,7 @@ body {
 }
 
 .black { color: rgba(0,0,0,0.87); }
+.bg-color-black { background-color: black; }
 .white { color: white; }
 .bg-color-grey-50 { background-color: #FAFAFA; }
 .bg-color-grey-100 { background-color: #F5F5F5; }
