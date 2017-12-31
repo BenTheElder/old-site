@@ -178,7 +178,7 @@ a.white:hover,
   padding-bottom: 0.01em;
 }
 
-.tile, 
+.tile,
 .card {
   font-size: 1em;
   padding: 1.25em;
@@ -454,6 +454,7 @@ img.emoji {
   flex-basis: 33%;
 }
 
+button,
 .button {
   display: inline-block;
   font-family: 'Roboto', sans-serif;
@@ -463,6 +464,7 @@ img.emoji {
   padding: 11px 16px;
   margin: .33em .5em;
   line-height: 14px;
+  border: none;
   border-radius: 2px;
   cursor: pointer;
   touch-action: manipulation;
@@ -471,14 +473,27 @@ img.emoji {
   user-select: none;
   background-color: #00E676;
   color: black;
+  -webkit-transition: box-shadow 0.2s cubic-bezier(0.4,0,0.2,1);
   transition: box-shadow 0.2s cubic-bezier(0.4,0,0.2,1);
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: content-box;
 }
 
+
+.button::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+button>img,
 .button>img {
   height: 28px;
-  margin: -7px;
+  margin: -7px !important;
 }
 
+button,
 .button,
 .shadow-halfdp {
   -webkit-box-shadow:0 2px 10px 0 rgba(0,0,0,0.16);
@@ -495,7 +510,20 @@ img.emoji {
   0 1px 3px 0 rgba(0,0,0,0.20);
 }
 
-.button:hover,
+button:focus,
+.button:focus,
+button:hover,
+.button:hover {
+  background-color: #00C757;
+   /* 2dp shadow */
+   -webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,0.14),
+   0 3px 4px 0 rgba(0,0,0,0.12),
+   0 1px 5px 0 rgba(0,0,0,0.20);
+   box-shadow: 0 0 4px 0 rgba(0,0,0,0.14),
+   0 3px 4px 0 rgba(0,0,0,0.12),
+   0 1px 5px 0 rgba(0,0,0,0.20);
+}
+
 .shadow-2dp {
   /* 2dp shadow */
   -webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,0.14),
@@ -507,12 +535,14 @@ img.emoji {
 }
 
 /* ripple effect */
+button,
 .button,
 .ripple {
   position: relative;
   overflow: hidden;
   transform: translate3d(0,0,0);
 }
+button:after,
 .button:after,
 .ripple:after {
   content: "";
@@ -528,12 +558,15 @@ img.emoji {
   background-position: 50%;
   transform: scale(10,10);
   opacity: 0;
+  -webkit-transition: transform .33s,opacity .75s;
   transition: transform .33s,opacity .75s;
 }
+button:active:after,
 .button:active:after,
 .ripple:active:after {
   transform: scale(0,0);
   opacity: .2;
+  -webkit-transition: 0s;
   transition: 0s;
 }
 

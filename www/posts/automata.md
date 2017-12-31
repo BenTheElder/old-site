@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514681038"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1514714400"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -85,7 +85,7 @@ This is probably the most famous of all cellular automata. Additionally, the
 <div class="centered-text white title" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div>
 </canvas>
 </div>
-<div class="centered-text"><div class="button" id="gol-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></img></div><div class="button" onclick="doReset(event, this, initGOL)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></img></div></div>
+<div class="centered-text"><button class="button" id="gol-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></img></button><button class="button" tabindex="0" onclick="doReset(event, this, initGOL)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></img></button></div>
 <div class="centered-text">Conway's Game of Life with a beacon, blinker, monogram, and <a href="https://en.wikipedia.org/wiki/Gun_(cellular_automaton)">Gosper's Glider Gun</a>.</div>
 In the top right of the demo we have a <a href="http://conwaylife.com/w/index.php?title=Beacon">beacon</a> and <a href="http://conwaylife.com/w/index.php?title=Blinker">blinker</a>, both stable patterns (<a href="http://conwaylife.com/wiki/Oscillator">oscillators</a>) that will repeat endlessly between their two states. Below these you there is a <a href="http://conwaylife.com/wiki/Monogram">monogram</a> (another oscillator).
 In the bottom left is a <a href="http://conwaylife.com/wiki/Pentadecathlon">pentadecathlon</a>.
@@ -122,7 +122,7 @@ These states update with the following rules:
 <div class="centered-text title white" style="background-color: black; padding: 1em">Please <a href="http://www.enable-javascript.com/">enable JavaScript</a> to see this demo.</div>
 </canvas>
 </div>
-<div class="centered-text"><div class="button" id="wireworld-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></div><div class="button" onclick="doReset(event, this, initWW)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></div></div>
+<div class="centered-text"><button class="button" id="wireworld-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></button><button class="button" tabindex="0" onclick="doReset(event, this, initWW)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></button></div>
 <div class="centered-text">Wireworld with some clocks and logic elements.</div>
 At the top left and just below are two clocks, circles of `Conductor` around
  each of which a single 'electron' (made of an `Electron Tail`
@@ -165,7 +165,7 @@ With only two states (`0` and `1`) and eight rules, this simple automata is
 </canvas>
 </div>
 
-<div class="centered-text"><div class="button" id="rule110-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></div><div class="button" onclick="doReset(event, this, initRule110)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></div></div>
+<div class="centered-text"><button class="button" id="rule110-pause"><img src="/images/material_icons/ic_pause_black_24px.svg" alt="pause"></button><button class="button" onclick="doReset(event, this, initRule110)"><img src="/images/material_icons/ic_replay_black_24px.svg" alt="replay"></button></div>
 <div class="centered-text">Rule 110, the <code class="color-green-a400 bg-color-dark">green</code> box bounds the current (bottom) row.</div>
 NOTE: the colors in this demo are inverted from the standard style for
  asthetic purposes, and a typical Rule 110 automata implementation has an
@@ -440,7 +440,7 @@ var init = function() {
         var play = '<img src="/images/material_icons/ic_play_arrow_black_24px.svg" alt="play">';
         var isPausedVal = false;
         return {
-            pauseToggle: function() {
+            pauseToggle: function(event) {
                 if (event.stopPropagation) {
                     event.stopPropagation();   // W3C model
                 } else {
@@ -540,6 +540,8 @@ loadScript("/scripts/automata.js", init);
 <noscript><p>Comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a> require <a href="http://www.enable-javascript.com/">JavaScript enabled</a> to view.</a></p></noscript>
 </div>
 
+<!--preload icon-->
+<img src="/images/material_icons/ic_play_arrow_black_24px.svg" style="display:none"></img>
 </body>
 </html>
 
