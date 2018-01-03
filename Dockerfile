@@ -10,7 +10,10 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     ca-certificates \
     git \
-    pandoc
+    pandoc \
+    python \
+    python-pip && \
+    pip install -I pygments
 
 COPY ./site /usr/local/bin/site
 COPY ./entrypoint.sh /entrypoint.sh

@@ -441,11 +441,6 @@ var init = function() {
         var isPausedVal = false;
         return {
             pauseToggle: function(event) {
-                if (event.stopPropagation) {
-                    event.stopPropagation();   // W3C model
-                } else {
-                    event.cancelBubble = true; // IE model
-                }
                 if (pauseElem.innerHTML.includes("pause")) {
                     pauseElem.innerHTML = play;
                     isPausedVal = true;
