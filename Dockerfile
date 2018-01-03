@@ -12,7 +12,7 @@ RUN apt-get update && \
     ca-certificates \
     git \
     wget && \
-    export PANDOC_DEB_URL="https://github.com/jgm/pandoc/releases/download/2.0.6/pandoc-2.0.6-1-amd64.deb" && \
+    export PANDOC_DEB_URL="https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb" && \
     TEMP_DEB="$(mktemp)" && \
     wget -O "$TEMP_DEB" "$PANDOC_DEB_URL" && \
     dpkg -i "$TEMP_DEB" && \
