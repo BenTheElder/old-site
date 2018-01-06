@@ -41,14 +41,11 @@ pagetitle: "Migrating My Site To Kubernetes | BenTheElder"
 </div>
 </div>
 
+<div class="card centered-text warning"><p class="title"><img src="/images/emoji/emoji_u1f6a8.png" class="emoji" alt="Police Cars Revolving Light"></img>&nbsp;Disclaimer&nbsp;<img src="/images/emoji/emoji_u1f6a8.png" class="emoji" alt="Police Cars Revolving Light"></img></p><p class="no-margin">I work at Google in Cloud on Kubernetes things, but <span class="bold">this is a personal post.</span></p></div>
 
 <div class="card blog-content">
 <p class="title">Migrating My Site To Kubernetes</p>
 <p class="sub-title">November 16th, 2017</p>
-
-<div class="full-bleed warning centered-text">
-<p class="big bold">Disclaimer:&nbsp;&nbsp;I work at Google in Cloud on Kubernetes things, but this is a personal post.</p>
-</div>
 
 [Previously](https://bentheelder.io/blog/hello-again) when I brought my my site back online I breifly mentioned the simple setup I threw together with Caddy running on a tiny [GCE](https://cloud.google.com/compute/) VM with a few scripts&nbsp;&nbsp;—&nbsp;&nbsp;Since then I've had plenty of time to experience the awesomeness that is managing services with [Kubernetes](https://kubernetes.io/) at work while developing Kubernetes's [testing infrastructure](https://github.com/kubernetes/test-infra/) (which we run on [GKE](https://cloud.google.com/kubernetes-engine/)).
 

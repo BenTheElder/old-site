@@ -162,6 +162,10 @@ a.white:hover,
   border-bottom: 2px solid #00E676;
 }
 
+.header-content a:visited {
+  color: white;
+}
+
 .header-content .nav span {
   flex: 0;
   flex-basis: 33%;
@@ -190,13 +194,8 @@ a.white:hover,
   margin-bottom: 1em;
   -webkit-transition: box-shadow .3s ease-in-out;
   transition: box-shadow .3s ease-in-out;
-  /* 2dp shadow */
-  -webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,0.14),
-  0 3px 4px 0 rgba(0,0,0,0.12),
-  0 1px 5px 0 rgba(0,0,0,0.20);
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.14),
-  0 3px 4px 0 rgba(0,0,0,0.12),
-  0 1px 5px 0 rgba(0,0,0,0.20);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
 }
 
 /*
@@ -618,7 +617,7 @@ div.sourceCode::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0.26);
 }
 div.sourceCode {
-  width: 100%;
+  background: none;
 }
 div.sourceCode .sourceCode code.sourceCode {
   width: 100%;
@@ -626,7 +625,7 @@ div.sourceCode .sourceCode code.sourceCode {
 
 pre, code, .sourceCode {
   font-family: monospace;
-  background-color: #f7f7f7;
+  background-color: #FAFAFA;
   margin: 0;
 }
 
@@ -644,7 +643,8 @@ pre code {
 
 pre {
   padding: 1em;
-  background-color: #f7f7f7;
+  background-color: #FAFAFA;
+  border: 1px solid rgba(0,0,0,0.16);
 }
 
 code {
