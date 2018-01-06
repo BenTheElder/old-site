@@ -605,6 +605,9 @@ Pandoc Markdown CSS
 */
 div.sourceCode {
   overflow-x: scroll;
+  background-color: #FAFAFA;
+  
+  border: 1px solid rgba(0,0,0,0.16);
 }
 div.sourceCode::-webkit-scrollbar {
   width: .5em;
@@ -615,9 +618,6 @@ div.sourceCode::-webkit-scrollbar-corner {
 }
 div.sourceCode::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0.26);
-}
-div.sourceCode {
-  background: none;
 }
 div.sourceCode .sourceCode code.sourceCode {
   width: 100%;
@@ -644,7 +644,6 @@ pre code {
 pre {
   padding: 1em;
   background-color: #FAFAFA;
-  border: 1px solid rgba(0,0,0,0.16);
 }
 
 code {

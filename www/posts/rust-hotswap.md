@@ -70,7 +70,7 @@ and a source dir:
 
 We'll use [cargo](https://github.com/rust-lang/cargo) to build, so next we'll create a `Cargo.toml`
 
-```
+```bash
 [package]
 name = "rust-hotswap"
 version = "0.0.1"
@@ -214,7 +214,7 @@ fn main() {
 ```
 \
 _Cargo.toml_
-```toml
+```bash
 [package]
 name = "rust-hotswap"
 version = "0.0.1"
