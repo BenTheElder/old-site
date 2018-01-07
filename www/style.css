@@ -299,8 +299,7 @@ a.white:hover,
 .card .section-title {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  font-size: 120%;
-  /*margin-top: 0;*/
+  font-size: 110%;
 }
 
 .tile>*,
@@ -374,11 +373,12 @@ a.white:hover,
 }
 
 span.indent {
-  display:inline-block;
+  display: inline-block;
   width: .75em;
   height: 1em;
 }
 
+div.indent,
 p.indent {
   margin-left: .75em;
 }
@@ -600,16 +600,29 @@ button:active:after,
   padding: 0.25em 0;
 }
 
+blockquote {
+  border-left: 8px solid #00E676;
+  padding: 1em;
+  padding-left: 1.25em;
+  background-color: rgba(0,0,0,0.01);
+  margin: 0 .5em;
+}
+
+blockquote>p:first-child {
+  padding-top: 0;
+  margin-top: 0;
+}
+
 /*
 Pandoc Markdown CSS
 */
 div.sourceCode {
   overflow-x: scroll;
-  background-color: #FAFAFA;
-  
+  background-color: #f6f8fa;
   border: 1px solid rgba(0,0,0,0.16);
 }
 div.sourceCode::-webkit-scrollbar {
+  background-color: transparent;
   width: .5em;
   height: .5em;
 }
@@ -618,6 +631,7 @@ div.sourceCode::-webkit-scrollbar-corner {
 }
 div.sourceCode::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0.26);
+  outline: 3px solid slategrey;
 }
 div.sourceCode .sourceCode code.sourceCode {
   width: 100%;
@@ -625,13 +639,13 @@ div.sourceCode .sourceCode code.sourceCode {
 
 pre, code, .sourceCode {
   font-family: monospace;
-  background-color: #FAFAFA;
+  background-color: #f6f8fa;
   margin: 0;
 }
 
 pre code {
   line-height: 150%;
-  font-size: 100%;/*111.11%;*/
+  font-size: 100%;
   font-weight: 500;
   white-space: pre;
   word-wrap: normal;
@@ -643,17 +657,14 @@ pre code {
 
 pre {
   padding: 1em;
-  background-color: #FAFAFA;
+  background-color: #f6f8fa;
 }
 
 code {
-  background-color: #f9f2f4;
-  color: #CC342B;
+  background-color: #eaeaea;
+  color: black;
   border-radius: 0.22em;
-  padding-left: 0.42em;
-  padding-right: 0.41em;
-  padding-top: 0.08em;
-  padding-bottom: 0.14em;
+  padding: 0.08em 0.42em;
   margin-left: 0.1em;
   margin-right: 0.1em;
   font-size: 90%;
