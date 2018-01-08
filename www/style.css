@@ -574,6 +574,13 @@ button:active:after,
   border-radius: 2px;
 }
 
+p.min-para:before {
+  content: "";
+  width: 10em;
+  display: block;
+  overflow: hidden;
+}
+
 .double-size {
   font-size: 2em;
 }
