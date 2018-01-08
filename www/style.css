@@ -609,9 +609,9 @@ p.min-para:before {
 
 blockquote {
   border-left: 8px solid #00E676;
+  background-color: rgba(102, 255, 166, 0.16);
   padding: 1em;
   padding-left: 1.25em;
-  background-color: rgba(0,0,0,0.01);
   margin: 0 .5em;
 }
 
