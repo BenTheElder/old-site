@@ -632,7 +632,6 @@ blockquote {
   /*background-color: rgba(102, 255, 166, 0.16);*/
   background-color: rgb(228, 253, 239);
   padding: 1em;
-  padding-left: 1.25em;
   margin: 1em .0;
 }
 
@@ -651,6 +650,7 @@ div.sourceCode {
   border-left: 5px solid #1E88E5;
   margin: 1em 0;
   padding: 0.25em;
+  color: black;
 }
 div.sourceCode pre {
   display: inline-block;
@@ -682,7 +682,7 @@ pre code {
   white-space: pre;
   word-wrap: normal;
   background-color: rgba(0,0,0,0);
-  color: #373b41;
+  color: rgba(0,0,0,0.87);
   padding: 0;
   margin: 0;
 }
