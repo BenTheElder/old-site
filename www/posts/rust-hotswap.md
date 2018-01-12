@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1515496523"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1515750105"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -116,7 +116,7 @@ pub extern "C" fn do_tick(num: i32) {
     out.flush();
 }
 ```
-\
+
 We use `#[no_mangle]` to prevent rust from mangling the function name, and `extern "C"` to export it in the C linkage style. We use `io::stdout()` to get a handle to stdout instead of using the `println!` macro because the macro causes an illegal instruction error on exit. I'm not sure exactly why this occurs but i'm sure it has to do with unsafely sharing the stdout handle. It's probably a good idea to do it this way anyhow, but I might want to look into that later.
 
 Now to actually load the library.
