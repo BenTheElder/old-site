@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1515750105"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1515750740"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -109,7 +109,7 @@ Here's two a gifs of the result running on my laptop (the second gif has more ev
 
 <div class="flex-container vertical-center"><img class="flex-2-col no-grow" src="/images/creaturebox_demo.gif" width="310" height="518" alt="gif of CreatureBox running on my laptop"></img><img class="flex-2-col no-grow" src="/images/creaturebox_demo_2.gif" width="310" height="518" alt="gif of CreatureBox running on my laptop with more evolved creatures"></img></div>
 
-I posted the project to [my twitter](https://twitter.com/BenTheElder) before I wrote this writeup and receive and kind
+I posted the project to [my twitter](https://twitter.com/BenTheElder) before I wrote this post and received a kind
  reply from <a href="https://twitter.com/hardmaru">@hardmaru</a> of [studio otoro](http://otoro.net):
 
 <blockquote class="twitter-tweet tw-align-center" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/BenTheElder">@BenTheElder</a> nice implementation of creatures-avoiding-planks in golang. Have you thought abt using q-learning n-nets rather than evolution?</p>&mdash; hardmaru (@hardmaru) <a href="https://twitter.com/hardmaru/status/683177164447981568">January 2, 2016</a></blockquote>
