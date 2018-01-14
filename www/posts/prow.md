@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1515751294"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1515892768"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -54,8 +54,8 @@ pagetitle: "Prow | BenTheElder"
 
 
 <!--diagram attribution-->
-<div class="card" style="margin-top: 0"><p class="no-margin"><span class="bold italic">Prow</span> - extended nautical metaphor diagram by Benjamin Elder. <a href="https://blog.golang.org/gopher">Go Gopher</a> originally by <a href="http://reneefrench.blogspot.com/">Renee French</a>, <a href="https://github.com/golang-samples/gopher-vector#gopher">SVG version</a> by <a href="https://twitter.com/tenntenn">Takuya Ueda</a>, modified under the <a 
-href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0 license</a>. Ship's wheel from <a href="https://github.com/kubernetes/kubernetes/blob/master/logo/logo.svg">Kubernetes logo.svg</a> by <a href="http://www.hockin.org/~thockin/save/">Tim Hockin</a>.</p></div>
+<div class="card" style="margin-top: 0"><p class="no-margin"><span class="bold italic">Prow</span> - extended nautical metaphor by Benjamin Elder. <a href="https://blog.golang.org/gopher">Go Gopher</a> originally by <a href="http://reneefrench.blogspot.com/">Renee French</a>, <a href="https://github.com/golang-samples/gopher-vector#gopher">SVG version</a> by <a href="https://twitter.com/tenntenn">Takuya Ueda</a>, modified under the <a 
+href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0 license</a>. Ship's wheel from <a href="https://github.com/kubernetes/kubernetes/blob/master/logo/logo.svg">Kubernetes logo</a> by <a href="http://www.hockin.org/~thockin/save/">Tim Hockin</a>.</p></div>
 
 
 
