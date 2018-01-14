@@ -1,0 +1,12 @@
+# simple service definition pointing to the site deployment
+apiVersion: v1
+kind: Service
+metadata:
+  name: gogs-service
+spec:
+  selector:
+    app: gogs
+  ports:
+  - port: 3000
+    targetPort: 3000
+  type: NodePort

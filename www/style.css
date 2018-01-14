@@ -190,8 +190,8 @@ a.white:hover,
   max-width: 52em;
   max-width: 90ch;
   margin: 0 auto;
-  margin-top: .75em;
-  margin-bottom: 1em;
+  margin-top: .75rem;
+  margin-bottom: 1rem;
   -webkit-transition: box-shadow .3s ease-in-out;
   transition: box-shadow .3s ease-in-out;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
@@ -613,7 +613,7 @@ p.min-para:before {
 .blueprint-title {
   color: white;
   margin: 0 auto;
-  margin-top: 0.5em;
+  margin-top: 0.75rem;
   border: .1em solid white;
   line-height: 1.1em;
   padding: 0.25em 0;

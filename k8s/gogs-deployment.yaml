@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: gogs-deployment
+  labels:
+    app: gogs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gogs
+  template:
+    metadata:
+      labels:
+        app: gogs
+    spec:
+      containers:
+      - name: gogs
+        image: gogs/gogs:0.11.34
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 3000
+        volumeMounts:
+        - mountPath: /data
+          name: data
+      volumes:
+      - name: data
+        hostPath:
+          type: DirectoryOrCreate
+          path: /data/gogs-data

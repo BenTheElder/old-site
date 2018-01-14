@@ -3,6 +3,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
+  # legacy name, this ingress does all ingress work, not just the site
   name: site-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
@@ -12,7 +13,7 @@ spec:
   tls:
   - hosts:
     - "bentheelder.io"
-    - "home.bentheelder.io"
+    - "code.bentheelder.io"
     secretName: site-ingress-tls
   rules:
   - host: "bentheelder.io"
@@ -22,10 +23,10 @@ spec:
           backend:
             serviceName: site-service
             servicePort: 8080
-  - host: "home.bentheelder.io"
+  - host: "code.bentheelder.io"
     http:
-      paths:
-      - path: /
-        backend:
-          serviceName: site-service
-          servicePort: 8080
+        paths:
+        - path: /
+          backend:
+            serviceName: gogs-service
+            servicePort: 3000
