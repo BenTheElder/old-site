@@ -1,7 +1,7 @@
 ---
 header-includes:
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1515920903"/>
+    <link rel="stylesheet" type="text/css" href="/style.css?stamp=1515931666"/>
     <meta name="theme-color" content="#01579b" />
     <!-- favicon, all platforms -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/icons/apple-touch-icon-57x57.png" />
@@ -47,7 +47,7 @@ pagetitle: "Prow | BenTheElder"
 
 
 <!--prow diagram-->
-<div class="blueprint-title double-size centered-text" style="max-width: 20em"><a href="https://github.com/kubernetes/test-infra/tree/master/prow" class="white bold">Prow</a>: Testing the way to Kubernetes Next</div>
+<div class="blueprint-title double-size centered-text" style=""><a href="https://github.com/kubernetes/test-infra/tree/master/prow" class="white bold">Prow</a>: Testing the way to Kubernetes Next</div>
 <div><img src="/images/prow_diagram.svg" width="1100px" style="max-width: 100%; margin: 0 auto; display: block"></img></div>
 
 
