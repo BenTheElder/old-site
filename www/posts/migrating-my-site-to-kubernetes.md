@@ -66,7 +66,7 @@ metadata:
   namespace: kube-system
 data:
   upstreamNameservers: |
-    [“8.8.8.8”]
+    ["8.8.8.8", "8.8.4.4"]
 ```
 
 2) I also needed to configure [RBAC](https://kubernetes.io/docs/admin/authorization/rbac/) for `kube-lego` which doesn't currently ship with RBAC configured out of the box. Again, this was just involved applying a config update based on the comments at [jetstack/kube-lego#99](https://github.com/jetstack/kube-lego/issues/99) with `kubectl apply -f k8s/kube-lego.yaml`. The config below is probably giving `kube-lego` a lot more access than it needs, but I wasn't particularly concerned about this since this is on a toy "cluster" for my personal site and the service is already managing my TLS certificates. <img src="/images/emoji/emoji_u1f937_1f3fb_200d_2642.png" alt="shrug" title="shrug" class="emoji"></img>  
