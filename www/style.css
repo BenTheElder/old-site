@@ -186,11 +186,11 @@ a.white:hover,
 .card {
   font-size: 18px;
   padding: 1.5em;
-  background-color: #fdfdfd;
+  background-color: white;
   max-width: 52em;
   max-width: 90ch;
   margin: 0 auto;
-  margin-top: 1em;
+  margin-top: .75em;
   margin-bottom: 1em;
   -webkit-transition: box-shadow .3s ease-in-out;
   transition: box-shadow .3s ease-in-out;
@@ -678,7 +678,8 @@ pre code {
   white-space: pre;
   word-wrap: normal;
   background-color: rgba(0,0,0,0);
-  color: rgba(0,0,0,0.87);
+  /*color: rgba(0,0,0,0.87);*/
+  color: black;
   padding: 0;
   margin: 0;
 }
