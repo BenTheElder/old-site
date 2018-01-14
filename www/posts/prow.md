@@ -48,8 +48,7 @@ pagetitle: "Prow | BenTheElder"
 
 <!--prow diagram-->
 <div class="blueprint-title double-size centered-text" style="max-width: 20em"><a href="https://github.com/kubernetes/test-infra/tree/master/prow" class="white bold">Prow</a>: Testing the way to Kubernetes Next</div>
-<div><img src="/images/prow_diagram.svg" style="max-width: 100%; margin: 0 auto; display: block">
-</img></div>
+<div><img src="/images/prow_diagram.svg" width="1100px" style="max-width: 100%; margin: 0 auto; display: block"></img></div>
 
 
 
