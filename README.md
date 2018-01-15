@@ -14,5 +14,9 @@ To Future Ben, to set this up from scratch:
     - edit the deployment to have `hostNetwork: true` and `hostPort`s
   - deploy `default-http-backend`
 - run `./push_image.sh` to build the site binary and push the site image
-- `kubectl create -f ...` for each of `k8s/*.yaml`
+- `kubectl apply -f ...` for each of `k8s/*.yaml`
 - setup `kube-lego` for https
+# for docker registry
+- `htpasswd -Bbc ./htpasswd <user> <password>`
+- `kubectl create secret docker-registry regsecret --docker-server=<your-registry-server> --docker-username=<user> --docker-password=<password> --docker-email=<your-email>`
+- `kubectl create secret generic docker-registry-auth-secret --from-file=htpasswd=htpasswd`

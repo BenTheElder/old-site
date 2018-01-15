@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: site
-        image: bentheelder/site:latest
+        image: docker.bentheelder.io/site:latest
         imagePullPolicy: Always
         ports:
         - name: http
@@ -35,6 +35,8 @@ spec:
             secretKeyRef:
               name: github-site-hook-secret
               key: secret
+      imagePullSecrets:
+        - name: regsecret
       volumes:
       - name: workspace
         emptyDir: {}

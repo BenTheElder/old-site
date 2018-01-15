@@ -1,0 +1,12 @@
+# simple service definition pointing to the docker registry deployment
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-registry-service
+spec:
+  selector:
+    app: docker-registry
+  ports:
+  - port: 5000
+    targetPort: 5000
+  type: NodePort

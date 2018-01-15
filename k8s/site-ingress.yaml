@@ -9,11 +9,13 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     kubernetes.io/tls-acme: "true"
     ingress.kubernetes.io/ssl-redirect: "true"
+    ingress.kubernetes.io/proxy-body-size: "0"
 spec:
   tls:
   - hosts:
     - "bentheelder.io"
     - "code.bentheelder.io"
+    - "docker.bentheelder.io"
     secretName: site-ingress-tls
   rules:
   - host: "bentheelder.io"
@@ -30,3 +32,10 @@ spec:
           backend:
             serviceName: gogs-service
             servicePort: 3000
+  - host: "docker.bentheelder.io"
+    http:
+        paths:
+        - path: /
+          backend:
+            serviceName: docker-registry-service
+            servicePort: 5000
